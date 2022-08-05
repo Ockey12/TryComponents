@@ -13,6 +13,7 @@
 		AC9290A2289CFDC400F4900E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9290A1289CFDC400F4900E /* Preview Assets.xcassets */; };
 		AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9290A3289CFDC400F4900E /* Persistence.swift */; };
 		AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9290A5289CFDC400F4900E /* TryComponents.xcdatamodeld */; };
+		AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9290AF289CFF6C00F4900E /* FileImporterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AC9290A3289CFDC400F4900E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AC9290A6289CFDC400F4900E /* TryComponents.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TryComponents.xcdatamodel; sourceTree = "<group>"; };
 		AC9290A8289CFDC400F4900E /* TryComponents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TryComponents.entitlements; sourceTree = "<group>"; };
+		AC9290AF289CFF6C00F4900E /* FileImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				AC92909A289CFDC300F4900E /* TryComponentsApp.swift */,
 				AC92909C289CFDC300F4900E /* ContentView.swift */,
+				AC9290AE289CFF3A00F4900E /* OpenFile */,
 				AC92909E289CFDC400F4900E /* Assets.xcassets */,
 				AC9290A3289CFDC400F4900E /* Persistence.swift */,
 				AC9290A8289CFDC400F4900E /* TryComponents.entitlements */,
@@ -73,6 +76,14 @@
 				AC9290A1289CFDC400F4900E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC9290AE289CFF3A00F4900E /* OpenFile */ = {
+			isa = PBXGroup;
+			children = (
+				AC9290AF289CFF6C00F4900E /* FileImporterView.swift */,
+			);
+			path = OpenFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
+				AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
