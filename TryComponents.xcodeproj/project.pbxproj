@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
+		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
+		AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374128A4E94F001674C5 /* SwiftFile.swift */; };
 		AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909A289CFDC300F4900E /* TryComponentsApp.swift */; };
 		AC92909D289CFDC300F4900E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909C289CFDC300F4900E /* ContentView.swift */; };
 		AC92909F289CFDC400F4900E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC92909E289CFDC400F4900E /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
+		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
+		AC6F374128A4E94F001674C5 /* SwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFile.swift; sourceTree = "<group>"; };
 		AC929097289CFDC300F4900E /* TryComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC92909A289CFDC300F4900E /* TryComponentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryComponentsApp.swift; sourceTree = "<group>"; };
 		AC92909C289CFDC300F4900E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC6F373E28A4E914001674C5 /* SwiftAST */ = {
+			isa = PBXGroup;
+			children = (
+				AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */,
+				AC6F374128A4E94F001674C5 /* SwiftFile.swift */,
+			);
+			path = SwiftAST;
+			sourceTree = "<group>";
+		};
 		AC92908E289CFDC300F4900E = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				AC9290AF289CFF6C00F4900E /* FileImporterView.swift */,
+				AC6F373C289FB367001674C5 /* TextImporterView.swift */,
+				AC6F373E28A4E914001674C5 /* SwiftAST */,
 			);
 			path = OpenFile;
 			sourceTree = "<group>";
@@ -157,9 +174,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
+				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
+				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
+				AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */,
 				AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

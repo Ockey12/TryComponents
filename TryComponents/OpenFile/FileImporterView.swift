@@ -4,6 +4,8 @@
 //
 //  Created by オナガ・ハルキ on 2022/08/05.
 //
+// 参考Webサイト
+// https://genjiapp.com/blog/2021/09/06/swiftui-open-file.html
 
 import SwiftUI
 import UniformTypeIdentifiers
@@ -40,12 +42,12 @@ struct FileImporterView: View {
             }
             .padding()
             
-            
         }// VStack
         .frame(width: 500, height: 550)
         .fileImporter(isPresented: $importerPresented, allowedContentTypes: [.png, .jpeg]) { result in
             switch result {
             case .success(let url):
+                print(url)
                 guard let newImage = NSImage(contentsOf: url) else { return }
                 image = newImage
             case .failure:
