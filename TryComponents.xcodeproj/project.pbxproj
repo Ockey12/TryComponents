@@ -10,6 +10,10 @@
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
 		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
 		AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374128A4E94F001674C5 /* SwiftFile.swift */; };
+		AC6F374528A4EE15001674C5 /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = AC6F374428A4EE15001674C5 /* SwiftSyntax */; };
+		AC6F374728A4EE15001674C5 /* SwiftSyntaxBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = AC6F374628A4EE15001674C5 /* SwiftSyntaxBuilder */; };
+		AC6F374928A4EE15001674C5 /* SwiftSyntaxParser in Frameworks */ = {isa = PBXBuildFile; productRef = AC6F374828A4EE15001674C5 /* SwiftSyntaxParser */; };
+		AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374A28A4F03F001674C5 /* MySyntaxRewriter.swift */; };
 		AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909A289CFDC300F4900E /* TryComponentsApp.swift */; };
 		AC92909D289CFDC300F4900E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909C289CFDC300F4900E /* ContentView.swift */; };
 		AC92909F289CFDC400F4900E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC92909E289CFDC400F4900E /* Assets.xcassets */; };
@@ -23,6 +27,7 @@
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
 		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
 		AC6F374128A4E94F001674C5 /* SwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFile.swift; sourceTree = "<group>"; };
+		AC6F374A28A4F03F001674C5 /* MySyntaxRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySyntaxRewriter.swift; sourceTree = "<group>"; };
 		AC929097289CFDC300F4900E /* TryComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC92909A289CFDC300F4900E /* TryComponentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryComponentsApp.swift; sourceTree = "<group>"; };
 		AC92909C289CFDC300F4900E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6F374928A4EE15001674C5 /* SwiftSyntaxParser in Frameworks */,
+				AC6F374528A4EE15001674C5 /* SwiftSyntax in Frameworks */,
+				AC6F374728A4EE15001674C5 /* SwiftSyntaxBuilder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */,
+				AC6F374A28A4F03F001674C5 /* MySyntaxRewriter.swift */,
 				AC6F374128A4E94F001674C5 /* SwiftFile.swift */,
 			);
 			path = SwiftAST;
@@ -119,6 +128,11 @@
 			dependencies = (
 			);
 			name = TryComponents;
+			packageProductDependencies = (
+				AC6F374428A4EE15001674C5 /* SwiftSyntax */,
+				AC6F374628A4EE15001674C5 /* SwiftSyntaxBuilder */,
+				AC6F374828A4EE15001674C5 /* SwiftSyntaxParser */,
+			);
 			productName = TryComponents;
 			productReference = AC929097289CFDC300F4900E /* TryComponents.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +161,9 @@
 				Base,
 			);
 			mainGroup = AC92908E289CFDC300F4900E;
+			packageReferences = (
+				AC6F374328A4EE15001674C5 /* XCRemoteSwiftPackageReference "swift-syntax" */,
+			);
 			productRefGroup = AC929098289CFDC300F4900E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
+				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
@@ -376,6 +394,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC6F374328A4EE15001674C5 /* XCRemoteSwiftPackageReference "swift-syntax" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-syntax";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.50600.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC6F374428A4EE15001674C5 /* SwiftSyntax */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6F374328A4EE15001674C5 /* XCRemoteSwiftPackageReference "swift-syntax" */;
+			productName = SwiftSyntax;
+		};
+		AC6F374628A4EE15001674C5 /* SwiftSyntaxBuilder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6F374328A4EE15001674C5 /* XCRemoteSwiftPackageReference "swift-syntax" */;
+			productName = SwiftSyntaxBuilder;
+		};
+		AC6F374828A4EE15001674C5 /* SwiftSyntaxParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6F374328A4EE15001674C5 /* XCRemoteSwiftPackageReference "swift-syntax" */;
+			productName = SwiftSyntaxParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AC9290A5289CFDC400F4900E /* TryComponents.xcdatamodeld */ = {

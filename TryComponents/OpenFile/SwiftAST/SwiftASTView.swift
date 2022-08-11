@@ -47,7 +47,11 @@ struct SwiftASTView: View {
                     fatalError("failed to load contents")
                 }
                 print(fileContents)
+                print("-------------------------------------------")
                 code = fileContents
+                
+                let mySyntasRewriter = MySyntaxRewriter(sourceCode: code)
+                print(mySyntasRewriter.getAST())
             case .failure:
                 print("failure")
             }
