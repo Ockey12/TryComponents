@@ -18,13 +18,13 @@
 		AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374E28ACC3D3001674C5 /* CodeScrollView.swift */; };
 		AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F375128B899BD001674C5 /* StringVisitor.swift */; };
 		AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F375328B8A099001674C5 /* StringVisitorWalker.swift */; };
+		AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F375728B8A527001674C5 /* StringVisitorView.swift */; };
 		AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909A289CFDC300F4900E /* TryComponentsApp.swift */; };
 		AC92909D289CFDC300F4900E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC92909C289CFDC300F4900E /* ContentView.swift */; };
-		AC92909F289CFDC400F4900E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC92909E289CFDC400F4900E /* Assets.xcassets */; };
-		AC9290A2289CFDC400F4900E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9290A1289CFDC400F4900E /* Preview Assets.xcassets */; };
 		AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9290A3289CFDC400F4900E /* Persistence.swift */; };
 		AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9290A5289CFDC400F4900E /* TryComponents.xcdatamodeld */; };
 		AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9290AF289CFF6C00F4900E /* FileImporterView.swift */; };
+		AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94985B28B8A8820055C50B /* StringVisitorSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +36,7 @@
 		AC6F374E28ACC3D3001674C5 /* CodeScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScrollView.swift; sourceTree = "<group>"; };
 		AC6F375128B899BD001674C5 /* StringVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVisitor.swift; sourceTree = "<group>"; };
 		AC6F375328B8A099001674C5 /* StringVisitorWalker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVisitorWalker.swift; sourceTree = "<group>"; };
+		AC6F375728B8A527001674C5 /* StringVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVisitorView.swift; sourceTree = "<group>"; };
 		AC929097289CFDC300F4900E /* TryComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC92909A289CFDC300F4900E /* TryComponentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryComponentsApp.swift; sourceTree = "<group>"; };
 		AC92909C289CFDC300F4900E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		AC9290A6289CFDC400F4900E /* TryComponents.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TryComponents.xcdatamodel; sourceTree = "<group>"; };
 		AC9290A8289CFDC400F4900E /* TryComponents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TryComponents.entitlements; sourceTree = "<group>"; };
 		AC9290AF289CFF6C00F4900E /* FileImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporterView.swift; sourceTree = "<group>"; };
+		AC94985B28B8A8820055C50B /* StringVisitorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVisitorSample.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 			children = (
 				AC6F375128B899BD001674C5 /* StringVisitor.swift */,
 				AC6F375328B8A099001674C5 /* StringVisitorWalker.swift */,
+				AC6F375728B8A527001674C5 /* StringVisitorView.swift */,
+				AC94985B28B8A8820055C50B /* StringVisitorSample.swift */,
 			);
 			path = SwiftSyntaxIntroduction;
 			sourceTree = "<group>";
@@ -198,8 +202,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC9290A2289CFDC400F4900E /* Preview Assets.xcassets in Resources */,
-				AC92909F289CFDC400F4900E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +217,10 @@
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
+				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
+				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,

@@ -10,16 +10,16 @@
 import Foundation
 import SwiftSyntax
 
-class Stringvisitor: SyntaxVisitor {
+class StringVisitor: SyntaxVisitor {
     
     // 検査対象の文字列を保持する配列
-    var strings = [(String, AbsolutePosition)]()
+    var strings = [String]()
     
     // 本ではStringLiteralExprsyntax.stringLiteral.textに文字列が入っている
     override func visit(_ node: StringSegmentSyntax) -> SyntaxVisitorContinueKind {
         let string = node.content.text
-        let position = node.position
-        strings.append((string, position))
+//        let position = node.position
+        strings.append(string)
         return .skipChildren
     }
 }
