@@ -15,16 +15,23 @@ struct SwiftASTView: View {
     
     @State private var image: NSImage? = nil
     @State private var importerPresented = false
-    @State private var code: String = ""
+    @State private var sourceCode: String = ""
+    @State private var ast: String = ""
     
     var body: some View {
         VStack {
             
-            ScrollView {
-                Text(code)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            ScrollView {
+//                Text(code)
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            }
+//            .frame(minWidth: 650, maxWidth: .infinity, minHeight: 650, maxHeight: .infinity)
+            
+            HStack {
+                CodeScrollView(displayedText: $sourceCode)
+                
+                CodeScrollView(displayedText: $ast)
             }
-            .frame(minWidth: 650, maxWidth: .infinity, minHeight: 650, maxHeight: .infinity)
             
             Button {
                 importerPresented = true
@@ -34,7 +41,7 @@ struct SwiftASTView: View {
             .padding()
             
         }// VStack
-        .frame(minWidth: 700, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
+        .frame(minWidth: 1200, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
         // 指定したファイル内のソースコードをcode変数に格納する
         .fileImporter(isPresented: $importerPresented, allowedContentTypes: [.swiftSource]) { result in
             switch result {
@@ -48,10 +55,11 @@ struct SwiftASTView: View {
                 }
                 print(fileContents)
                 print("-------------------------------------------")
-                code = fileContents
+                sourceCode = fileContents
                 
-                let mySyntasRewriter = MySyntaxRewriter(sourceCode: code)
-                print(mySyntasRewriter.getAST())
+                let mySyntasRewriter = MySyntaxRewriter(sourceCode: sourceCode)
+                ast = mySyntasRewriter.getAST()
+//                print(mySyntasRewriter.getAST())
             case .failure:
                 print("failure")
             }
