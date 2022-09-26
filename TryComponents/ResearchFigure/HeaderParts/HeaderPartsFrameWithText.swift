@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct HeaderPartsFrameWithText: View {
+    var with: CGFloat
+    
     var body: some View {
         ZStack {
-            HeaderPartsFrame(with: 600)
+            HeaderPartsFrame(with: with)
             
             HStack {
                 Text("Counter")
@@ -20,18 +22,20 @@ struct HeaderPartsFrameWithText: View {
                 
                 Spacer()
             }
-            .frame(width: 500, height: 90)
-            .position(x: 300, y: 45)
+            .frame(width: with - 60, height: 90)
+            .position(x: with / 2 + 30, y: 45)
             
             
                 
         }
-        .frame(width: 600, height: 180)
+        .frame(width: with + 60, height: 180)
     }
 }
 
 struct HeaderPartsFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsFrameWithText()
+        HeaderPartsFrameWithText(with: 1000)
+            .frame(width: 1200, height: 200)
+            
     }
 }
