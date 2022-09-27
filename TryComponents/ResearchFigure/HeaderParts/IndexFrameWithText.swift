@@ -19,6 +19,11 @@ struct IndexFrameWithText: View {
                 .fill(.gray)
                 .frame(width: with, height: height)
             
+            IndexFrame()
+                .stroke(lineWidth: 5)
+                .fill(Color.black)
+                .frame(width: with, height: height)
+            
             Text("○protocol")
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
@@ -32,5 +37,6 @@ struct IndexFrameWithText: View {
 struct IndexFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
         IndexFrameWithText(with: 300)
+            .frame(width: 400, height: 400)
     }
 }

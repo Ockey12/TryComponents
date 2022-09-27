@@ -166,12 +166,12 @@
 			isa = PBXGroup;
 			children = (
 				ACA098A128E04DCA00670F00 /* IndexFrame.swift */,
-				ACA098A328E13A2000670F00 /* HeaderPartsView.swift */,
-				ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */,
 				ACA098A728E13F9E00670F00 /* IndexFrameWithText.swift */,
+				ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */,
 				ACA098A528E13BAA00670F00 /* HeaderPartsFrame.swift */,
 				ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */,
 				ACA098AD28E19EBF00670F00 /* PartsFrame.swift */,
+				ACA098A328E13A2000670F00 /* HeaderPartsView.swift */,
 			);
 			path = HeaderParts;
 			sourceTree = "<group>";

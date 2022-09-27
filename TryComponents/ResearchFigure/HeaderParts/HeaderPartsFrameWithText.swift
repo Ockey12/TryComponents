@@ -14,6 +14,10 @@ struct HeaderPartsFrameWithText: View {
         ZStack {
             HeaderPartsFrame(with: with)
             
+            HeaderPartsFrame(with: with)
+                .stroke(lineWidth: 5)
+                .fill(Color.black)
+            
             HStack {
                 Text("Counter")
                     .lineLimit(1)
