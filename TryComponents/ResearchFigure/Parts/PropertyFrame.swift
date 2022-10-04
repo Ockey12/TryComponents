@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PropertyFrame: Shape {
+struct PropertyFrame: View {
     var width: CGFloat
     var numberOfItems: Int
     var invisiblePaddingWidth: CGFloat {
@@ -17,10 +17,11 @@ struct PropertyFrame: Shape {
     
     let headerWidth: CGFloat = 350
     let headerHeight: CGFloat = 90
-    let arrowTerminalWidth: CGFloat = 30
+    let arrowTerminalWidth: CGFloat = 15
+    let arrowTerminalHeight: CGFloat = 30
     let bottomPaddingForLastText: CGFloat = 30
     
-    func path(in rect: CGRect) -> Path {
+    var body: some View {
         Path { path in
             // header
             path.move(to: CGPoint(x: invisiblePaddingWidth, y: 0))
@@ -37,19 +38,19 @@ struct PropertyFrame: Shape {
             for numberOfItem in 1...numberOfItems {
                 // left
                 path.move(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem)))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth))
-                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth))
-                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*2))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*2))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*3))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*3))
                 // move to right
                 path.move(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem)))
                 // left
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*2))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*2))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalWidth*3))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*3))
             }
             
             // footer
@@ -62,13 +63,13 @@ struct PropertyFrame: Shape {
             path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 2)))
             path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItems + 1)))
         }
+        .stroke(lineWidth: 5)
     }
 }
 
 struct PropertyFrame_Previews: PreviewProvider {
     static var previews: some View {
         PropertyFrame(width: 600, numberOfItems: 3)
-            .stroke(lineWidth: 5)
             .frame(width: 1200, height: 1000)
     }
 }
