@@ -13,7 +13,7 @@ struct PropertyHeaderWithText: View {
     
     var body: some View {
         ZStack {
-            PropertyHeaderFrame(width: self.width)
+//            PropertyHeaderFrame(width: self.width)
             
             Text("Rawvalue Type")
                 .lineLimit(1)

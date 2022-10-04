@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC46068E28EC2E2A0083A91E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46068D28EC2E2A0083A91E /* Property.swift */; };
 		AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC541EC428EACCF100911636 /* HorizontalBorder2.swift */; };
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
 		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC46068D28EC2E2A0083A91E /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		AC541EC428EACCF100911636 /* HorizontalBorder2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder2.swift; sourceTree = "<group>"; };
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
 		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA098B028E6D29100670F00 /* PropertyFrame.swift */,
+				AC46068D28EC2E2A0083A91E /* Property.swift */,
 				ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */,
 				ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */,
 			);
@@ -291,6 +294,7 @@
 				ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
+				AC46068E28EC2E2A0083A91E /* Property.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */,
 				ACA098B528E6E14000670F00 /* PropertyHeaderWithText.swift in Sources */,
