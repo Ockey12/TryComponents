@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC541EC428EACCF100911636 /* HorizontalBorder2.swift */; };
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
 		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
 		AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374128A4E94F001674C5 /* SwiftFile.swift */; };
@@ -25,7 +26,6 @@
 		AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9290A5289CFDC400F4900E /* TryComponents.xcdatamodeld */; };
 		AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9290AF289CFF6C00F4900E /* FileImporterView.swift */; };
 		AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94985B28B8A8820055C50B /* StringVisitorSample.swift */; };
-		ACA0989F28E0475700670F00 /* FlagShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0989E28E0475700670F00 /* FlagShape.swift */; };
 		ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A128E04DCA00670F00 /* IndexFrame.swift */; };
 		ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A328E13A2000670F00 /* HeaderPartsView.swift */; };
 		ACA098A628E13BAA00670F00 /* HeaderPartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A528E13BAA00670F00 /* HeaderPartsFrame.swift */; };
@@ -33,9 +33,15 @@
 		ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */; };
 		ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */; };
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
+		ACA098B128E6D29100670F00 /* PropertyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B028E6D29100670F00 /* PropertyFrame.swift */; };
+		ACA098B328E6E12900670F00 /* PropertyHeaderFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */; };
+		ACA098B528E6E14000670F00 /* PropertyHeaderWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */; };
+		ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B628E6E76700670F00 /* VerticalBorder.swift */; };
+		ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC541EC428EACCF100911636 /* HorizontalBorder2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder2.swift; sourceTree = "<group>"; };
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
 		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
 		AC6F374128A4E94F001674C5 /* SwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFile.swift; sourceTree = "<group>"; };
@@ -55,7 +61,6 @@
 		AC9290A8289CFDC400F4900E /* TryComponents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TryComponents.entitlements; sourceTree = "<group>"; };
 		AC9290AF289CFF6C00F4900E /* FileImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporterView.swift; sourceTree = "<group>"; };
 		AC94985B28B8A8820055C50B /* StringVisitorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVisitorSample.swift; sourceTree = "<group>"; };
-		ACA0989E28E0475700670F00 /* FlagShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagShape.swift; sourceTree = "<group>"; };
 		ACA098A128E04DCA00670F00 /* IndexFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexFrame.swift; sourceTree = "<group>"; };
 		ACA098A328E13A2000670F00 /* HeaderPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsView.swift; sourceTree = "<group>"; };
 		ACA098A528E13BAA00670F00 /* HeaderPartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsFrame.swift; sourceTree = "<group>"; };
@@ -63,6 +68,11 @@
 		ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsFrameWithText.swift; sourceTree = "<group>"; };
 		ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableScaleHeaderPartsView.swift; sourceTree = "<group>"; };
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
+		ACA098B028E6D29100670F00 /* PropertyFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFrame.swift; sourceTree = "<group>"; };
+		ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHeaderFrame.swift; sourceTree = "<group>"; };
+		ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHeaderWithText.swift; sourceTree = "<group>"; };
+		ACA098B628E6E76700670F00 /* VerticalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalBorder.swift; sourceTree = "<group>"; };
+		ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +166,10 @@
 		ACA0989D28E0445A00670F00 /* ResearchFigure */ = {
 			isa = PBXGroup;
 			children = (
-				ACA0989E28E0475700670F00 /* FlagShape.swift */,
+				ACA098B628E6E76700670F00 /* VerticalBorder.swift */,
+				ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */,
+				AC541EC428EACCF100911636 /* HorizontalBorder2.swift */,
+				ACA098AF28E6CC4C00670F00 /* Parts */,
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
 			);
 			path = ResearchFigure;
@@ -174,6 +187,16 @@
 				ACA098A328E13A2000670F00 /* HeaderPartsView.swift */,
 			);
 			path = HeaderParts;
+			sourceTree = "<group>";
+		};
+		ACA098AF28E6CC4C00670F00 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				ACA098B028E6D29100670F00 /* PropertyFrame.swift */,
+				ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */,
+				ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */,
+			);
+			path = Parts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,13 +277,14 @@
 			files = (
 				ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */,
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
+				ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
+				ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */,
 				ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
-				ACA0989F28E0475700670F00 /* FlagShape.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */,
@@ -268,12 +292,16 @@
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
+				AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */,
+				ACA098B528E6E14000670F00 /* PropertyHeaderWithText.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
+				ACA098B328E6E12900670F00 /* PropertyHeaderFrame.swift in Sources */,
 				AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */,
 				ACA098A628E13BAA00670F00 /* HeaderPartsFrame.swift in Sources */,
 				AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */,
+				ACA098B128E6D29100670F00 /* PropertyFrame.swift in Sources */,
 				ACA098A828E13F9E00670F00 /* IndexFrameWithText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
