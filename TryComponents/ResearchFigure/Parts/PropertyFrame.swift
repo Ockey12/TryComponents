@@ -17,6 +17,10 @@ struct PropertyFrame: View {
     
     let headerWidth: CGFloat = 350
     let headerHeight: CGFloat = 90
+    let itemHeight: CGFloat = 90
+    var oneVerticalLineWithoutArrow: CGFloat {
+        (self.itemHeight - self.arrowTerminalHeight)/2
+    }
     let arrowTerminalWidth: CGFloat = 15
     let arrowTerminalHeight: CGFloat = 30
     let bottomPaddingForLastText: CGFloat = 30
@@ -35,33 +39,33 @@ struct PropertyFrame: View {
             path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight))
             
             // property
-            for numberOfItem in 1...numberOfItems {
+            for numberOfItem in 0..<numberOfItems {
                 // left
-                path.move(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem)))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
-                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
-                path.addLine(to: CGPoint(x: 0, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
-                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*3))
+                path.move(to: CGPoint(x: arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem)))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow))
+                path.addLine(to: CGPoint(x: 0, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow))
+                path.addLine(to: CGPoint(x: 0, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow*2 + arrowTerminalHeight))
                 // move to right
-                path.move(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem)))
+                path.move(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem)))
                 // left
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*2))
-                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItem) + arrowTerminalHeight*3))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow + arrowTerminalHeight))
+                path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItem) + oneVerticalLineWithoutArrow*2 + arrowTerminalHeight))
             }
             
             // footer
-            path.move(to: CGPoint(x: arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItems + 1)))
-            path.addLine(to: CGPoint(x: arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 2)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 2)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 1)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 1)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 2)))
-            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*CGFloat(numberOfItems + 2)))
-            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight*CGFloat(numberOfItems + 1)))
+            path.move(to: CGPoint(x: arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItems)))
         }
         .stroke(lineWidth: 5)
     }
