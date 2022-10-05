@@ -7,8 +7,33 @@
 
 import SwiftUI
 
+extension View {
+    func getTextMaxWidth(maxWidth: Binding<CGFloat>) -> some View {
+        background(GeometryReader { geometry -> Color in
+            if maxWidth.wrappedValue < geometry.size.width {
+                DispatchQueue.main.async {
+                    maxWidth.wrappedValue = geometry.size.width
+                }
+            }
+            return Color.clear
+        })
+    }
+}
+
+extension View {
+    func getTextTmpWidth(tmpWidth: Binding<CGFloat>) -> some View {
+        background(GeometryReader { geometry -> Color in
+            DispatchQueue.main.async {
+                tmpWidth.wrappedValue = geometry.size.width
+            }
+            return Color.clear
+        })
+    }
+}
+
 struct DetailPartsWithText: View {
-    @State var maxTextWidth: CGFloat = 600
+    @State var maxTextWidth: CGFloat = 0
+    @State var tmpTextWidth: CGFloat = 0
     
     let texts = ["var body",
                  "a",
@@ -32,21 +57,30 @@ struct DetailPartsWithText: View {
                     .foregroundColor(.black)
                     .background(.blue)
                     .border(.pink, width: 1)
-                    .background(GeometryReader{ geometry -> Text in
-                        getTextWidth(width: geometry.size.width)
-                        return Text("")
-                    })
-                    .position(x: maxTextWidth/2 + DetailPartsSettingValues.arrowTerminalWidth,
+//                    .background(GeometryReader{ geometry -> Text in
+//                        getMaxTextWidth(width: geometry.size.width)
+//                        getTmpTextWidth(width: geometry.size.width)
+//                        return Text("")
+//                    })
+                    .getTextMaxWidth(maxWidth: $maxTextWidth)
+                    .getTextTmpWidth(tmpWidth: $tmpTextWidth)
+                    .position(x: tmpTextWidth/2 + DetailPartsSettingValues.arrowTerminalWidth,
                               y: DetailPartsSettingValues.headerHeight + DetailPartsSettingValues.itemHeight*CGFloat(numberOfText) + DetailPartsSettingValues.itemHeight/2)
+                let _ = print("\(numberOfText):tmp:\(tmpTextWidth)")
+                let _ = print("\(numberOfText):max:\(maxTextWidth)")
             }
         }
     }
     
-    func getTextWidth(width: CGFloat) {
-        if self.maxTextWidth < width {
-            self.maxTextWidth = width
-        }
-    }
+//    func getMaxTextWidth(width: CGFloat) {
+//        if self.maxTextWidth < width {
+//            self.maxTextWidth = width
+//        }
+//    }
+//
+//    func getTmpTextWidth(width: CGFloat) {
+//        self.tmpTextWidth = width
+//    }
 }
 
 struct DetailPartsWithText_Previews: PreviewProvider {
