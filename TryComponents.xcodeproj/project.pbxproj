@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC46068E28EC2E2A0083A91E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46068D28EC2E2A0083A91E /* Property.swift */; };
+		AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */; };
+		AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */; };
+		AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46068F28ED62210083A91E /* DetailPartsFrame.swift */; };
 		AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC541EC428EACCF100911636 /* HorizontalBorder2.swift */; };
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
 		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
@@ -34,15 +36,15 @@
 		ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */; };
 		ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */; };
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
-		ACA098B128E6D29100670F00 /* PropertyFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B028E6D29100670F00 /* PropertyFrame.swift */; };
-		ACA098B328E6E12900670F00 /* PropertyHeaderFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */; };
-		ACA098B528E6E14000670F00 /* PropertyHeaderWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */; };
 		ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B628E6E76700670F00 /* VerticalBorder.swift */; };
 		ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */; };
+		ACF3C42E28ED6F4000A7515B /* GetTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC46068D28EC2E2A0083A91E /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsWithText.swift; sourceTree = "<group>"; };
+		AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsSettingValues.swift; sourceTree = "<group>"; };
+		AC46068F28ED62210083A91E /* DetailPartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsFrame.swift; sourceTree = "<group>"; };
 		AC541EC428EACCF100911636 /* HorizontalBorder2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder2.swift; sourceTree = "<group>"; };
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
 		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
@@ -70,11 +72,9 @@
 		ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsFrameWithText.swift; sourceTree = "<group>"; };
 		ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableScaleHeaderPartsView.swift; sourceTree = "<group>"; };
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
-		ACA098B028E6D29100670F00 /* PropertyFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyFrame.swift; sourceTree = "<group>"; };
-		ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHeaderFrame.swift; sourceTree = "<group>"; };
-		ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHeaderWithText.swift; sourceTree = "<group>"; };
 		ACA098B628E6E76700670F00 /* VerticalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalBorder.swift; sourceTree = "<group>"; };
 		ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder.swift; sourceTree = "<group>"; };
+		ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +194,10 @@
 		ACA098AF28E6CC4C00670F00 /* Parts */ = {
 			isa = PBXGroup;
 			children = (
-				ACA098B028E6D29100670F00 /* PropertyFrame.swift */,
-				AC46068D28EC2E2A0083A91E /* Property.swift */,
-				ACA098B228E6E12900670F00 /* PropertyHeaderFrame.swift */,
-				ACA098B428E6E14000670F00 /* PropertyHeaderWithText.swift */,
+				AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */,
+				AC46068F28ED62210083A91E /* DetailPartsFrame.swift */,
+				ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */,
+				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
 			);
 			path = Parts;
 			sourceTree = "<group>";
@@ -279,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */,
+				AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */,
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
 				ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
@@ -290,22 +291,21 @@
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
+				ACF3C42E28ED6F4000A7515B /* GetTextSize.swift in Sources */,
 				ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */,
 				ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */,
+				AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
-				AC46068E28EC2E2A0083A91E /* Property.swift in Sources */,
+				AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */,
-				ACA098B528E6E14000670F00 /* PropertyHeaderWithText.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
-				ACA098B328E6E12900670F00 /* PropertyHeaderFrame.swift in Sources */,
 				AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */,
 				ACA098A628E13BAA00670F00 /* HeaderPartsFrame.swift in Sources */,
 				AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */,
-				ACA098B128E6D29100670F00 /* PropertyFrame.swift in Sources */,
 				ACA098A828E13F9E00670F00 /* IndexFrameWithText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
