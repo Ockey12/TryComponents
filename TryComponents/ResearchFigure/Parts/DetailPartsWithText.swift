@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func getTextMaxWidth(maxWidth: Binding<CGFloat>) -> some View {
+    func getMaxTextWidth(maxWidth: Binding<CGFloat>) -> some View {
         background(GeometryReader { geometry -> Color in
             if maxWidth.wrappedValue < geometry.size.width {
                 DispatchQueue.main.async {
@@ -20,67 +20,64 @@ extension View {
     }
 }
 
-extension View {
-    func getTextTmpWidth(tmpWidth: Binding<CGFloat>) -> some View {
-        background(GeometryReader { geometry -> Color in
-            DispatchQueue.main.async {
-                tmpWidth.wrappedValue = geometry.size.width
-            }
-            return Color.clear
-        })
-    }
-}
+//extension View {
+//    func getTextTmpWidth(tmpWidth: Binding<CGFloat>) -> some View {
+//        background(GeometryReader { geometry -> Color in
+//            DispatchQueue.main.async {
+//                tmpWidth.wrappedValue = geometry.size.width
+//            }
+//            return Color.clear
+//        })
+//    }
+//}
 
 struct DetailPartsWithText: View {
     @State var maxTextWidth: CGFloat = 0
-    @State var tmpTextWidth: CGFloat = 0
+//    @State var tmpTextWidth: CGFloat = 0
+    let trailPadding: CGFloat = 100
     
     let texts = ["var body",
                  "a",
                  ".frame(width: CGFloat(text.count)*characterWidth)",
-                 "DetailPartsWithText"
+                 "DetailPartsWithText",
                 ]
     
     var body: some View {
         ZStack {
-            DetailPartsFrame(width: maxTextWidth, numberOfItems: texts.count)
+            DetailPartsFrame(width: maxTextWidth + trailPadding, numberOfItems: texts.count)
                 .fill(.white)
             
-            DetailPartsFrame(width: maxTextWidth, numberOfItems: texts.count)
+            DetailPartsFrame(width: maxTextWidth + trailPadding, numberOfItems: texts.count)
                 .stroke(lineWidth: DetailPartsSettingValues.borderWidth)
                 .fill(.black)
             
+            // get max width of texts
+            ForEach(0..<texts.count, id: \.self) { numberOfText in
+                Text(texts[numberOfText])
+                    .lineLimit(1)
+                    .font(.system(size: 50))
+                    .foregroundColor(.clear)
+                    .background(.clear)
+                    .border(.clear, width: 1)
+                    .getMaxTextWidth(maxWidth: $maxTextWidth)
+//                    .getTextTmpWidth(tmpWidth: $tmpTextWidth)
+                    .position(x: maxTextWidth/2 + DetailPartsSettingValues.arrowTerminalWidth,
+                              y: DetailPartsSettingValues.headerHeight + DetailPartsSettingValues.itemHeight*CGFloat(numberOfText) + DetailPartsSettingValues.itemHeight/2)
+            }
+
             ForEach(0..<texts.count, id: \.self) { numberOfText in
                 Text(texts[numberOfText])
                     .lineLimit(1)
                     .font(.system(size: 50))
                     .foregroundColor(.black)
-                    .background(.blue)
-                    .border(.pink, width: 1)
-//                    .background(GeometryReader{ geometry -> Text in
-//                        getMaxTextWidth(width: geometry.size.width)
-//                        getTmpTextWidth(width: geometry.size.width)
-//                        return Text("")
-//                    })
-                    .getTextMaxWidth(maxWidth: $maxTextWidth)
-                    .getTextTmpWidth(tmpWidth: $tmpTextWidth)
-                    .position(x: tmpTextWidth/2 + DetailPartsSettingValues.arrowTerminalWidth,
+                    .background(.white)
+                    .border(.white, width: 1)
+                    .frame(width: maxTextWidth + trailPadding, alignment: .leading)
+                    .position(x: (maxTextWidth + trailPadding + 30)/2 + DetailPartsSettingValues.arrowTerminalWidth,
                               y: DetailPartsSettingValues.headerHeight + DetailPartsSettingValues.itemHeight*CGFloat(numberOfText) + DetailPartsSettingValues.itemHeight/2)
-                let _ = print("\(numberOfText):tmp:\(tmpTextWidth)")
-                let _ = print("\(numberOfText):max:\(maxTextWidth)")
             }
         }
     }
-    
-//    func getMaxTextWidth(width: CGFloat) {
-//        if self.maxTextWidth < width {
-//            self.maxTextWidth = width
-//        }
-//    }
-//
-//    func getTmpTextWidth(width: CGFloat) {
-//        self.tmpTextWidth = width
-//    }
 }
 
 struct DetailPartsWithText_Previews: PreviewProvider {
