@@ -11,13 +11,14 @@ struct HeaderPartsFrameWithText: View {
     var width: CGFloat
     
     let itemHeight = HeaderPartsSettingValues.itemHeight
+    let borderWidth = HeaderPartsSettingValues.borderWidth
     
     var body: some View {
         ZStack {
             HeaderPartsFrame(width: width)
             
             HeaderPartsFrame(width: width)
-                .stroke(lineWidth: 5)
+                .stroke(lineWidth: borderWidth)
                 .fill(Color.black)
             
             HStack {

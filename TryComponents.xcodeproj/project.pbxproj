@@ -10,6 +10,7 @@
 		AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */; };
 		AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */; };
 		AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */; };
+		AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */; };
 		AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46068F28ED62210083A91E /* DetailPartsFrame.swift */; };
 		AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC541EC428EACCF100911636 /* HorizontalBorder2.swift */; };
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
@@ -39,13 +40,13 @@
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
 		ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B628E6E76700670F00 /* VerticalBorder.swift */; };
 		ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */; };
-		ACF3C42E28ED6F4000A7515B /* GetTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsWithText.swift; sourceTree = "<group>"; };
 		AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsSettingValues.swift; sourceTree = "<group>"; };
+		AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGetMaxTextWidth.swift; sourceTree = "<group>"; };
 		AC46068F28ED62210083A91E /* DetailPartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsFrame.swift; sourceTree = "<group>"; };
 		AC541EC428EACCF100911636 /* HorizontalBorder2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder2.swift; sourceTree = "<group>"; };
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
 		ACA098B628E6E76700670F00 /* VerticalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalBorder.swift; sourceTree = "<group>"; };
 		ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder.swift; sourceTree = "<group>"; };
-		ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 				ACA098B628E6E76700670F00 /* VerticalBorder.swift */,
 				ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */,
 				AC541EC428EACCF100911636 /* HorizontalBorder2.swift */,
-				ACA098AF28E6CC4C00670F00 /* Parts */,
+				ACA098AF28E6CC4C00670F00 /* DetailParts */,
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
 			);
 			path = ResearchFigure;
@@ -194,15 +194,15 @@
 			path = HeaderParts;
 			sourceTree = "<group>";
 		};
-		ACA098AF28E6CC4C00670F00 /* Parts */ = {
+		ACA098AF28E6CC4C00670F00 /* DetailParts */ = {
 			isa = PBXGroup;
 			children = (
+				AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */,
 				AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */,
 				AC46068F28ED62210083A91E /* DetailPartsFrame.swift */,
-				ACF3C42D28ED6F4000A7515B /* GetTextSize.swift */,
 				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
 			);
-			path = Parts;
+			path = DetailParts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +294,7 @@
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
-				ACF3C42E28ED6F4000A7515B /* GetTextSize.swift in Sources */,
+				AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */,
 				AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */,
 				ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */,
 				ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 
 struct DetailPartsSettingValues {
+    static let minWidth: CGFloat = 600
     static let headerWidth: CGFloat = 350
     static let headerHeight: CGFloat = 90
     static let itemHeight: CGFloat = 90
@@ -17,5 +18,7 @@ struct DetailPartsSettingValues {
     static let arrowTerminalWidth: CGFloat = 15
     static let arrowTerminalHeight: CGFloat = 30
     static let bottomPaddingForLastText: CGFloat = 30
+    static let textLeadingPadding: CGFloat = 30
+    static let textTrailPadding: CGFloat = 100
     static let borderWidth: CGFloat = 5
 }
