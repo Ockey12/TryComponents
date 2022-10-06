@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct HeaderPartsFrameWithText: View {
-    var with: CGFloat
+    var width: CGFloat
+    
+    let itemHeight = HeaderPartsSettingValues.itemHeight
     
     var body: some View {
         ZStack {
-            HeaderPartsFrame(with: with)
+            HeaderPartsFrame(width: width)
             
-            HeaderPartsFrame(with: with)
+            HeaderPartsFrame(width: width)
                 .stroke(lineWidth: 5)
                 .fill(Color.black)
             
@@ -26,19 +28,19 @@ struct HeaderPartsFrameWithText: View {
                 
                 Spacer()
             }
-            .frame(width: with - 60, height: 90)
-            .position(x: with / 2 + 30, y: 45)
+            .frame(width: width, height: itemHeight)
+            .position(x: width / 2 + 30, y: itemHeight/2)
             
             
                 
         }
-        .frame(width: with + 60, height: 180)
+        .frame(width: width + 60, height: 180)
     }
 }
 
 struct HeaderPartsFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsFrameWithText(with: 1000)
+        HeaderPartsFrameWithText(width: 1000)
             .frame(width: 1200, height: 200)
             
     }

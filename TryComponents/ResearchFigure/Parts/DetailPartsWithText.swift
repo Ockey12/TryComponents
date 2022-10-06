@@ -32,8 +32,7 @@ extension View {
 //}
 
 struct DetailPartsWithText: View {
-    @State var maxTextWidth: CGFloat = 0
-//    @State var tmpTextWidth: CGFloat = 0
+    @State private var maxTextWidth: CGFloat = 0
     let trailPadding: CGFloat = 100
     
     let texts = ["var body",
@@ -60,7 +59,6 @@ struct DetailPartsWithText: View {
                     .background(.clear)
                     .border(.clear, width: 1)
                     .getMaxTextWidth(maxWidth: $maxTextWidth)
-//                    .getTextTmpWidth(tmpWidth: $tmpTextWidth)
                     .position(x: maxTextWidth/2 + DetailPartsSettingValues.arrowTerminalWidth,
                               y: DetailPartsSettingValues.headerHeight + DetailPartsSettingValues.itemHeight*CGFloat(numberOfText) + DetailPartsSettingValues.itemHeight/2)
             }
@@ -77,6 +75,10 @@ struct DetailPartsWithText: View {
                               y: DetailPartsSettingValues.headerHeight + DetailPartsSettingValues.itemHeight*CGFloat(numberOfText) + DetailPartsSettingValues.itemHeight/2)
             }
         }
+    }
+    
+    func getMaxWidth() -> CGFloat {
+        return maxTextWidth
     }
 }
 

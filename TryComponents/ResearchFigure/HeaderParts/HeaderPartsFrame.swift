@@ -8,27 +8,46 @@
 import SwiftUI
 
 struct HeaderPartsFrame: Shape {
-    var with: CGFloat
+    var width: CGFloat
+    var widthFromLeftEdgeToConnection: CGFloat {
+        (width - connectionWidth) / 2 + arrowTerminalWidth
+    }
+    
+    let connectionWidth: CGFloat = HeaderPartsSettingValues.connectionWidth
+    let connectionHeight: CGFloat = HeaderPartsSettingValues.connectionHeight
+    let itemHeight: CGFloat = HeaderPartsSettingValues.itemHeight
+    let oneVerticalLineWithoutArrow: CGFloat = HeaderPartsSettingValues.oneVerticalLineWithoutArrow
+    let arrowTerminalWidth: CGFloat = HeaderPartsSettingValues.arrowTerminalWidth
+    let arrowTerminalHeight: CGFloat = HeaderPartsSettingValues.arrowTerminalHeight
+    let bottomPaddingForLastText: CGFloat = HeaderPartsSettingValues.bottomPaddingForLastText
+    let borderWidth: CGFloat = HeaderPartsSettingValues.borderWidth
     
     func path(in rect: CGRect) -> Path {
         Path { path in
-            path.move(to: CGPoint(x: 30, y: 0))
-            path.addLine(to: CGPoint(x: 30, y: 30))
-            path.addLine(to: CGPoint(x: 0, y: 30))
-            path.addLine(to: CGPoint(x: 0, y: 60))
-            path.addLine(to: CGPoint(x: 30, y: 60))
-            path.addLine(to: CGPoint(x: 30, y: 180))
+            // left side
+            // from top to bottom
+            path.move(to: CGPoint(x: arrowTerminalWidth, y: 0))
+            path.addLine(to: CGPoint(x: arrowTerminalWidth, y: oneVerticalLineWithoutArrow))
+            path.addLine(to: CGPoint(x: 0, y: oneVerticalLineWithoutArrow))
+            path.addLine(to: CGPoint(x: 0, y: oneVerticalLineWithoutArrow + arrowTerminalHeight))
+            path.addLine(to: CGPoint(x: arrowTerminalWidth, y: oneVerticalLineWithoutArrow + arrowTerminalHeight))
+            path.addLine(to: CGPoint(x: arrowTerminalWidth, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight))
             
-            path.addLine(to: CGPoint(x: 120, y: 180))
-            path.addLine(to: CGPoint(x: 120, y: 90))
-            path.addLine(to: CGPoint(x: with - 60, y: 90))
-            path.addLine(to: CGPoint(x: with - 60, y: 180))
-            path.addLine(to: CGPoint(x: with + 30, y: 180))
-            path.addLine(to: CGPoint(x: with + 30, y: 60))
-            path.addLine(to: CGPoint(x: with + 60, y: 60))
-            path.addLine(to: CGPoint(x: with + 60, y: 30))
-            path.addLine(to: CGPoint(x: with + 30, y: 30))
-            path.addLine(to: CGPoint(x: with + 30, y: 0))
+            // bottom
+            // from left to right
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + connectionWidth, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + connectionWidth, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight))
+            
+            // right side
+            // from bottom to top
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: oneVerticalLineWithoutArrow + arrowTerminalHeight))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: oneVerticalLineWithoutArrow + arrowTerminalHeight))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth*2, y: oneVerticalLineWithoutArrow))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: oneVerticalLineWithoutArrow))
+            path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: 0))
             path.closeSubpath()
         }
     }
@@ -36,7 +55,7 @@ struct HeaderPartsFrame: Shape {
 
 struct HeaderPartsFrame_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsFrame(with: 600)
-            .frame(width: 660, height: 180)
+        HeaderPartsFrame(width: 800)
+            .frame(width: 1000, height: 300)
     }
 }

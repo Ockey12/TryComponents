@@ -15,7 +15,7 @@ struct HeaderPartsView: View {
             IndexFrameWithText(with: 150)
                 .position(x: 105, y: 25)
             
-            HeaderPartsFrameWithText(with: with)
+            HeaderPartsFrameWithText(width: with)
                 .position(x: with / 2 + 30, y: 140)
         }
         .frame(width: with + 60, height: 230)

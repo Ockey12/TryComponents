@@ -10,8 +10,8 @@ import SwiftUI
 struct DetailPartsFrame: Shape {
     var width: CGFloat
     var numberOfItems: Int
-    var invisiblePaddingWidth: CGFloat {
-        (self.width - self.headerWidth) / 2 + self.arrowTerminalWidth
+    var widthFromLeftEdgeToConnection: CGFloat {
+        (width - headerWidth) / 2 + arrowTerminalWidth
     }
     
     let headerWidth = DetailPartsSettingValues.headerWidth
@@ -27,10 +27,10 @@ struct DetailPartsFrame: Shape {
             // header
             // from right to left
             path.move(to: CGPoint(x: arrowTerminalWidth + width, y: headerHeight))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: headerHeight))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: 0))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: 0))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: headerHeight))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + headerWidth, y: headerHeight))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + headerWidth, y: 0))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: 0))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: headerHeight))
             path.addLine(to: CGPoint(x: arrowTerminalWidth, y: headerHeight))
             
             // items
@@ -47,10 +47,10 @@ struct DetailPartsFrame: Shape {
             // footer
             // from left to right
             path.addLine(to: CGPoint(x: arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
-            path.addLine(to: CGPoint(x: invisiblePaddingWidth + headerWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + headerWidth, y: bottomPaddingForLastText + headerHeight + itemHeight*CGFloat(numberOfItems)))
+            path.addLine(to: CGPoint(x: widthFromLeftEdgeToConnection + headerWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
             path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: bottomPaddingForLastText + headerHeight*2 + itemHeight*CGFloat(numberOfItems)))
             path.addLine(to: CGPoint(x: width + arrowTerminalWidth, y: headerHeight + itemHeight*CGFloat(numberOfItems)))
 

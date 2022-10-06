@@ -20,11 +20,11 @@ struct IndexFrameWithText: View {
                 .frame(width: with, height: height)
             
             IndexFrame()
-                .stroke(lineWidth: 5)
+                .stroke(lineWidth: HeaderPartsSettingValues.borderWidth)
                 .fill(Color.black)
                 .frame(width: with, height: height)
             
-            Text("○protocol")
+            Text("○   protocol")
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
                 .frame(width: with - 20, height: height * 0.9)
