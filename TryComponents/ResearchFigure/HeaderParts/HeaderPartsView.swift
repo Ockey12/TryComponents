@@ -8,23 +8,36 @@
 import SwiftUI
 
 struct HeaderPartsView: View {
-    var with: CGFloat
+    var width: CGFloat
+    
+    let indexWidth = HeaderPartsSettingValues.indexWidth
+    let itemHeight = HeaderPartsSettingValues.itemHeight
+    let connectionHeight = HeaderPartsSettingValues.connectionHeight
+    let oneVerticalLineWithoutArrow = HeaderPartsSettingValues.oneVerticalLineWithoutArrow
+    let arrowTerminalWidth = HeaderPartsSettingValues.arrowTerminalWidth
+    let arrowTerminalHeight = HeaderPartsSettingValues.arrowTerminalHeight
+    let bottomPaddingForLastText = HeaderPartsSettingValues.bottomPaddingForLastText
     
     var body: some View {
-        ZStack {
-            IndexFrameWithText(with: 150)
-                .position(x: 105, y: 25)
+        ZStack(alignment: .topLeading) {
+//            IndexFrameWithText()
+//                .position(x: arrowTerminalWidth + indexWidth/2, y: itemHeight/2)
+//
+//            HeaderPartsFrameWithText(width: width)
+//                .position(x: arrowTerminalWidth +  width/2, y: itemHeight + (oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight)/2)
             
-            HeaderPartsFrameWithText(width: with)
-                .position(x: with / 2 + 30, y: 140)
+            IndexFrameWithText()
+                .offset(x: arrowTerminalWidth, y: 0)
+            
+            HeaderPartsFrameWithText(width: width)
+                .offset(x: 0, y: itemHeight)
         }
-        .frame(width: with + 60, height: 230)
     }
 }
 
 struct HeaderPartsView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsView(with: 800)
-            .frame(width: 1000, height: 300)
+        HeaderPartsView(width: 1200)
+            .frame(width: 1500, height: 300)
     }
 }

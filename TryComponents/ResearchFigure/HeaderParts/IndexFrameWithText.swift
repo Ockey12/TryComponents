@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct IndexFrameWithText: View {
-    var with: CGFloat
-    var height: CGFloat {
-        return with / 3
-    }
+//    var with: CGFloat
+//    var height: CGFloat {
+//        return with / 3
+//    }
+    let width = HeaderPartsSettingValues.indexWidth
+    let height = HeaderPartsSettingValues.itemHeight
+    let borderWidth = HeaderPartsSettingValues.borderWidth
     
     var body: some View {
         ZStack {
             IndexFrame()
                 .fill(.gray)
-                .frame(width: with, height: height)
+                .frame(width: width, height: height)
             
             IndexFrame()
-                .stroke(lineWidth: HeaderPartsSettingValues.borderWidth)
+                .stroke(lineWidth: borderWidth)
                 .fill(Color.black)
-                .frame(width: with, height: height)
+                .frame(width: width, height: height)
             
             Text("○   protocol")
                 .lineLimit(1)
-                .minimumScaleFactor(0.1)
-                .frame(width: with - 20, height: height * 0.9)
-                .font(.system(size: height * 0.5))
+                .frame(width: width, height: height)
+                .font(.system(size: 50))
                 .foregroundColor(.black)
         }
     }
@@ -36,7 +38,7 @@ struct IndexFrameWithText: View {
 
 struct IndexFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
-        IndexFrameWithText(with: 300)
+        IndexFrameWithText()
             .frame(width: 400, height: 400)
     }
 }

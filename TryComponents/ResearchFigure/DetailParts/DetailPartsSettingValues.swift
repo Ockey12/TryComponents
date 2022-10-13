@@ -9,8 +9,8 @@ import Foundation
 
 struct DetailPartsSettingValues {
     static let minWidth: CGFloat = 600
-    static let headerWidth: CGFloat = 350
-    static let headerHeight: CGFloat = 90
+    static let connectionWidth: CGFloat = 350
+    static let connectionHeight: CGFloat = 90
     static let itemHeight: CGFloat = 90
     static var oneVerticalLineWithoutArrow: CGFloat {
         (self.itemHeight - self.arrowTerminalHeight)/2

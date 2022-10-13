@@ -13,14 +13,14 @@ struct HeaderPartsFrame: Shape {
         (width - connectionWidth) / 2 + arrowTerminalWidth
     }
     
-    let connectionWidth: CGFloat = HeaderPartsSettingValues.connectionWidth
-    let connectionHeight: CGFloat = HeaderPartsSettingValues.connectionHeight
-    let itemHeight: CGFloat = HeaderPartsSettingValues.itemHeight
-    let oneVerticalLineWithoutArrow: CGFloat = HeaderPartsSettingValues.oneVerticalLineWithoutArrow
-    let arrowTerminalWidth: CGFloat = HeaderPartsSettingValues.arrowTerminalWidth
-    let arrowTerminalHeight: CGFloat = HeaderPartsSettingValues.arrowTerminalHeight
-    let bottomPaddingForLastText: CGFloat = HeaderPartsSettingValues.bottomPaddingForLastText
-    let borderWidth: CGFloat = HeaderPartsSettingValues.borderWidth
+    let connectionWidth = HeaderPartsSettingValues.connectionWidth
+    let connectionHeight = HeaderPartsSettingValues.connectionHeight
+    let itemHeight = HeaderPartsSettingValues.itemHeight
+    let oneVerticalLineWithoutArrow = HeaderPartsSettingValues.oneVerticalLineWithoutArrow
+    let arrowTerminalWidth = HeaderPartsSettingValues.arrowTerminalWidth
+    let arrowTerminalHeight = HeaderPartsSettingValues.arrowTerminalHeight
+    let bottomPaddingForLastText = HeaderPartsSettingValues.bottomPaddingForLastText
+    let borderWidth = HeaderPartsSettingValues.borderWidth
     
     func path(in rect: CGRect) -> Path {
         Path { path in
@@ -56,6 +56,6 @@ struct HeaderPartsFrame: Shape {
 struct HeaderPartsFrame_Previews: PreviewProvider {
     static var previews: some View {
         HeaderPartsFrame(width: 800)
-            .frame(width: 1000, height: 300)
+            .frame(width: 830, height: 300)
     }
 }

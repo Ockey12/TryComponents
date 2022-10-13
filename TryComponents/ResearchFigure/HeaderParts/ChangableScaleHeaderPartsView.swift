@@ -14,7 +14,7 @@ struct ChangableScaleHeaderPartsView: View {
     
     var body: some View {
         ZStack {
-            HeaderPartsView(with: with)
+            HeaderPartsView(width: with)
                 .scaleEffect(ratio)
             
             VStack {

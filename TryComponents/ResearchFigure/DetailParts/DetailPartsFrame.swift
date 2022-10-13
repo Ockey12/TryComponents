@@ -14,8 +14,8 @@ struct DetailPartsFrame: Shape {
         (width - headerWidth) / 2 + arrowTerminalWidth
     }
     
-    let headerWidth = DetailPartsSettingValues.headerWidth
-    let headerHeight = DetailPartsSettingValues.headerHeight
+    let headerWidth = DetailPartsSettingValues.connectionWidth
+    let headerHeight = DetailPartsSettingValues.connectionHeight
     let itemHeight = DetailPartsSettingValues.itemHeight
     let oneVerticalLineWithoutArrow = DetailPartsSettingValues.oneVerticalLineWithoutArrow
     let arrowTerminalWidth = DetailPartsSettingValues.arrowTerminalWidth

@@ -1,0 +1,49 @@
+//
+//  TypeView.swift
+//  TryComponents
+//
+//  Created by オナガ・ハルキ on 2022/10/13.
+//
+
+import SwiftUI
+
+struct TypeView: View {
+    
+    // common
+    let connectionHeight = HeaderPartsSettingValues.connectionHeight
+    
+    // header parts
+    let headerItemHeight = HeaderPartsSettingValues.itemHeight
+    let headerBottomPaddingForLastText = HeaderPartsSettingValues.bottomPaddingForLastText
+    var headerPartsHeight: CGFloat {
+        headerItemHeight*2 + headerBottomPaddingForLastText
+    }
+    
+    // detail parts
+    let detailItemHeight = DetailPartsSettingValues.connectionHeight
+    let detailBottomPaddingForLastText = DetailPartsSettingValues.bottomPaddingForLastText
+    // sample
+    var detailPartsHeight: CGFloat {
+        detailItemHeight*4 + detailBottomPaddingForLastText
+    }
+    
+    var body: some View {
+        ZStack(alignment: .topLeading) {
+            HeaderPartsView(width: 1200)
+                .offset(x: 0, y: 0)
+            
+            DetailPartsWithText(width: 1200)
+                .offset(x: 0, y: headerPartsHeight)
+            
+            DetailPartsWithText(width: 1200)
+                .offset(x: 0, y: headerPartsHeight + connectionHeight + detailPartsHeight)
+        }
+    }
+}
+
+struct TypeView_Previews: PreviewProvider {
+    static var previews: some View {
+        TypeView()
+            .frame(width: 1500, height: 1500)
+    }
+}

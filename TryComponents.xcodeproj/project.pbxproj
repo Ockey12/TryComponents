@@ -12,7 +12,6 @@
 		AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */; };
 		AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */; };
 		AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46068F28ED62210083A91E /* DetailPartsFrame.swift */; };
-		AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC541EC428EACCF100911636 /* HorizontalBorder2.swift */; };
 		AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373C289FB367001674C5 /* TextImporterView.swift */; };
 		AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */; };
 		AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6F374128A4E94F001674C5 /* SwiftFile.swift */; };
@@ -38,8 +37,8 @@
 		ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */; };
 		ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */; };
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
-		ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B628E6E76700670F00 /* VerticalBorder.swift */; };
-		ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */; };
+		ACC2E92528F7F98A006A5304 /* getMaxWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */; };
+		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +47,6 @@
 		AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGetMaxTextWidth.swift; sourceTree = "<group>"; };
 		AC46068F28ED62210083A91E /* DetailPartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsFrame.swift; sourceTree = "<group>"; };
-		AC541EC428EACCF100911636 /* HorizontalBorder2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder2.swift; sourceTree = "<group>"; };
 		AC6F373C289FB367001674C5 /* TextImporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImporterView.swift; sourceTree = "<group>"; };
 		AC6F373F28A4E93B001674C5 /* SwiftASTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftASTView.swift; sourceTree = "<group>"; };
 		AC6F374128A4E94F001674C5 /* SwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFile.swift; sourceTree = "<group>"; };
@@ -75,8 +73,8 @@
 		ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsFrameWithText.swift; sourceTree = "<group>"; };
 		ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableScaleHeaderPartsView.swift; sourceTree = "<group>"; };
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
-		ACA098B628E6E76700670F00 /* VerticalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalBorder.swift; sourceTree = "<group>"; };
-		ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalBorder.swift; sourceTree = "<group>"; };
+		ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxWidth.swift; sourceTree = "<group>"; };
+		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,11 +168,9 @@
 		ACA0989D28E0445A00670F00 /* ResearchFigure */ = {
 			isa = PBXGroup;
 			children = (
-				ACA098B628E6E76700670F00 /* VerticalBorder.swift */,
-				ACA098B828E6E88E00670F00 /* HorizontalBorder.swift */,
-				AC541EC428EACCF100911636 /* HorizontalBorder2.swift */,
-				ACA098AF28E6CC4C00670F00 /* DetailParts */,
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
+				ACA098AF28E6CC4C00670F00 /* DetailParts */,
+				ACC2E92328F7F955006A5304 /* TypeView */,
 			);
 			path = ResearchFigure;
 			sourceTree = "<group>";
@@ -203,6 +199,15 @@
 				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
 			);
 			path = DetailParts;
+			sourceTree = "<group>";
+		};
+		ACC2E92328F7F955006A5304 /* TypeView */ = {
+			isa = PBXGroup;
+			children = (
+				ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */,
+				ACC2E92628F7F998006A5304 /* TypeView.swift */,
+			);
+			path = TypeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */,
+				ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */,
 				AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */,
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
-				ACA098B928E6E88E00670F00 /* HorizontalBorder.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
-				ACA098B728E6E76700670F00 /* VerticalBorder.swift in Sources */,
 				ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
@@ -301,9 +305,9 @@
 				AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
+				ACC2E92528F7F98A006A5304 /* getMaxWidth.swift in Sources */,
 				AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
-				AC541EC528EACCF100911636 /* HorizontalBorder2.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,

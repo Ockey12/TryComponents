@@ -11,7 +11,7 @@ struct DetailPartsWithText: View {
     var width: CGFloat = DetailPartsSettingValues.minWidth
     @State private var maxTextWidth: CGFloat = 0
     
-    let headerHeight = DetailPartsSettingValues.headerHeight
+    let headerHeight = DetailPartsSettingValues.connectionHeight
     let itemHeight = DetailPartsSettingValues.itemHeight
     let arrowTerminalWidth = DetailPartsSettingValues.arrowTerminalWidth
     let textLeadingPadding = DetailPartsSettingValues.textLeadingPadding
@@ -26,13 +26,14 @@ struct DetailPartsWithText: View {
     
     var body: some View {
         ZStack {
-            DetailPartsFrame(width: width + textTrailPadding, numberOfItems: texts.count)
+            DetailPartsFrame(width: width, numberOfItems: texts.count)
                 .fill(.white)
             
-            DetailPartsFrame(width: width + textTrailPadding, numberOfItems: texts.count)
+            DetailPartsFrame(width: width, numberOfItems: texts.count)
                 .stroke(lineWidth: borderWidth)
                 .fill(.black)
             
+            // invisible View
             // get max width of texts
             ForEach(0..<texts.count, id: \.self) { numberOfText in
                 Text(texts[numberOfText])
@@ -40,21 +41,20 @@ struct DetailPartsWithText: View {
                     .font(.system(size: 50))
                     .foregroundColor(.clear)
                     .background(.clear)
-//                    .border(.clear, width: 1)
                     .getMaxTextWidth(maxWidth: $maxTextWidth)
                     .position(x: width/2 + arrowTerminalWidth,
                               y: headerHeight + itemHeight*CGFloat(numberOfText) + itemHeight/2)
             }
 
+            // visible View
             ForEach(0..<texts.count, id: \.self) { numberOfText in
                 Text(texts[numberOfText])
                     .lineLimit(1)
                     .font(.system(size: 50))
                     .foregroundColor(.black)
                     .background(.white)
-//                    .border(.white, width: 1)
-                    .frame(width: width + textTrailPadding, alignment: .leading)
-                    .position(x: (width + textLeadingPadding + textTrailPadding)/2 + arrowTerminalWidth,
+                    .frame(width: width, alignment: .leading)
+                    .position(x: (width + textLeadingPadding )/2 + arrowTerminalWidth,
                               y: headerHeight + itemHeight*CGFloat(numberOfText) + itemHeight/2)
             }
         }
@@ -68,6 +68,6 @@ struct DetailPartsWithText: View {
 struct DetailPartsWithText_Previews: PreviewProvider {
     static var previews: some View {
         DetailPartsWithText(width: 1500)
-            .frame(width: 2000, height: 1000)
+            .frame(width: 2000, height: 600)
     }
 }
