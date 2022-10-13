@@ -24,7 +24,7 @@ struct TypeView: View {
     let detailBottomPaddingForLastText = DetailPartsSettingValues.bottomPaddingForLastText
     // sample
     var detailPartsHeight: CGFloat {
-        detailItemHeight*4 + detailBottomPaddingForLastText
+        connectionHeight + detailItemHeight*4 + detailBottomPaddingForLastText
     }
     
     var body: some View {
@@ -36,14 +36,18 @@ struct TypeView: View {
                 .offset(x: 0, y: headerPartsHeight)
             
             DetailPartsWithText(width: 1200)
-                .offset(x: 0, y: headerPartsHeight + connectionHeight + detailPartsHeight)
+                .offset(x: 0, y: headerPartsHeight + detailPartsHeight)
+            
+            DetailPartsWithText(width: 1200)
+                .offset(x: 0, y: headerPartsHeight + detailPartsHeight*2)
         }
+        .frame(width: 1230, height: headerPartsHeight + detailPartsHeight*3 + connectionHeight)
     }
 }
 
 struct TypeView_Previews: PreviewProvider {
     static var previews: some View {
         TypeView()
-            .frame(width: 1500, height: 1500)
+            .frame(width: 1500, height: 2000)
     }
 }
