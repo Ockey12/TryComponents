@@ -52,8 +52,8 @@ struct TextImporterView: View {
                 // directoryEnumeratorのうち、URLにキャストできるものをfileURLとして取り出す
                 for case let fileURL as URL in directoryEnumerator {
                     guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
-                          let isDirectory = resourceValues.isDirectory,
-                          let name = resourceValues.name
+                          let _ = resourceValues.isDirectory, //isDirectory
+                          let _ = resourceValues.name //name
                     else {
                         continue
                     }

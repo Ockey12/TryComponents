@@ -39,6 +39,7 @@
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
 		ACC2E92528F7F98A006A5304 /* getMaxWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
+		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
 		ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxWidth.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
+		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,8 @@
 		ACA0989D28E0445A00670F00 /* ResearchFigure */ = {
 			isa = PBXGroup;
 			children = (
+				ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */,
+				ACC2E92A28F94EE0006A5304 /* BuiltInExtension */,
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
 				ACA098AF28E6CC4C00670F00 /* DetailParts */,
 				ACC2E92328F7F955006A5304 /* TypeView */,
@@ -193,7 +197,6 @@
 		ACA098AF28E6CC4C00670F00 /* DetailParts */ = {
 			isa = PBXGroup;
 			children = (
-				AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */,
 				AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */,
 				AC46068F28ED62210083A91E /* DetailPartsFrame.swift */,
 				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
@@ -208,6 +211,14 @@
 				ACC2E92628F7F998006A5304 /* TypeView.swift */,
 			);
 			path = TypeView;
+			sourceTree = "<group>";
+		};
+		ACC2E92A28F94EE0006A5304 /* BuiltInExtension */ = {
+			isa = PBXGroup;
+			children = (
+				AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */,
+			);
+			path = BuiltInExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
+				ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */,
 				AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */,
