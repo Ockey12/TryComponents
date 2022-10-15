@@ -10,6 +10,8 @@ import SwiftUI
 struct HeaderPartsView: View {
     var width: CGFloat
     
+    @State private var maxTextWidth: CGFloat = 0
+    
     let indexWidth = HeaderPartsSettingValues.indexWidth
     let itemHeight = HeaderPartsSettingValues.itemHeight
     let connectionHeight = HeaderPartsSettingValues.connectionHeight
@@ -31,6 +33,9 @@ struct HeaderPartsView: View {
             
             HeaderPartsFrameWithText(width: width)
                 .offset(x: 0, y: itemHeight)
+                .foregroundColor(.clear)
+                .background(.clear)
+                
         }
     }
 }
@@ -38,6 +43,6 @@ struct HeaderPartsView: View {
 struct HeaderPartsView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderPartsView(width: 1200)
-            .frame(width: 1500, height: 300)
+            .frame(width: 1500, height: 350)
     }
 }

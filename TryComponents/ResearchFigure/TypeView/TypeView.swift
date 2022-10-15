@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TypeView: View {
     
+    @State var maxWidth: CGFloat = DetailPartsSettingValues.minWidth
+    
     // common
     let connectionHeight = HeaderPartsSettingValues.connectionHeight
     
@@ -29,6 +31,9 @@ struct TypeView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
+            
+//            maxWidth = DetailPartsWithText().getMaxWidth()
+            
             HeaderPartsView(width: 1200)
                 .offset(x: 0, y: 0)
             

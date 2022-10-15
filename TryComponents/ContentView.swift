@@ -14,6 +14,7 @@ struct ContentView: View {
             TypeView()
 //                .scaleEffect(0.5)
                 .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+                .background(.white)
         }
     }
 }

@@ -9,9 +9,14 @@ import SwiftUI
 
 struct DetailPartsWithText: View {
     var width: CGFloat = DetailPartsSettingValues.minWidth
+    var widthFromLeftEdgeToConnection: CGFloat {
+        (width - headerWidth) / 2 + arrowTerminalWidth
+    }
+    
     @State private var maxTextWidth: CGFloat = 0
     
     let headerHeight = DetailPartsSettingValues.connectionHeight
+    let headerWidth = DetailPartsSettingValues.connectionWidth
     let itemHeight = DetailPartsSettingValues.itemHeight
     let arrowTerminalWidth = DetailPartsSettingValues.arrowTerminalWidth
     let textLeadingPadding = DetailPartsSettingValues.textLeadingPadding
@@ -32,6 +37,17 @@ struct DetailPartsWithText: View {
             DetailPartsFrame(width: width, numberOfItems: texts.count)
                 .stroke(lineWidth: borderWidth)
                 .fill(.black)
+
+            // connection header title
+            Text("Rawvalue Type")
+                .lineLimit(1)
+                .font(.system(size:50))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .background(.clear)
+                .frame(width: headerWidth, height: headerHeight)
+                .multilineTextAlignment(.center)
+                .position(x: width/2 + arrowTerminalWidth, y: headerHeight/2)
             
             // invisible View
             // get max width of texts
@@ -68,6 +84,6 @@ struct DetailPartsWithText: View {
 struct DetailPartsWithText_Previews: PreviewProvider {
     static var previews: some View {
         DetailPartsWithText(width: 1500)
-            .frame(width: 2000, height: 600)
+            .frame(width: 1530, height: 600)
     }
 }
