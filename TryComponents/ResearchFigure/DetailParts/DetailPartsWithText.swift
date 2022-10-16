@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailPartsWithText: View {
-    var width: CGFloat = DetailPartsSettingValues.minWidth
+    var width: CGFloat // = DetailPartsSettingValues.minWidth
     var widthFromLeftEdgeToConnection: CGFloat {
         (width - headerWidth) / 2 + arrowTerminalWidth
     }
@@ -42,6 +42,8 @@ struct DetailPartsWithText: View {
             Text("Rawvalue Type")
                 .lineLimit(1)
                 .font(.system(size:50))
+//                .bold() 
+//                .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.black)
                 .background(.clear)
@@ -51,16 +53,16 @@ struct DetailPartsWithText: View {
             
             // invisible View
             // get max width of texts
-            ForEach(0..<texts.count, id: \.self) { numberOfText in
-                Text(texts[numberOfText])
-                    .lineLimit(1)
-                    .font(.system(size: 50))
-                    .foregroundColor(.clear)
-                    .background(.clear)
-                    .getMaxTextWidth(maxWidth: $maxTextWidth)
-                    .position(x: width/2 + arrowTerminalWidth,
-                              y: headerHeight + itemHeight*CGFloat(numberOfText) + itemHeight/2)
-            }
+//            ForEach(0..<texts.count, id: \.self) { numberOfText in
+//                Text(texts[numberOfText])
+//                    .lineLimit(1)
+//                    .font(.system(size: 50))
+//                    .foregroundColor(.clear)
+//                    .background(.clear)
+//                    .getMaxTextWidth(maxWidth: $maxTextWidth)
+//                    .position(x: width/2 + arrowTerminalWidth,
+//                              y: headerHeight + itemHeight*CGFloat(numberOfText) + itemHeight/2)
+//            }
 
             // visible View
             ForEach(0..<texts.count, id: \.self) { numberOfText in
@@ -83,7 +85,7 @@ struct DetailPartsWithText: View {
 
 struct DetailPartsWithText_Previews: PreviewProvider {
     static var previews: some View {
-        DetailPartsWithText()
+        DetailPartsWithText(width: 1200)
             .frame(width: 1530, height: 600)
     }
 }

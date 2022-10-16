@@ -10,6 +10,7 @@ import Foundation
 struct System50CharSize {
     var string: String
     
+    // return width of Character displayed in Text in .font(.system(size: 50))
     func getCharWidth(char: Character) -> CGFloat {
         switch char {
         case "a":
@@ -201,6 +202,7 @@ struct System50CharSize {
         }
     }
     
+    // return width of String displayed in Text in .font(.system(size: 50))
     func getStringWidth() -> CGFloat {
         var width: CGFloat = 0
         for char in string {
