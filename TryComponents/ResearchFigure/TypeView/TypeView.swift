@@ -11,8 +11,29 @@ struct TypeView: View {
     
     @State var maxWidth: CGFloat = DetailPartsSettingValues.minWidth
     
+    let texts = ["var body",
+                 "a",
+                 ".frame(width: CGFloat(text.count)*characterWidth)",
+                 "DetailPartsWithText",
+                ]
+    
+    var maxStringCount: Int {
+        var max = 0
+        for string in texts {
+            if max < string.count {
+                max = string.count
+            }
+        }
+        return max
+    }
+    
+    var width: CGFloat {
+        CGFloat(maxStringCount)*35.5
+    }
+    
     // common
     let connectionHeight = HeaderPartsSettingValues.connectionHeight
+    let arrowTerminalWidth = HeaderPartsSettingValues.arrowTerminalWidth
     
     // header parts
     let headerItemHeight = HeaderPartsSettingValues.itemHeight
@@ -31,28 +52,25 @@ struct TypeView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            
-//            maxWidth = DetailPartsWithText().getMaxWidth()
-            
-            HeaderPartsView(width: 1200)
+            HeaderPartsView(width: width)
                 .offset(x: 0, y: 0)
             
-            DetailPartsWithText(width: 1200)
+            DetailPartsWithText(width: width)
                 .offset(x: 0, y: headerPartsHeight)
             
-            DetailPartsWithText(width: 1200)
+            DetailPartsWithText(width: width)
                 .offset(x: 0, y: headerPartsHeight + detailPartsHeight)
             
-            DetailPartsWithText(width: 1200)
+            DetailPartsWithText(width: width)
                 .offset(x: 0, y: headerPartsHeight + detailPartsHeight*2)
         }
-        .frame(width: 1230, height: headerPartsHeight + detailPartsHeight*3 + connectionHeight)
+        .frame(width: width + arrowTerminalWidth*2, height: headerPartsHeight + detailPartsHeight*3 + connectionHeight)
     }
 }
 
 struct TypeView_Previews: PreviewProvider {
     static var previews: some View {
         TypeView()
-            .frame(width: 1500, height: 2000)
+            .frame(width: 2000, height: 2000)
     }
 }

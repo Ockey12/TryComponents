@@ -83,7 +83,7 @@ struct DetailPartsWithText: View {
 
 struct DetailPartsWithText_Previews: PreviewProvider {
     static var previews: some View {
-        DetailPartsWithText(width: 1500)
+        DetailPartsWithText()
             .frame(width: 1530, height: 600)
     }
 }

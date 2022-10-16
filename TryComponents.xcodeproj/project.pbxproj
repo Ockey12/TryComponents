@@ -40,6 +40,8 @@
 		ACC2E92528F7F98A006A5304 /* getMaxWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
+		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
+		ACC2E92E28FBAAA8006A5304 /* System50CharSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92D28FBAAA8006A5304 /* System50CharSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxWidth.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
+		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
+		ACC2E92D28FBAAA8006A5304 /* System50CharSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System50CharSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */,
+				ACC2E92D28FBAAA8006A5304 /* System50CharSize.swift */,
 				ACC2E92A28F94EE0006A5304 /* BuiltInExtension */,
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
 				ACA098AF28E6CC4C00670F00 /* DetailParts */,
@@ -209,6 +214,7 @@
 			children = (
 				ACC2E92428F7F98A006A5304 /* getMaxWidth.swift */,
 				ACC2E92628F7F998006A5304 /* TypeView.swift */,
+				ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */,
 			);
 			path = TypeView;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			files = (
 				ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */,
 				ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */,
+				ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */,
 				AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */,
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
@@ -316,6 +323,7 @@
 				ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */,
 				AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
+				ACC2E92E28FBAAA8006A5304 /* System50CharSize.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
 				ACC2E92528F7F98A006A5304 /* getMaxWidth.swift in Sources */,
 				AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */,
