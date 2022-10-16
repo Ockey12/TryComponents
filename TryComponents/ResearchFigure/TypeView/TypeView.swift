@@ -8,27 +8,21 @@
 import SwiftUI
 
 struct TypeView: View {
-    
-    @State var maxWidth: CGFloat = DetailPartsSettingValues.minWidth
-    
     let texts = ["var body",
                  "a",
                  ".frame(width: CGFloat(text.count)*characterWidth)",
                  "DetailPartsWithText",
                 ]
     
-    var maxStringCount: Int {
-        var max = 0
+    var width: CGFloat {
+        var maxWidth: CGFloat = DetailPartsSettingValues.minWidth
         for string in texts {
-            if max < string.count {
-                max = string.count
+            let tmpWidth = System50CharSize(string: string).getStringWidth()
+            if maxWidth < tmpWidth {
+                maxWidth = tmpWidth
             }
         }
-        return max
-    }
-    
-    var width: CGFloat {
-        CGFloat(maxStringCount)*35.5
+        return maxWidth + DetailPartsSettingValues.textTrailPadding
     }
     
     // common
@@ -71,6 +65,6 @@ struct TypeView: View {
 struct TypeView_Previews: PreviewProvider {
     static var previews: some View {
         TypeView()
-            .frame(width: 2000, height: 2000)
+            .frame(width: 1500, height: 2000)
     }
 }
