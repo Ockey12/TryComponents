@@ -118,6 +118,86 @@ struct System50CharSize {
                 width += 31
             case "Z":
                 width += 31.5
+            case "1":
+                width += 23
+            case "2":
+                width += 29
+            case "3":
+                width += 30
+            case "4":
+                width += 31
+            case "5":
+                width += 30
+            case "6":
+                width += 31.5
+            case "7":
+                width += 28
+            case "8":
+                width += 30.5
+            case "9":
+                width += 31.5
+            case "0":
+                width += 31
+            case "!":
+                width += 14
+            case "@":
+                width += 44.5
+            case "#":
+                width += 31
+            case "$":
+                width += 31
+            case "%":
+                width += 41
+            case "^":
+                width += 31
+            case "&":
+                width += 34
+            case "*":
+                width += 20.5
+            case "(":
+                width += 16.5
+            case ")":
+                width += 16.5
+            case "-":
+                width += 22
+            case "_":
+                width += 27
+            case "=":
+                width += 31
+            case "+":
+                width += 31
+            case "|":
+                width += 11.5
+            case "`":
+                width += 25.5
+            case "~":
+                width += 31
+            case "[":
+                width += 16
+            case "{":
+                width += 16.5
+            case "]":
+                width += 16
+            case "}":
+                width += 16.5
+            case ";":
+                width += 11.5
+            case ":":
+                width += 11.5
+            case "'":
+                width += 13.5
+            case ",":
+                width += 11.5
+            case ".":
+                width += 11.5
+            case "<":
+                width += 31
+            case ">":
+                width += 31
+            case "/":
+                width += 14.5
+            case "?":
+                width += 25
             default:
                 width += 47
             }
