@@ -15,7 +15,6 @@ import UniformTypeIdentifiers
 
 struct TextImporterView: View {
     
-    @State private var image: NSImage? = nil
     @State private var importerPresented = false
     @State private var contents: String = ""
     

@@ -23,3 +23,4 @@ class StringVisitor: SyntaxVisitor {
         return .skipChildren
     }
 }
+

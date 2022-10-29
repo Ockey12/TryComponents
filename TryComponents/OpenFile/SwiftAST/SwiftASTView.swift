@@ -13,7 +13,6 @@ import UniformTypeIdentifiers
 
 struct SwiftASTView: View {
     
-    @State private var image: NSImage? = nil
     @State private var importerPresented = false
     @State private var sourceCode: String = ""
     @State private var ast: String = ""

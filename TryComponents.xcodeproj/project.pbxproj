@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2608B9290A7296000FD2AE /* TokenVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2608B8290A7296000FD2AE /* TokenVisitor.swift */; };
 		AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */; };
 		AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */; };
 		AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */; };
@@ -37,6 +38,9 @@
 		ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */; };
 		ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */; };
 		ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA098AD28E19EBF00670F00 /* PartsFrame.swift */; };
+		ACA803A8290CEFBE003C22A2 /* ChangelableScaleTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803A7290CEFBE003C22A2 /* ChangelableScaleTypeView.swift */; };
+		ACA803AB290D1993003C22A2 /* TokenVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */; };
+		ACA803AD290D1E11003C22A2 /* SampleForTokenVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -44,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2608B8290A7296000FD2AE /* TokenVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVisitor.swift; sourceTree = "<group>"; };
 		AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsWithText.swift; sourceTree = "<group>"; };
 		AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsSettingValues.swift; sourceTree = "<group>"; };
@@ -75,6 +80,9 @@
 		ACA098A928E16EFD00670F00 /* HeaderPartsFrameWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsFrameWithText.swift; sourceTree = "<group>"; };
 		ACA098AB28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableScaleHeaderPartsView.swift; sourceTree = "<group>"; };
 		ACA098AD28E19EBF00670F00 /* PartsFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsFrame.swift; sourceTree = "<group>"; };
+		ACA803A7290CEFBE003C22A2 /* ChangelableScaleTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelableScaleTypeView.swift; sourceTree = "<group>"; };
+		ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVisitorView.swift; sourceTree = "<group>"; };
+		ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleForTokenVisitor.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -95,6 +103,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2608B7290A725C000FD2AE /* TokenVisitor */ = {
+			isa = PBXGroup;
+			children = (
+				AC2608B8290A7296000FD2AE /* TokenVisitor.swift */,
+				ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */,
+				ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */,
+			);
+			path = TokenVisitor;
+			sourceTree = "<group>";
+		};
 		AC6F373E28A4E914001674C5 /* SwiftAST */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +158,7 @@
 				AC92909A289CFDC300F4900E /* TryComponentsApp.swift */,
 				AC92909C289CFDC300F4900E /* ContentView.swift */,
 				ACA0989D28E0445A00670F00 /* ResearchFigure */,
+				AC2608B7290A725C000FD2AE /* TokenVisitor */,
 				AC6F375028B89983001674C5 /* SwiftSyntaxIntroduction */,
 				AC9290AE289CFF3A00F4900E /* OpenFile */,
 				AC92909E289CFDC400F4900E /* Assets.xcassets */,
@@ -211,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC2E92628F7F998006A5304 /* TypeView.swift */,
+				ACA803A7290CEFBE003C22A2 /* ChangelableScaleTypeView.swift */,
 				ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */,
 			);
 			path = TypeView;
@@ -321,15 +341,19 @@
 				AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				ACC2E92E28FBAAA8006A5304 /* System50CharSize.swift in Sources */,
+				ACA803AB290D1993003C22A2 /* TokenVisitorView.swift in Sources */,
+				ACA803AD290D1E11003C22A2 /* SampleForTokenVisitor.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
 				AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
+				ACA803A8290CEFBE003C22A2 /* ChangelableScaleTypeView.swift in Sources */,
 				AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */,
 				ACA098A628E13BAA00670F00 /* HeaderPartsFrame.swift in Sources */,
 				AC9290B0289CFF6C00F4900E /* FileImporterView.swift in Sources */,
+				AC2608B9290A7296000FD2AE /* TokenVisitor.swift in Sources */,
 				ACA098A828E13F9E00670F00 /* IndexFrameWithText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
