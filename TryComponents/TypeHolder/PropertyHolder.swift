@@ -8,5 +8,11 @@
 import Foundation
 
 struct PropertyHolder {
-    
+    var havePropertyWrapper: Bool
+    var haveStaticKeyword: Bool
+    var accessLevel: AccessLevel
+    var isVariable: Bool
+    var name: String
+    var type: String
+    var initialValue: String
 }
