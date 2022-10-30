@@ -8,17 +8,17 @@
 import Foundation
 
 struct ClassHolder {
-    var accessLevel: AccessLevel
-    var name: String
-    var inheritedClass: String
-    var conformingProtocols: [String]
-    var propertys: [PropertyHolder]
-    var functions: [FuncHolder]
+    var accessLevel: AccessLevel = .Internal
+    var name = ""
+    var inheritedClass = ""
+    var conformingProtocols = [String]()
+    var propertys = [PropertyHolder]()
+    var functions = [FuncHolder]()
     
     // For child types that are nested by this type
-    var nestingStructs: [StructHolder]
-    var nestingClasses: [ClassHolder]
-    var nestingEnums: [EnumHolder]
+    var nesting = [StructHolder]()
+    var nestingClasses = [ClassHolder]()
+    var nestingEnums = [EnumHolder]()
     
     // For the parent type that nests this type.
     var nestParentTypeName: String?
