@@ -43,5 +43,11 @@ import Foundation
 //}
 
 struct SampleStruct {
-    static var StaticVariable = 100
+//    static var StaticVariable = 100
+    struct NestedStruct1 {
+        
+    }
+    struct NestedStruct2 {
+        
+    }
 }

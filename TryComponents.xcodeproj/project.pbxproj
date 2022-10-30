@@ -47,6 +47,7 @@
 		ACA803B6290E4785003C22A2 /* EnumHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B5290E4785003C22A2 /* EnumHolder.swift */; };
 		ACA803B8290E479E003C22A2 /* FuncHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B7290E479E003C22A2 /* FuncHolder.swift */; };
 		ACA803BA290E47BF003C22A2 /* PropertyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */; };
+		ACA803BE290E60C8003C22A2 /* SyntaxNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -95,6 +96,7 @@
 		ACA803B5290E4785003C22A2 /* EnumHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumHolder.swift; sourceTree = "<group>"; };
 		ACA803B7290E479E003C22A2 /* FuncHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncHolder.swift; sourceTree = "<group>"; };
 		ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHolder.swift; sourceTree = "<group>"; };
+		ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxNodeType.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2608B8290A7296000FD2AE /* TokenVisitor.swift */,
+				ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */,
 				ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */,
 				ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */,
 			);
@@ -356,6 +359,7 @@
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
 				ACA803B2290E460E003C22A2 /* AccessLevel.swift in Sources */,
+				ACA803BE290E60C8003C22A2 /* SyntaxNodeType.swift in Sources */,
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
