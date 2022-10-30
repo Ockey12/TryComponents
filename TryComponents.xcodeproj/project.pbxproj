@@ -41,6 +41,12 @@
 		ACA803A8290CEFBE003C22A2 /* ChangelableScaleTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803A7290CEFBE003C22A2 /* ChangelableScaleTypeView.swift */; };
 		ACA803AB290D1993003C22A2 /* TokenVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */; };
 		ACA803AD290D1E11003C22A2 /* SampleForTokenVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */; };
+		ACA803B0290E45D5003C22A2 /* StructHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803AF290E45D5003C22A2 /* StructHolder.swift */; };
+		ACA803B2290E460E003C22A2 /* AccessLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B1290E460E003C22A2 /* AccessLevel.swift */; };
+		ACA803B4290E4770003C22A2 /* ClassHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B3290E4770003C22A2 /* ClassHolder.swift */; };
+		ACA803B6290E4785003C22A2 /* EnumHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B5290E4785003C22A2 /* EnumHolder.swift */; };
+		ACA803B8290E479E003C22A2 /* FuncHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B7290E479E003C22A2 /* FuncHolder.swift */; };
+		ACA803BA290E47BF003C22A2 /* PropertyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -83,6 +89,12 @@
 		ACA803A7290CEFBE003C22A2 /* ChangelableScaleTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangelableScaleTypeView.swift; sourceTree = "<group>"; };
 		ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVisitorView.swift; sourceTree = "<group>"; };
 		ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleForTokenVisitor.swift; sourceTree = "<group>"; };
+		ACA803AF290E45D5003C22A2 /* StructHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructHolder.swift; sourceTree = "<group>"; };
+		ACA803B1290E460E003C22A2 /* AccessLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLevel.swift; sourceTree = "<group>"; };
+		ACA803B3290E4770003C22A2 /* ClassHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassHolder.swift; sourceTree = "<group>"; };
+		ACA803B5290E4785003C22A2 /* EnumHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumHolder.swift; sourceTree = "<group>"; };
+		ACA803B7290E479E003C22A2 /* FuncHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncHolder.swift; sourceTree = "<group>"; };
+		ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHolder.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -158,6 +170,7 @@
 				AC92909A289CFDC300F4900E /* TryComponentsApp.swift */,
 				AC92909C289CFDC300F4900E /* ContentView.swift */,
 				ACA0989D28E0445A00670F00 /* ResearchFigure */,
+				ACA803AE290E45B1003C22A2 /* TypeHolder */,
 				AC2608B7290A725C000FD2AE /* TokenVisitor */,
 				AC6F375028B89983001674C5 /* SwiftSyntaxIntroduction */,
 				AC9290AE289CFF3A00F4900E /* OpenFile */,
@@ -224,6 +237,19 @@
 				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
 			);
 			path = DetailParts;
+			sourceTree = "<group>";
+		};
+		ACA803AE290E45B1003C22A2 /* TypeHolder */ = {
+			isa = PBXGroup;
+			children = (
+				ACA803B1290E460E003C22A2 /* AccessLevel.swift */,
+				ACA803AF290E45D5003C22A2 /* StructHolder.swift */,
+				ACA803B3290E4770003C22A2 /* ClassHolder.swift */,
+				ACA803B5290E4785003C22A2 /* EnumHolder.swift */,
+				ACA803B7290E479E003C22A2 /* FuncHolder.swift */,
+				ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */,
+			);
+			path = TypeHolder;
 			sourceTree = "<group>";
 		};
 		ACC2E92328F7F955006A5304 /* TypeView */ = {
@@ -329,18 +355,22 @@
 				ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
+				ACA803B2290E460E003C22A2 /* AccessLevel.swift in Sources */,
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
+				ACA803B8290E479E003C22A2 /* FuncHolder.swift in Sources */,
 				ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */,
 				AC6F373D289FB367001674C5 /* TextImporterView.swift in Sources */,
 				AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */,
 				AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */,
 				ACA098AE28E19EBF00670F00 /* PartsFrame.swift in Sources */,
 				ACA098AC28E1713F00670F00 /* ChangableScaleHeaderPartsView.swift in Sources */,
+				ACA803BA290E47BF003C22A2 /* PropertyHolder.swift in Sources */,
 				AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */,
 				AC92909D289CFDC300F4900E /* ContentView.swift in Sources */,
 				ACC2E92E28FBAAA8006A5304 /* System50CharSize.swift in Sources */,
+				ACA803B4290E4770003C22A2 /* ClassHolder.swift in Sources */,
 				ACA803AB290D1993003C22A2 /* TokenVisitorView.swift in Sources */,
 				ACA803AD290D1E11003C22A2 /* SampleForTokenVisitor.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
@@ -348,6 +378,8 @@
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
+				ACA803B6290E4785003C22A2 /* EnumHolder.swift in Sources */,
+				ACA803B0290E45D5003C22A2 /* StructHolder.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
 				ACA803A8290CEFBE003C22A2 /* ChangelableScaleTypeView.swift in Sources */,
 				AC6F374228A4E94F001674C5 /* SwiftFile.swift in Sources */,
