@@ -13,6 +13,9 @@ struct EnumHolder {
     var rawvalueType: String
     var conformingProtocols: [String]
     var cases: [Case]
+    var nestingStructs: [StructHolder]
+    var nestingClasses: [ClassHolder]
+    var nestingEnums: [EnumHolder]
     
     struct Case {
         var caseName: String

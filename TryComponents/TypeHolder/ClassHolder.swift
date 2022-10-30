@@ -14,7 +14,7 @@ struct ClassHolder {
     var conformingProtocols: [String]
     var propertys: [PropertyHolder]
     var functions: [FuncHolder]
-    var nestedStructs: [StructHolder]
-    var nestedClasses: [ClassHolder]
-    var nestedEnums: [EnumHolder]
+    var nestingStructs: [StructHolder]
+    var nestingClasses: [ClassHolder]
+    var nestingEnums: [EnumHolder]
 }
