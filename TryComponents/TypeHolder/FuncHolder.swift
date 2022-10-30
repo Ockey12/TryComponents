@@ -8,5 +8,17 @@
 import Foundation
 
 struct FuncHolder {
+    var accessLevel: AccessLevel
+    var name: String
+    var parameters: [Parameter]
+    var returnValueType: String
     
+    struct Parameter {
+        var externalParameterName: String?
+        var internalParameterName: String
+        var haveInoutKeyword: Bool
+        var type: String
+        var isVariadic: Bool
+        var defaultParameter: String?
+    }
 }
