@@ -15,8 +15,15 @@ final class TokenVisitor: SyntaxRewriter {
     
     override func visitPre(_ node: Syntax) {
         let space = Array(repeating: indentSpace, count: indentCount).joined(separator: "|")
-        getedSyntax += "\(space)syntaxNodeType: \(node.syntaxNodeType)\n"
+        getedSyntax += "\(space)syntaxNodeType: \(node.syntaxNodeType)"
+        
+        let syntaxNodeType = "\(node.syntaxNodeType)"
+        if syntaxNodeType == "StructDeclSyntax" {
+            getedSyntax += ", parent: \(node.parent?.syntaxNodeType)"
+        }
+        
         indentCount += 1
+        getedSyntax += "\n"
     }
     
     override func visit(_ token: TokenSyntax) -> Syntax {
