@@ -1,14 +1,14 @@
 //
-//  TokenVisitor.swift
+//  AstVisitor.swift
 //  TryComponents
 //
-//  Created by オナガ・ハルキ on 2022/10/27.
+//  Created by オナガ・ハルキ on 2022/10/30.
 //
 
 import Foundation
 import SwiftSyntax
 
-final class TokenVisitor: SyntaxRewriter {
+final class AstVisitor: SyntaxRewriter {
     private var getedSyntax = ""
     private var indentCount = 0
     let indentSpace = "  "
