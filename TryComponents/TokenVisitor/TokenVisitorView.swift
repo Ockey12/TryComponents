@@ -45,7 +45,7 @@ struct TokenVisitorView: View {
                 let parsedContent = try! SyntaxParser.parse(url)
                 let visitor = TokenVisitor()
                 _ = visitor.visit(parsedContent)
-                rightContent = visitor.getGetedTokenText()
+                rightContent = visitor.getGetedTokenSyntax()
 //                let mySyntasRewriter = MySyntaxRewriter(sourceCode: sourceCode)
 //                ast = mySyntasRewriter.getAST()
 //                print(mySyntasRewriter.getAST())
