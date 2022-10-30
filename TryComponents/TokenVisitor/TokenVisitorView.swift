@@ -45,10 +45,14 @@ struct TokenVisitorView: View {
                 let parsedContent = try! SyntaxParser.parse(url)
                 let visitor = TokenVisitor()
                 _ = visitor.visit(parsedContent)
-                rightContent = visitor.getGetedTokenSyntax()
-//                let mySyntasRewriter = MySyntaxRewriter(sourceCode: sourceCode)
-//                ast = mySyntasRewriter.getAST()
-//                print(mySyntasRewriter.getAST())
+                
+                for content in visitor.getedTypes {
+                    rightContent += "getedTypes.key: " + content.key
+                    if let structHolder = content.value as? StructHolder {
+                        rightContent += ", StructHolder.name: " + structHolder.name
+                    }
+                    rightContent += "\n"
+                }
             case .failure:
                 print("failure")
             }
