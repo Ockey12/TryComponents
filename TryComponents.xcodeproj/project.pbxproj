@@ -48,6 +48,7 @@
 		ACA803B8290E479E003C22A2 /* FuncHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B7290E479E003C22A2 /* FuncHolder.swift */; };
 		ACA803BA290E47BF003C22A2 /* PropertyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */; };
 		ACA803BE290E60C8003C22A2 /* SyntaxNodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */; };
+		ACA803C0290E668F003C22A2 /* NestParentTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803BF290E668F003C22A2 /* NestParentTypeName.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -97,6 +98,7 @@
 		ACA803B7290E479E003C22A2 /* FuncHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncHolder.swift; sourceTree = "<group>"; };
 		ACA803B9290E47BF003C22A2 /* PropertyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyHolder.swift; sourceTree = "<group>"; };
 		ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxNodeType.swift; sourceTree = "<group>"; };
+		ACA803BF290E668F003C22A2 /* NestParentTypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestParentTypeName.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				ACA803B1290E460E003C22A2 /* AccessLevel.swift */,
+				ACA803BF290E668F003C22A2 /* NestParentTypeName.swift */,
 				ACA803AF290E45D5003C22A2 /* StructHolder.swift */,
 				ACA803B3290E4770003C22A2 /* ClassHolder.swift */,
 				ACA803B5290E4785003C22A2 /* EnumHolder.swift */,
@@ -356,6 +359,7 @@
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
 				ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */,
+				ACA803C0290E668F003C22A2 /* NestParentTypeName.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
 				ACA803B2290E460E003C22A2 /* AccessLevel.swift in Sources */,
