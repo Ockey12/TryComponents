@@ -11,4 +11,9 @@ struct StructHolder {
     var accessLevel: AccessLevel
     var name: String
     var conformingProtocols: [String]
+    var propertys: [PropertyHolder]
+    var functions: [FuncHolder]
+    var nestedStructs: [StructHolder]
+    var nestedClasses: [ClassHolder]
+    var nestedEnums: [EnumHolder]
 }
