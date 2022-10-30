@@ -8,5 +8,13 @@
 import Foundation
 
 struct ClassHolder {
-    
+    var accessLevel: AccessLevel
+    var name: String
+    var inheritedClass: String
+    var conformingProtocols: [String]
+    var propertys: [PropertyHolder]
+    var functions: [FuncHolder]
+    var nestedStructs: [StructHolder]
+    var nestedClasses: [ClassHolder]
+    var nestedEnums: [EnumHolder]
 }
