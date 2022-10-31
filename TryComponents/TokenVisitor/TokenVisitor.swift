@@ -65,7 +65,7 @@ final class TokenVisitor: SyntaxRewriter {
     override func visit(_ token: TokenSyntax) -> Syntax {
         let tokenKind = "\(token.tokenKind)"
         if tokenKind.hasPrefix("identifier") {
-            syntaxes.append("identifier: " + "\(token.text)")
+            syntaxes.append("identifier:" + "\(token.text)")
         }
         syntaxes.append(token.text)
         return token._syntaxNode
