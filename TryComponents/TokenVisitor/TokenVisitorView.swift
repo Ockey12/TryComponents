@@ -46,13 +46,18 @@ struct TokenVisitorView: View {
                 let visitor = TokenVisitor()
                 _ = visitor.visit(parsedContent)
                 
-                for content in visitor.getedTypes {
-                    rightContent += "getedTypes.key: " + content.key
-                    if let structHolder = content.value as? StructHolder {
-                        rightContent += ", StructHolder.name: " + structHolder.name
-                    }
-                    rightContent += "\n"
+//                rightContent = visitor.getedText
+                
+                for text in visitor.getedText {
+                    rightContent += text + "\n"
                 }
+//                for content in visitor.getedTypes {
+//                    rightContent += "getedTypes.key: " + content.key
+//                    if let structHolder = content.value as? StructHolder {
+//                        rightContent += ", StructHolder.name: " + structHolder.name
+//                    }
+//                    rightContent += "\n"
+//                }
             case .failure:
                 print("failure")
             }

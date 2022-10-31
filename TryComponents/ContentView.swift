@@ -10,8 +10,17 @@ import CoreData
 
 struct ContentView: View {
     var body: some View {
-        TokenVisitorView()
-            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+        ScrollView {
+            VStack {
+                TokenVisitorView()
+                    .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+                
+                Divider()
+                
+                AstVisitorView()
+                    .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+            }
+        }
 //        ChangelableScaleTypeView()
 //        ScrollView {
 //            TypeView()
