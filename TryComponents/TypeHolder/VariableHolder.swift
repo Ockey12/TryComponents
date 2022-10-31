@@ -8,11 +8,11 @@
 import Foundation
 
 struct VariableHolder {
-    var havePropertyWrapper: Bool
-    var haveStaticKeyword: Bool
-    var accessLevel: AccessLevel
-    var isVariable: Bool
-    var name: String
-    var type: String
-    var initialValue: String
+    var havePropertyWrapper = false
+    var haveStaticKeyword = false
+    var accessLevel: AccessLevel = .Internal
+    var isVariable = true
+    var name = ""
+    var type = ""
+    var initialValue = ""
 }

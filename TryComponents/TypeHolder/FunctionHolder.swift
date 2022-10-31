@@ -8,10 +8,10 @@
 import Foundation
 
 struct FunctionHolder {
-    var accessLevel: AccessLevel
-    var name: String
-    var parameters: [Parameter]
-    var returnValueType: String
+    var accessLevel: AccessLevel = .Internal
+    var name = ""
+    var parameters = [Parameter]()
+    var returnValueType = ""
     
     struct Parameter {
         var externalParameterName: String?
