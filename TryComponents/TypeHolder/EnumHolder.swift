@@ -13,6 +13,7 @@ struct EnumHolder {
     var rawvalueType = ""
     var conformingProtocols = [String]()
     var cases = [Case]()
+    var variables = [VariableHolder]()
     
     // For child types that are nested by this type
     var nestingStructs = [StructHolder]()

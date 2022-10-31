@@ -11,7 +11,7 @@ struct StructHolder {
     var accessLevel: AccessLevel = .Internal
     var name = ""
     var conformingProtocols = [String]()
-    var propertys = [VariableHolder]()
+    var variables = [VariableHolder]()
     var functions = [FunctionHolder]()
     
     // For child types that are nested by this type

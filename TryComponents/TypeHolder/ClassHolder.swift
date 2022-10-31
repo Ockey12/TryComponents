@@ -12,7 +12,7 @@ struct ClassHolder {
     var name = ""
     var inheritedClass = ""
     var conformingProtocols = [String]()
-    var propertys = [VariableHolder]()
+    var variables = [VariableHolder]()
     var functions = [FunctionHolder]()
     
     // For child types that are nested by this type
