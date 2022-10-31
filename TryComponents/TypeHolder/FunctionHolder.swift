@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FuncHolder {
+struct FunctionHolder {
     var accessLevel: AccessLevel
     var name: String
     var parameters: [Parameter]

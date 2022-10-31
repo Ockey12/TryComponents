@@ -12,8 +12,8 @@ struct ClassHolder {
     var name = ""
     var inheritedClass = ""
     var conformingProtocols = [String]()
-    var propertys = [PropertyHolder]()
-    var functions = [FuncHolder]()
+    var propertys = [VariableHolder]()
+    var functions = [FunctionHolder]()
     
     // For child types that are nested by this type
     var nesting = [StructHolder]()
