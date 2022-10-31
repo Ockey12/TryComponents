@@ -14,7 +14,7 @@ final class TokenVisitor: SyntaxRewriter {
     private var currentEnum: EnumHolder?
     private var currentTypeFlag: TypeName?
     var getedTypes =  [String: Any]()
-    var getedText = [String]()
+    var syntaxes = [String]()
     
     private enum TypeName {
         case `struct`
@@ -26,7 +26,7 @@ final class TokenVisitor: SyntaxRewriter {
     override func visitPre(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
         if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
-            getedText.append("->" + currentSyntaxNodeType)
+            syntaxes.append(currentSyntaxNodeType + "{")
         }
 //        var parentSyntaxNodeType = ""
 //        if let parent = node.parent?.syntaxNodeType {
@@ -63,14 +63,14 @@ final class TokenVisitor: SyntaxRewriter {
     }
     
     override func visit(_ token: TokenSyntax) -> Syntax {
-        getedText.append(token.text)
+        syntaxes.append(token.text)
         return token._syntaxNode
     }
     
     override func visitPost(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
         if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
-            getedText.append("<-" + currentSyntaxNodeType)
+            syntaxes.append(currentSyntaxNodeType + "}")
         }
         
         // CodeBlockItemSyntaxのとき

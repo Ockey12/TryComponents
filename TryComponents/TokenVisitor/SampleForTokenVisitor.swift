@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+//struct SampleStruct {
+//
+//}
+
 protocol ProtocolSample {
 
 }
@@ -33,21 +37,27 @@ private struct StructSample: ProtocolSample {
         return 0
     }
 }
-//
-//struct NotPrivateStruct {
-//
-//}
-//
-//private struct PrivateStruct {
-//
-//}
+
+struct NotPrivateStruct {
+
+}
+
+private struct PrivateStruct {
+
+}
 
 struct SampleStruct {
 //    static var StaticVariable = 100
     struct NestedStruct1 {
-        
+
     }
     struct NestedStruct2 {
+
+    }
+}
+
+extension SampleStruct {
+    func SampleFunction() {
         
     }
 }
