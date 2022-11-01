@@ -14,6 +14,7 @@ struct EnumHolder {
     var conformingProtocols = [String]()
     var cases = [Case]()
     var variables = [VariableHolder]()
+    var functions = [FunctionHolder]()
     
     // For child types that are nested by this type
     var nestingStructs = [StructHolder]()
