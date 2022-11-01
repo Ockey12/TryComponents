@@ -67,7 +67,7 @@ final class TokenVisitor: SyntaxRewriter {
         if tokenKind.hasPrefix("identifier") {
             syntaxes.append("identifier:" + "\(token.text)")
         }
-        syntaxes.append(token.text)
+//        syntaxes.append(token.text)
         return token._syntaxNode
     }
     
