@@ -11,7 +11,7 @@ struct EnumHolder {
     var accessLevel: AccessLevel = .Internal
     var name = ""
     var rawvalueType = ""
-    var conformingProtocols = [String]()
+    var conformingProtocolNames = [String]()
     var cases = [Case]()
     var variables = [VariableHolder]()
     var functions = [FunctionHolder]()

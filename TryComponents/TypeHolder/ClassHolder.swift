@@ -11,7 +11,7 @@ struct ClassHolder {
     var accessLevel: AccessLevel = .Internal
     var name = ""
     var inheritedClass = ""
-    var conformingProtocols = [String]()
+    var conformingProtocolNames = [String]()
     var variables = [VariableHolder]()
     var functions = [FunctionHolder]()
     
