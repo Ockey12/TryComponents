@@ -11,6 +11,12 @@ import Foundation
 struct SyntaxArrayParser {
 //    var syntaxes: [String]
     private var resultStructHolders = [StructHolder]()
+    private var resultClassHolders = [ClassHolder]()
+    private var resultEnumHolders = [EnumHolder]()
+//    private var resultProtocolHolders = []
+    private var resultVariableHolders = [VariableHolder]()
+    private var resultFunctionHolders = [FunctionHolder]()
+//    private var resultExtensionHolders = []
     
     struct StackArrayElement {
         var holderType: HolderType
@@ -25,25 +31,6 @@ struct SyntaxArrayParser {
         case variable = "Variable"
         case function = "Function"
         case `extension` = "Extension"
-        
-//        func getStringCase() -> String {
-//            switch self {
-//            case .struct:
-//                return "Struct"
-//            case .class:
-//                return "Class"
-//            case .enum:
-//                return "Enum"
-//            case .protocol:
-//                return "Protocol"
-//            case .variable:
-//                return "Variable"
-//            case .function:
-//                return "Function"
-//            case .extension:
-//                return "Extension"
-//            }
-//        }
     }
     
     mutating func parse(syntaxes: [String]) {
@@ -253,15 +240,15 @@ struct SyntaxArrayParser {
                         case .struct:
                             resultStructHolders.append(currentStructHolder)
                         case .class:
-                            break
+                            resultClassHolders.append(currentClassHolder)
                         case .enum:
-                            break
+                            resultEnumHolders.append(currentEnumHolder)
                         case .protocol:
                             break
                         case .variable:
-                            break
+                            resultVariableHolders.append(currentVariableHolder)
                         case .function:
-                            break
+                            resultFunctionHolders.append(currentFunctionHolder)
                         case .extension:
                             break
                         }
@@ -277,4 +264,28 @@ struct SyntaxArrayParser {
     func getResultStructHolders() -> [StructHolder] {
         return resultStructHolders
     }
+    
+    func getResultClassHolders() -> [ClassHolder] {
+        return resultClassHolders
+    }
+    
+    func getResultEnumHolders() -> [EnumHolder] {
+        return resultEnumHolders
+    }
+    
+//    func getResultProtocolHolders() -> [] {
+//
+//    }
+    
+    func getResultVariableHolders() -> [VariableHolder] {
+        return resultVariableHolders
+    }
+    
+    func getResultFunctionHolders() -> [FunctionHolder] {
+        return resultFunctionHolders
+    }
+    
+//    func getResultExtensionHolders() -> [] {
+//
+//    }
 }
