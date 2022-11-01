@@ -28,38 +28,6 @@ final class TokenVisitor: SyntaxRewriter {
         if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
             syntaxes.append(currentSyntaxNodeType + "{")
         }
-//        var parentSyntaxNodeType = ""
-//        if let parent = node.parent?.syntaxNodeType {
-//            parentSyntaxNodeType = "\(parent)"
-//        }
-        
-        // Struct/Class/Enum/ProtocolDeclSyntaxのとき
-        // currentStruct/Class/Enumを初期化する
-        // currentTypeFlagを、宣言している型に更新する
-//        switch currentSyntaxNodeType {
-//        case SyntaxNodeType.structDeclSyntax:
-//            if parentSyntaxNodeType == SyntaxNodeType.codeBlockItemSyntax {
-////                currentStruct = StructHolder()
-//                currentTypeFlag = .struct
-//                getedText.append("->StructDeclSyntax")
-//            }
-//        case SyntaxNodeType.classDeclSyntax:
-//            if parentSyntaxNodeType == SyntaxNodeType.codeBlockItemSyntax {
-//                currentClass = ClassHolder()
-//                currentTypeFlag = .class
-//            }
-//        case SyntaxNodeType.enumDeclSyntax:
-//            if parentSyntaxNodeType == SyntaxNodeType.codeBlockItemSyntax {
-//                currentEnum = EnumHolder()
-//                currentTypeFlag = .enum
-//            }
-//        case SyntaxNodeType.protocolDeclSyntax:
-//            if parentSyntaxNodeType == SyntaxNodeType.codeBlockItemSyntax {
-//                currentTypeFlag = .protocol
-//            }
-//        default:
-//            break
-//        }
     }
     
     override func visit(_ token: TokenSyntax) -> Syntax {
@@ -67,7 +35,6 @@ final class TokenVisitor: SyntaxRewriter {
         if tokenKind.hasPrefix("identifier") {
             syntaxes.append("identifier:" + "\(token.text)")
         }
-//        syntaxes.append(token.text)
         return token._syntaxNode
     }
     
@@ -76,34 +43,5 @@ final class TokenVisitor: SyntaxRewriter {
         if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
             syntaxes.append(currentSyntaxNodeType + "}")
         }
-        
-        // CodeBlockItemSyntaxのとき
-        // 型の宣言が終わる
-        // currentStruct/Class/EnumをgetedTypesに格納する
-        // currentStruct/Class/Enumにnilを代入して初期状態に戻す
-//        if currentSyntaxNodeType == SyntaxNodeType.codeBlockItemSyntax {
-//            switch currentTypeFlag {
-//            case .struct:
-////                if let structHolder = currentStruct {
-////                    getedTypes["\(structHolder.name)"] = ["\(structHolder.name)": structHolder]
-////                }
-////                currentStruct = nil
-//                getedText.append("<-StructDeclSyntax")
-//            case .class:
-//                if let classHolder = currentClass {
-//                    getedTypes["\(classHolder.name)"] = ["\(classHolder.name)": classHolder]
-//                }
-//                currentClass = nil
-//            case .enum:
-//                if let enumHolder = currentEnum {
-//                    getedTypes["\(enumHolder.name)"] = ["\(enumHolder.name)": enumHolder]
-//                }
-//                currentEnum = nil
-//            case .protocol:
-//                break
-//            default:
-//                break
-//            }
-//        }
     }
 }
