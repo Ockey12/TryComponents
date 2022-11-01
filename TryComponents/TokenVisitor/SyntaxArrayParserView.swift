@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftSyntax
 import SwiftSyntaxParser
 
-struct SyntaxesParserView: View {
+struct SyntaxArrayParserView: View {
     @State private var importerPresented = false
     @State private var sourceCode: String = ""
     @State private var rightContent: String = ""
@@ -48,13 +48,38 @@ struct SyntaxesParserView: View {
                 
                 var syntaxesParser = SyntaxArrayParser()
                 syntaxesParser.parse(syntaxes: visitor.syntaxes)
+                // protocol
+                let protocolHolders = syntaxesParser.getResultProtocolHolders()
+                for protocolHolder in protocolHolders {
+                    rightContent += "protocolName: " + protocolHolder.name + "\n"
+                    for variable in protocolHolder.variables {
+                        rightContent += "variableName: " + variable.name + "\n"
+                    }
+                    for funct in protocolHolder.functions {
+                        rightContent += "functionName: "  + funct.name + "\n"
+                    }
+                    
+                    rightContent += "\n"
+                }
+                // struct
                 let structHolders = syntaxesParser.getResultStructHolders()
                 for structHolder in structHolders {
                     rightContent += "structName: " + structHolder.name + "\n"
+                    for nestStruct in structHolder.nestingStructs {
+                        rightContent += "nestStructName: " + nestStruct.name + "\n"
+                    }
+                    for nestEnum in structHolder.nestingEnums {
+                        rightContent += "nestEnumName: " + nestEnum.name + "\n"
+                    }
                     for variable in structHolder.variables {
                         rightContent += "variableName: " + variable.name + "\n"
                     }
-                }
+                    for funct in structHolder.functions {
+                        rightContent += "functionName: "  + funct.name + "\n"
+                    }
+                    
+                    rightContent += "\n"
+                } // end for
             case .failure:
                 print("failure")
             }
@@ -64,6 +89,6 @@ struct SyntaxesParserView: View {
 
 struct SyntaxesParserView_Previews: PreviewProvider {
     static var previews: some View {
-        SyntaxesParserView()
+        SyntaxArrayParserView()
     }
 }
