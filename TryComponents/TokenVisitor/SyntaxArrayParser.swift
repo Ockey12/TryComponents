@@ -251,7 +251,8 @@ struct SyntaxArrayParser {
                             break
                         }
                     } // end if
-                    
+                    // 親HolderまたはresultHoldersに格納したものをスタック配列から削除する
+                    stackArray.remove(at: positionInStack)
                     positionInStack -= 1
                 }
             }

@@ -47,7 +47,9 @@ import SwiftUI
 //}
 
 struct SampleStruct {
-    var variableSample = 1
+    var variable1 = 1
+    var variable2 = 2
+    var variable3 = 3
 //    static var StaticVariable = 100
 //    struct NestedStruct1 {
 //
