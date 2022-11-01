@@ -16,7 +16,7 @@ struct ClassHolder {
     var functions = [FunctionHolder]()
     
     // For child types that are nested by this type
-    var nesting = [StructHolder]()
+    var nestingStructs = [StructHolder]()
     var nestingClasses = [ClassHolder]()
     var nestingEnums = [EnumHolder]()
     
