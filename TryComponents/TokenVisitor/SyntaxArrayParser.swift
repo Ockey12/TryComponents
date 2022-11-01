@@ -220,7 +220,22 @@ struct SyntaxArrayParser {
                                 break
                             } // end switch
                         case .enum: // 親がenumのとき
-                            break
+                            switch currentHolderTypeFlag { // 直近に宣言中のHolderType
+                            case .struct:
+                                enumHolders[parentName]?.nestingStructs.append(currentStructHolder)
+                            case .class:
+                                enumHolders[parentName]?.nestingClasses.append(currentClassHolder)
+                            case .enum:
+                                enumHolders[parentName]?.nestingEnums.append(currentEnumHolder)
+                            case .protocol:
+                                break
+                            case .variable:
+                                enumHolders[parentName]?.variables.append(currentVariableHolder)
+                            case .function:
+                                enumHolders[parentName]?.functions.append(currentFunctionHolder)
+                            case .extension:
+                                break
+                            }
                         case .protocol: // 親がprotocolのとき
                             break
                         case .variable: // 親がvariableのとき
