@@ -52,7 +52,8 @@
 		ACA803C2290EAB87003C22A2 /* AstVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C1290EAB87003C22A2 /* AstVisitor.swift */; };
 		ACA803C4290EABE5003C22A2 /* AstVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */; };
 		ACA803C6290F9C83003C22A2 /* SyntaxArrayParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */; };
-		ACA803C829101AF0003C22A2 /* SyntaxesParserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */; };
+		ACA803C829101AF0003C22A2 /* SyntaxArrayParserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C729101AF0003C22A2 /* SyntaxArrayParserView.swift */; };
+		ACA803CA29116599003C22A2 /* ProtocolHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C929116599003C22A2 /* ProtocolHolder.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -106,7 +107,8 @@
 		ACA803C1290EAB87003C22A2 /* AstVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstVisitor.swift; sourceTree = "<group>"; };
 		ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstVisitorView.swift; sourceTree = "<group>"; };
 		ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxArrayParser.swift; sourceTree = "<group>"; };
-		ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxesParserView.swift; sourceTree = "<group>"; };
+		ACA803C729101AF0003C22A2 /* SyntaxArrayParserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxArrayParserView.swift; sourceTree = "<group>"; };
+		ACA803C929116599003C22A2 /* ProtocolHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolHolder.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 				AC2608B8290A7296000FD2AE /* TokenVisitor.swift */,
 				ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */,
 				ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */,
-				ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */,
+				ACA803C729101AF0003C22A2 /* SyntaxArrayParserView.swift */,
 				ACA803C1290EAB87003C22A2 /* AstVisitor.swift */,
 				ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */,
 				ACA803BD290E60C8003C22A2 /* SyntaxNodeType.swift */,
@@ -266,6 +268,7 @@
 				ACA803B5290E4785003C22A2 /* EnumHolder.swift */,
 				ACA803B7290E479E003C22A2 /* FunctionHolder.swift */,
 				ACA803B9290E47BF003C22A2 /* VariableHolder.swift */,
+				ACA803C929116599003C22A2 /* ProtocolHolder.swift */,
 			);
 			path = TypeHolder;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				ACA803BE290E60C8003C22A2 /* SyntaxNodeType.swift in Sources */,
 				AC6F374F28ACC3D3001674C5 /* CodeScrollView.swift in Sources */,
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
+				ACA803CA29116599003C22A2 /* ProtocolHolder.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
 				ACA803C2290EAB87003C22A2 /* AstVisitor.swift in Sources */,
 				ACA803C4290EABE5003C22A2 /* AstVisitorView.swift in Sources */,
@@ -401,7 +405,7 @@
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
 				AC6F374028A4E93B001674C5 /* SwiftASTView.swift in Sources */,
-				ACA803C829101AF0003C22A2 /* SyntaxesParserView.swift in Sources */,
+				ACA803C829101AF0003C22A2 /* SyntaxArrayParserView.swift in Sources */,
 				ACA803B6290E4785003C22A2 /* EnumHolder.swift in Sources */,
 				ACA803B0290E45D5003C22A2 /* StructHolder.swift in Sources */,
 				AC9290A7289CFDC400F4900E /* TryComponents.xcdatamodeld in Sources */,
