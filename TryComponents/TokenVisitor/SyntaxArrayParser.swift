@@ -8,7 +8,7 @@
 import Foundation
 
 // TokenVisitorクラスが出力したsyntaxes配列を解析し、Holderのインスタンスを生成する
-struct SyntaxesParser {
+struct SyntaxArrayParser {
 //    var syntaxes: [String]
     private var resultStructHolders = [StructHolder]()
     
@@ -186,8 +186,7 @@ struct SyntaxesParser {
                         // 親のHolderType
                         switch parentHolderType {
                         case .struct: // 親がstructのとき
-                            // 直近に宣言中のHolderType
-                            switch currentHolderTypeFlag {
+                            switch currentHolderTypeFlag { // 直近に宣言中のHolderType
                             case .struct:
                                 structHolders[parentName]?.nestingStructs.append(currentStructHolder)
                             case .class:
@@ -204,8 +203,7 @@ struct SyntaxesParser {
                                 break
                             } // end switch
                         case .class: // 親がclassのとき
-                            // 直近に宣言中のHolderType
-                            switch currentHolderTypeFlag {
+                            switch currentHolderTypeFlag { // 直近に宣言中のHolderType
                             case .struct:
                                 classHolders[parentName]?.nestingStructs.append(currentStructHolder)
                             case .class:
@@ -221,17 +219,19 @@ struct SyntaxesParser {
                             case .extension:
                                 break
                             } // end switch
-                        case .enum:
+                        case .enum: // 親がenumのとき
                             break
-                        case .protocol:
+                        case .protocol: // 親がprotocolのとき
                             break
-                        case .variable:
+                        case .variable: // 親がvariableのとき
                             break
-                        case .function:
+                        case .function: // 親がfunctionのとき
                             break
-                        case .extension:
+                        case .extension: // 親がextensionのとき
                             break
                         } // end switch
+                        
+                        currentHolderTypeFlag = parentHolderType
                     } else {
                         // 親Holderがないとき、型全体の宣言が終わった
                         switch currentHolderTypeFlag {

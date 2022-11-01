@@ -51,7 +51,7 @@
 		ACA803C0290E668F003C22A2 /* NestParentTypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803BF290E668F003C22A2 /* NestParentTypeName.swift */; };
 		ACA803C2290EAB87003C22A2 /* AstVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C1290EAB87003C22A2 /* AstVisitor.swift */; };
 		ACA803C4290EABE5003C22A2 /* AstVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */; };
-		ACA803C6290F9C83003C22A2 /* SyntaxesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C5290F9C83003C22A2 /* SyntaxesParser.swift */; };
+		ACA803C6290F9C83003C22A2 /* SyntaxArrayParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */; };
 		ACA803C829101AF0003C22A2 /* SyntaxesParserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
@@ -105,7 +105,7 @@
 		ACA803BF290E668F003C22A2 /* NestParentTypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestParentTypeName.swift; sourceTree = "<group>"; };
 		ACA803C1290EAB87003C22A2 /* AstVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstVisitor.swift; sourceTree = "<group>"; };
 		ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstVisitorView.swift; sourceTree = "<group>"; };
-		ACA803C5290F9C83003C22A2 /* SyntaxesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxesParser.swift; sourceTree = "<group>"; };
+		ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxArrayParser.swift; sourceTree = "<group>"; };
 		ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxesParserView.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			children = (
 				AC2608B8290A7296000FD2AE /* TokenVisitor.swift */,
 				ACA803AA290D1993003C22A2 /* TokenVisitorView.swift */,
-				ACA803C5290F9C83003C22A2 /* SyntaxesParser.swift */,
+				ACA803C5290F9C83003C22A2 /* SyntaxArrayParser.swift */,
 				ACA803C729101AF0003C22A2 /* SyntaxesParserView.swift */,
 				ACA803C1290EAB87003C22A2 /* AstVisitor.swift */,
 				ACA803C3290EABE5003C22A2 /* AstVisitorView.swift */,
@@ -373,7 +373,7 @@
 				ACA098A228E04DCA00670F00 /* IndexFrame.swift in Sources */,
 				ACA803C0290E668F003C22A2 /* NestParentTypeName.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
-				ACA803C6290F9C83003C22A2 /* SyntaxesParser.swift in Sources */,
+				ACA803C6290F9C83003C22A2 /* SyntaxArrayParser.swift in Sources */,
 				ACA098AA28E16EFD00670F00 /* HeaderPartsFrameWithText.swift in Sources */,
 				ACA803B2290E460E003C22A2 /* AccessLevel.swift in Sources */,
 				ACA803BE290E60C8003C22A2 /* SyntaxNodeType.swift in Sources */,

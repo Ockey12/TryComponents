@@ -46,11 +46,14 @@ struct SyntaxesParserView: View {
                 let visitor = TokenVisitor()
                 _ = visitor.visit(parsedContent)
                 
-                var syntaxesParser = SyntaxesParser()
+                var syntaxesParser = SyntaxArrayParser()
                 syntaxesParser.parse(syntaxes: visitor.syntaxes)
                 let structHolders = syntaxesParser.getResultStructHolders()
                 for structHolder in structHolders {
                     rightContent += "structName: " + structHolder.name + "\n"
+                    for variable in structHolder.variables {
+                        rightContent += "variableName: " + variable.name + "\n"
+                    }
                 }
             case .failure:
                 print("failure")
