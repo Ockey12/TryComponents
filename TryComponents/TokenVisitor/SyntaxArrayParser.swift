@@ -13,7 +13,7 @@ struct SyntaxArrayParser {
     private var resultStructHolders = [StructHolder]()
     private var resultClassHolders = [ClassHolder]()
     private var resultEnumHolders = [EnumHolder]()
-//    private var resultProtocolHolders = []
+    private var resultProtocolHolders = [ProtocolHolder]()
     private var resultVariableHolders = [VariableHolder]()
     private var resultFunctionHolders = [FunctionHolder]()
 //    private var resultExtensionHolders = []
@@ -38,7 +38,7 @@ struct SyntaxArrayParser {
         var structHolders = [String: StructHolder]()
         var classHolders = [String: ClassHolder]()
         var enumHolders = [String: EnumHolder]()
-    //    var protocolHolders = [String: ProtocolHolders]()
+        var protocolHolders = [String: ProtocolHolder]()
         var variableHolders = [String: VariableHolder]()
         var FunctionHolders = [String: FunctionHolder]()
     //    var extensionHolders = [String: ExtensionHolders]()
@@ -47,7 +47,7 @@ struct SyntaxArrayParser {
         var currentStructHolder = StructHolder()
         var currentClassHolder = ClassHolder()
         var currentEnumHolder = EnumHolder()
-//        var currentProtocolHolder: ProtocolHolder
+        var currentProtocolHolder = ProtocolHolder()
         var currentVariableHolder = VariableHolder()
         var currentFunctionHolder = FunctionHolder()
 //        var currentExtensionHolder: ExtensionHolder
@@ -88,6 +88,7 @@ struct SyntaxArrayParser {
                         currentEnumHolder = EnumHolder()
                         currentHolderTypeFlag = .enum
                     case HolderType.protocol.rawValue:
+                        currentProtocolHolder = ProtocolHolder()
                         currentHolderTypeFlag = .protocol
                     case HolderType.variable.rawValue:
                         currentVariableHolder = VariableHolder()
@@ -117,8 +118,8 @@ struct SyntaxArrayParser {
                         currentEnumHolder.name = elementText
                         enumHolders[elementText] = currentEnumHolder
                     case .protocol:
-    //                    currentProtocolHolder.name = elementText
-                        break
+                        currentProtocolHolder.name = elementText
+                        protocolHolders[elementText] = currentProtocolHolder
                     case .variable:
                         currentVariableHolder.name = elementText
                         variableHolders[elementText] = currentVariableHolder
@@ -151,8 +152,9 @@ struct SyntaxArrayParser {
                             currentEnumHolder = enumHolder
                         }
                     case .protocol:
-//                        if let protocolHolder =
-                        break
+                        if let protocolHolder = protocolHolders[currentHolderName] {
+                            currentProtocolHolder = protocolHolder
+                        }
                     case .variable:
                         if let variableHolder = variableHolders[currentHolderName] {
                             currentVariableHolder = variableHolder
@@ -224,7 +226,22 @@ struct SyntaxArrayParser {
                                 break
                             }
                         case .protocol: // 親がprotocolのとき
-                            break
+                            switch currentHolderTypeFlag { // 直近に宣言中のHolderType
+                            case .struct:
+                                break
+                            case .class:
+                                break
+                            case .enum:
+                                break
+                            case .protocol:
+                                break
+                            case .variable:
+                                protocolHolders[parentName]?.variables.append(currentVariableHolder)
+                            case .function:
+                                protocolHolders[parentName]?.functions.append(currentFunctionHolder)
+                            case .extension:
+                                break
+                            }
                         case .variable: // 親がvariableのとき
                             break
                         case .function: // 親がfunctionのとき
@@ -244,7 +261,7 @@ struct SyntaxArrayParser {
                         case .enum:
                             resultEnumHolders.append(currentEnumHolder)
                         case .protocol:
-                            break
+                            resultProtocolHolders.append(currentProtocolHolder)
                         case .variable:
                             resultVariableHolders.append(currentVariableHolder)
                         case .function:
@@ -273,9 +290,9 @@ struct SyntaxArrayParser {
         return resultEnumHolders
     }
     
-//    func getResultProtocolHolders() -> [] {
-//
-//    }
+    func getResultProtocolHolders() -> [ProtocolHolder] {
+        return resultProtocolHolders
+    }
     
     func getResultVariableHolders() -> [VariableHolder] {
         return resultVariableHolders

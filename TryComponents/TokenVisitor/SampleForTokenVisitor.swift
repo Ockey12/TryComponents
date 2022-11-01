@@ -12,11 +12,15 @@ import SwiftUI
 //
 //}
 
-//protocol ProtocolSample {
-//
-//}
-//
-//private struct StructSample: ProtocolSample {
+protocol Protocol1 {
+
+}
+
+protocol Protocol2 {
+    
+}
+
+private struct StructSample: Protocol1, Protocol2 {
 //    struct NestedStruct {
 //        var num = 1
 //    }
@@ -36,20 +40,20 @@ import SwiftUI
 //    func ReturnFunction() -> Int {
 //        return 0
 //    }
-//}
-//
+}
+
 //struct NotPrivateStruct {
 //
 //}
 //
 //private struct PrivateStruct {
-//
+//    func sampleFunction() {}
 //}
-
-struct SampleStruct {
-    var variable1 = 1
-    var variable2 = 2
-    var variable3 = 3
+//
+//struct SampleStruct {
+//    var variable1 = 1
+//    var variable2 = 2
+//    var variable3 = 3
 //    static var StaticVariable = 100
 //    struct NestedStruct1 {
 //
@@ -57,7 +61,7 @@ struct SampleStruct {
 //    struct NestedStruct2 {
 //
 //    }
-}
+//}
 
 //extension SampleStruct {
 //    func SampleFunction() {
