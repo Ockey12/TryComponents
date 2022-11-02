@@ -6,7 +6,18 @@
 //
 
 import Foundation
-import SwiftUI
+//import SwiftUI
+
+struct FunctionStruct {
+//    private func privateFunction() {}
+//    func ExtParamNameFunction(out in: Int) {}
+//    func InoutFunction(num: inout Int) {}
+//    func VariadicFunction(num: Int...) {}
+//    func DefaultFunction(text: String = "sampleText") {}
+//    func ReturnFunction() -> Int {
+//        return 0
+//    }
+}
 
 //struct SampleStruct {
 //
@@ -16,18 +27,35 @@ protocol Protocol1 {
 
 }
 
+
 protocol Protocol2 {
 
 }
 
-private struct StructSample {
+struct ConformingStruct: Protocol1, Protocol2 {
+    
+}
+//struct SampleStruct: Protocol1 {
+//    var variable1 = 1
+//    var variable2 = 2
+//    var variable3 = 3
+//    static var StaticVariable = 100
+//    struct NestedStruct1 {
+//
+//    }
+//    struct NestedStruct2 {
+//
+//    }
+//}
+
+//private struct StructSample {
 //    struct NestedStruct {
 //        var num = 1
 //    }
 //    @State private var VariableSample: Int = 1
-    func ExtParamNameFunction(out in: Int) {
-
-    }
+//    func ExtParamNameFunction(out in: Int) {
+//
+//    }
 //    func InoutFunction(num: inout Int) {
 //
 //    }
@@ -40,7 +68,7 @@ private struct StructSample {
 //    func ReturnFunction() -> Int {
 //        return 0
 //    }
-}
+//}
 
 //struct NotPrivateStruct {
 //
