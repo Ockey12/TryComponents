@@ -54,15 +54,34 @@ struct SyntaxArrayParser {
         
         var positionInStack = -1
         var skipImportDeclFlag = false
-        var inheritedTypeSyntaxFlag = false
+//        var inheritedTypeSyntaxFlag = false
         
         let startDeclSyntaxKeyword = "DeclSyntax{"
         let endDeclSyntaxKeyword = "DeclSyntax}"
-        let identifierKeyword = "identifier:"
+        let identifierKeyword = "identifier"
         let startImportDeclSyntax = "ImportDeclSyntax{"
         let endImportDeclSyntax = "ImportDeclSyntax}"
         let startInheritedTypeSyntax = "InheritedTypeSyntax{"
         let endInheritedTypeSyntax = "InheritedTypeSyntax}"
+        
+        enum syntaxNodeTypeForIdentifier {
+            case structDeclSyntax
+            case protocolDeclSyntax
+            case inheritedTypeSyntax
+            
+            init?(type: String) {
+                switch type {
+                case "StructDeclSyntax":
+                    self = .structDeclSyntax
+                case "ProtocolDeclSyntax":
+                    self = .protocolDeclSyntax
+                case "InheritedTypeSyntax":
+                    self = .inheritedTypeSyntax
+                default:
+                    return nil
+                }
+            }
+        }
         
         for element in syntaxes {
             print(element)
@@ -106,21 +125,43 @@ struct SyntaxArrayParser {
                     } // end switch
                 } else if element.hasPrefix(identifierKeyword) {
                     // identifierKeywordを見つけたとき
-                    // elementTextは直近に初期化したHolderのnameプロパティに入る値を持っている
-                    let elementText = String(element.dropFirst(identifierKeyword.count))
+                    // identifierContents[0]: "identifier"
+                    // identifierContents[1]: syntaxNodeType
+                    // identifierContents[2]: token.text
+                    let identifierContents = element.components(separatedBy: " ")
+                    print("identifierContents[0]: " + identifierContents[0])
+                    print("identifierContents[1]: " + identifierContents[1])
+                    print("identifierContents[2]: " + identifierContents[2])
+                    guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1]) else {
+                        fatalError("ERROR: guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1])")
+                    }
+                    let name = identifierContents[2]
                     // currentHolderTypeFlagを参照して、直近に初期化したHolderのnameプロパティを更新する
                     // HoldersにcurrentHolderを格納する
-                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
+                    switch syntaxNodeType {
+                    case .structDeclSyntax: // structの宣言
+                        currentStructHolder.name = name
+                        structHolders[name] = currentStructHolder
+                        // 全体のスタック配列にHolderの種類と名前を追加する
+                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
+                        positionInStack += 1
+                    case .protocolDeclSyntax: // protocolの宣言
+                        currentProtocolHolder.name = name
+                        protocolHolders[name] = currentProtocolHolder
+                        // 全体のスタック配列にHolderの種類と名前を追加する
+                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
+                        positionInStack += 1
+                    case .inheritedTypeSyntax: // protocolの宣言ではなく、protocolへの準拠
                         let holderName = stackArray[positionInStack].name
                         switch currentHolderTypeFlag {
                         case .struct:
-                            structHolders[holderName]?.conformingProtocolNames.append(elementText)
+                            structHolders[holderName]?.conformingProtocolNames.append(name)
                         case .class:
-                            classHolders[holderName]?.conformingProtocolNames.append(elementText)
+                            classHolders[holderName]?.conformingProtocolNames.append(name)
                         case .enum:
-                            enumHolders[holderName]?.conformingProtocolNames.append(elementText)
+                            enumHolders[holderName]?.conformingProtocolNames.append(name)
                         case .protocol:
-                            protocolHolders[holderName]?.inheritedProtocolNames.append(elementText)
+                            protocolHolders[holderName]?.inheritedProtocolNames.append(name)
                         case .variable:
                             break
                         case .function:
@@ -128,41 +169,56 @@ struct SyntaxArrayParser {
                         case .extension:
                             break
                         } // end switch
-                    } else {
-                        switch currentHolderTypeFlag {
-                        case .struct:
-                            currentStructHolder.name = elementText
-                            structHolders[elementText] = currentStructHolder
-                        case .class:
-                            currentClassHolder.name = elementText
-                            classHolders[elementText] = currentClassHolder
-                        case .enum:
-                            currentEnumHolder.name = elementText
-                            enumHolders[elementText] = currentEnumHolder
-                        case .protocol:
-                            currentProtocolHolder.name = elementText
-                            protocolHolders[elementText] = currentProtocolHolder
-                        case .variable:
-                            currentVariableHolder.name = elementText
-                            variableHolders[elementText] = currentVariableHolder
-                        case .function:
-                            currentFunctionHolder.name = elementText
-                            FunctionHolders[elementText] = currentFunctionHolder
-                        case .extension:
-        //                    currentExtensionHolder.name = elementText
-                            break
-                        } // end switch
-                        // 全体のスタック配列にHolderの種類と名前を追加する
-                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: elementText))
-                        positionInStack += 1
-                    } // end if
-                } else if element == startInheritedTypeSyntax {
-                    inheritedTypeSyntaxFlag = true
-                } else if element == endInheritedTypeSyntax {
-                    inheritedTypeSyntaxFlag = false
+                    }
+//                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
+//                        let holderName = stackArray[positionInStack].name
+//                        switch currentHolderTypeFlag {
+//                        case .struct:
+//                            structHolders[holderName]?.conformingProtocolNames.append(name)
+//                        case .class:
+//                            classHolders[holderName]?.conformingProtocolNames.append(name)
+//                        case .enum:
+//                            enumHolders[holderName]?.conformingProtocolNames.append(name)
+//                        case .protocol:
+//                            protocolHolders[holderName]?.inheritedProtocolNames.append(name)
+//                        case .variable:
+//                            break
+//                        case .function:
+//                            break
+//                        case .extension:
+//                            break
+//                        } // end switch
+//                    } else {
+//                        switch currentHolderTypeFlag {
+//                        case .struct:
+//                            currentStructHolder.name = name
+//                            structHolders[name] = currentStructHolder
+//                        case .class:
+//                            currentClassHolder.name = name
+//                            classHolders[name] = currentClassHolder
+//                        case .enum:
+//                            currentEnumHolder.name = name
+//                            enumHolders[name] = currentEnumHolder
+//                        case .protocol:
+//                            currentProtocolHolder.name = name
+//                            protocolHolders[name] = currentProtocolHolder
+//                        case .variable:
+//                            currentVariableHolder.name = name
+//                            variableHolders[name] = currentVariableHolder
+//                        case .function:
+//                            currentFunctionHolder.name = name
+//                            FunctionHolders[name] = currentFunctionHolder
+//                        case .extension:
+//        //                    currentExtensionHolder.name = elementText
+//                            break
+//                        } // end switch
+//                        // 全体のスタック配列にHolderの種類と名前を追加する
+//                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
+//                        positionInStack += 1
+//                    } // end if
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
-                    // 全体のスタック配列から、直近に宣言中のHolderの種類と名前を取得する
+                    // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する
                     let currentHolderName = stackArray[positionInStack].name
                     // 取得した種類に応じたHoldersから、直近に宣言中のHolderを探す
                     switch currentHolderTypeFlag {
