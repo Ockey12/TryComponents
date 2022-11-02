@@ -11,5 +11,5 @@ struct ProtocolHolder {
     var name = ""
     var variables = [VariableHolder]()
     var functions = [FunctionHolder]()
-    var inheritedProtocols = [ProtocolHolder]()
+    var inheritedProtocolNames = [String]()
 }
