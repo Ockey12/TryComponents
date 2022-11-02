@@ -65,6 +65,10 @@ struct SyntaxArrayParserView: View {
                 let structHolders = syntaxesParser.getResultStructHolders()
                 for structHolder in structHolders {
                     rightContent += "structName: " + structHolder.name + "\n"
+                    for conformingProtocolName in structHolder.conformingProtocolNames {
+                        print(conformingProtocolName)
+                        rightContent += "conformingProtocolName: " + conformingProtocolName + "\n"
+                    }
                     for nestStruct in structHolder.nestingStructs {
                         rightContent += "nestStructName: " + nestStruct.name + "\n"
                     }

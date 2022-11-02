@@ -25,7 +25,7 @@ final class TokenVisitor: SyntaxRewriter {
     
     override func visitPre(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
-        if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
+        if currentSyntaxNodeType.hasSuffix("DeclSyntax") || (currentSyntaxNodeType == "InheritedTypeSyntax") {
             syntaxes.append(currentSyntaxNodeType + "{")
         }
     }
@@ -40,7 +40,7 @@ final class TokenVisitor: SyntaxRewriter {
     
     override func visitPost(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
-        if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
+        if currentSyntaxNodeType.hasSuffix("DeclSyntax") || (currentSyntaxNodeType == "InheritedTypeSyntax") {
             syntaxes.append(currentSyntaxNodeType + "}")
         }
     }

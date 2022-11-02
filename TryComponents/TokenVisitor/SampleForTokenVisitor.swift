@@ -17,17 +17,17 @@ protocol Protocol1 {
 }
 
 protocol Protocol2 {
-    
+
 }
 
-private struct StructSample: Protocol1, Protocol2 {
+private struct StructSample {
 //    struct NestedStruct {
 //        var num = 1
 //    }
 //    @State private var VariableSample: Int = 1
-//    func ExtParamNameFunction(out in: Int) {
-//
-//    }
+    func ExtParamNameFunction(out in: Int) {
+
+    }
 //    func InoutFunction(num: inout Int) {
 //
 //    }

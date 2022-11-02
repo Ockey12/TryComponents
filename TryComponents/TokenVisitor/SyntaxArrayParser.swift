@@ -53,25 +53,28 @@ struct SyntaxArrayParser {
 //        var currentExtensionHolder: ExtensionHolder
         
         var positionInStack = -1
-        var skipFlag = false
+        var skipImportDeclFlag = false
+        var inheritedTypeSyntaxFlag = false
         
         let startDeclSyntaxKeyword = "DeclSyntax{"
         let endDeclSyntaxKeyword = "DeclSyntax}"
         let identifierKeyword = "identifier:"
         let startImportDeclSyntax = "ImportDeclSyntax{"
         let endImportDeclSyntax = "ImportDeclSyntax}"
+        let startInheritedTypeSyntax = "InheritedTypeSyntax{"
+        let endInheritedTypeSyntax = "InheritedTypeSyntax}"
         
         for element in syntaxes {
             print(element)
             // Import文は必要じゃないので、ImportDeclSyntaxを抜けるまではスキップする
-            if element.hasPrefix(startImportDeclSyntax) {
-                skipFlag = true
-            } else if element.hasPrefix(endImportDeclSyntax) {
-                skipFlag = false
+            if element == startImportDeclSyntax {
+                skipImportDeclFlag = true
+            } else if element == endImportDeclSyntax {
+                skipImportDeclFlag = false
                 continue
             } // end if
             
-            if !skipFlag {
+            if !skipImportDeclFlag {
                 if element.hasSuffix(startDeclSyntaxKeyword) {
                     // startDeclSyntaxKeywordを見つけたとき
                     // 宣言しているものの種類に合わせてcurrentHolderを初期化する
@@ -107,32 +110,56 @@ struct SyntaxArrayParser {
                     let elementText = String(element.dropFirst(identifierKeyword.count))
                     // currentHolderTypeFlagを参照して、直近に初期化したHolderのnameプロパティを更新する
                     // HoldersにcurrentHolderを格納する
-                    switch currentHolderTypeFlag {
-                    case .struct:
-                        currentStructHolder.name = elementText
-                        structHolders[elementText] = currentStructHolder
-                    case .class:
-                        currentClassHolder.name = elementText
-                        classHolders[elementText] = currentClassHolder
-                    case .enum:
-                        currentEnumHolder.name = elementText
-                        enumHolders[elementText] = currentEnumHolder
-                    case .protocol:
-                        currentProtocolHolder.name = elementText
-                        protocolHolders[elementText] = currentProtocolHolder
-                    case .variable:
-                        currentVariableHolder.name = elementText
-                        variableHolders[elementText] = currentVariableHolder
-                    case .function:
-                        currentFunctionHolder.name = elementText
-                        FunctionHolders[elementText] = currentFunctionHolder
-                    case .extension:
-    //                    currentExtensionHolder.name = elementText
-                        break
-                    } // end switch
-                    // 全体のスタック配列にHolderの種類と名前を追加する
-                    stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: elementText))
-                    positionInStack += 1
+                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
+                        let holderName = stackArray[positionInStack].name
+                        switch currentHolderTypeFlag {
+                        case .struct:
+                            structHolders[holderName]?.conformingProtocolNames.append(elementText)
+                        case .class:
+                            classHolders[holderName]?.conformingProtocolNames.append(elementText)
+                        case .enum:
+                            enumHolders[holderName]?.conformingProtocolNames.append(elementText)
+                        case .protocol:
+                            protocolHolders[holderName]?.inheritedProtocolNames.append(elementText)
+                        case .variable:
+                            break
+                        case .function:
+                            break
+                        case .extension:
+                            break
+                        } // end switch
+                    } else {
+                        switch currentHolderTypeFlag {
+                        case .struct:
+                            currentStructHolder.name = elementText
+                            structHolders[elementText] = currentStructHolder
+                        case .class:
+                            currentClassHolder.name = elementText
+                            classHolders[elementText] = currentClassHolder
+                        case .enum:
+                            currentEnumHolder.name = elementText
+                            enumHolders[elementText] = currentEnumHolder
+                        case .protocol:
+                            currentProtocolHolder.name = elementText
+                            protocolHolders[elementText] = currentProtocolHolder
+                        case .variable:
+                            currentVariableHolder.name = elementText
+                            variableHolders[elementText] = currentVariableHolder
+                        case .function:
+                            currentFunctionHolder.name = elementText
+                            FunctionHolders[elementText] = currentFunctionHolder
+                        case .extension:
+        //                    currentExtensionHolder.name = elementText
+                            break
+                        } // end switch
+                        // 全体のスタック配列にHolderの種類と名前を追加する
+                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: elementText))
+                        positionInStack += 1
+                    } // end if
+                } else if element == startInheritedTypeSyntax {
+                    inheritedTypeSyntaxFlag = true
+                } else if element == endInheritedTypeSyntax {
+                    inheritedTypeSyntaxFlag = false
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの種類と名前を取得する
