@@ -155,13 +155,13 @@ struct SyntaxArrayParser {
                         // 全体のスタック配列にHolderの種類と名前を追加する
                         stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
                         positionInStack += 1
-                    case .functionDeclSyntax:
+                    case .functionDeclSyntax: // functionの宣言中
                         currentFunctionHolder.name = name
                         FunctionHolders[name] = currentFunctionHolder
                         // 全体のスタック配列にHolderの種類と名前を追加する
                         stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
                         positionInStack += 1
-                    case .functionParameterSyntax:
+                    case .functionParameterSyntax: // functionの引数の宣言中
                         var parameterHolder = FunctionParameterHolder(internalParameterName: identifierContents[3], type: identifierContents[2])
                         if identifierContents.count == 5 {
                             parameterHolder.externalParameterName = identifierContents[4]
@@ -239,6 +239,11 @@ struct SyntaxArrayParser {
 //                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
 //                        positionInStack += 1
 //                    } // end if
+                } else if element == "inoutKeyword" {
+                    // functionで直前に抽出した引数がinoutキーワードを持っていたとき
+                    let holderName = stackArray[positionInStack].name
+                    let i = (FunctionHolders[holderName]?.parameters.count)! - 1
+                    FunctionHolders[holderName]?.parameters[i].haveInoutKeyword = true
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する

@@ -10,8 +10,8 @@ import Foundation
 
 struct FunctionStruct {
 //    private func privateFunction() {}
-    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
-//    func InoutFunction(num: inout Int) {}
+//    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
+    func InoutFunction(num: inout Int) {}
 //    func VariadicFunction(num: Int...) {}
 //    func DefaultFunction(text: String = "sampleText") {}
 //    func ReturnFunction() -> Int {

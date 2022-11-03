@@ -17,6 +17,7 @@ final class TokenVisitor: SyntaxRewriter {
     var syntaxArray = [String]()
     
     var functionParams = [String]()
+    var haveInoutKeyword = false
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -62,6 +63,8 @@ final class TokenVisitor: SyntaxRewriter {
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
             }
+        } else if tokenKind == "inoutKeyword" {
+            haveInoutKeyword = true
         }
         return token._syntaxNode
     }
@@ -84,6 +87,10 @@ final class TokenVisitor: SyntaxRewriter {
             functionParams = []
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
+            
+            if haveInoutKeyword {
+                syntaxArray.append("inoutKeyword")
+            }
         }
     }
 }

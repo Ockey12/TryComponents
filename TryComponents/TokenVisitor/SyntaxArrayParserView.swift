@@ -86,10 +86,12 @@ struct SyntaxArrayParserView: View {
                                 rightContent += "externalName: " + externalName + ", "
                             }
                             rightContent += "internalName: " + param.internalParameterName + ", "
+                            if param.haveInoutKeyword {
+                                rightContent += "inout, "
+                            }
                             rightContent += "type: " + param.type + "]\n"
                         }
                     }
-                    
                     rightContent += "\n"
                 } // end for
             case .failure:
