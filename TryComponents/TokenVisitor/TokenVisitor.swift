@@ -18,6 +18,7 @@ final class TokenVisitor: SyntaxRewriter {
     
     var functionParams = [String]()
     var haveInoutKeyword = false
+    var isVariadic = false
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -65,6 +66,9 @@ final class TokenVisitor: SyntaxRewriter {
             }
         } else if tokenKind == "inoutKeyword" {
             haveInoutKeyword = true
+        } else if (tokenKind == "ellipsis") &&
+                  (syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax") {
+            isVariadic = true
         }
         return token._syntaxNode
     }
@@ -90,6 +94,12 @@ final class TokenVisitor: SyntaxRewriter {
             
             if haveInoutKeyword {
                 syntaxArray.append("inoutKeyword")
+                haveInoutKeyword = false
+            }
+            
+            if isVariadic {
+                syntaxArray.append("variadicParameter")
+                isVariadic = false
             }
         }
     }

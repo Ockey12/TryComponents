@@ -89,7 +89,11 @@ struct SyntaxArrayParserView: View {
                             if param.haveInoutKeyword {
                                 rightContent += "inout, "
                             }
-                            rightContent += "type: " + param.type + "]\n"
+                            rightContent += "type: " + param.type
+                            if param.isVariadic {
+                                rightContent  += "..."
+                            }
+                            rightContent += "]\n"
                         }
                     }
                     rightContent += "\n"
