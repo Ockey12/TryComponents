@@ -10,15 +10,6 @@ import Foundation
 struct FunctionHolder {
     var accessLevel: AccessLevel = .Internal
     var name = ""
-    var parameters = [Parameter]()
+    var parameters = [FunctionParameterHolder]()
     var returnValueType = ""
-    
-    struct Parameter {
-        var externalParameterName: String?
-        var internalParameterName: String
-        var haveInoutKeyword: Bool
-        var type: String
-        var isVariadic: Bool
-        var defaultParameter: String?
-    }
 }

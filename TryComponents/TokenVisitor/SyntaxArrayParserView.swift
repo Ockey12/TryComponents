@@ -80,6 +80,14 @@ struct SyntaxArrayParserView: View {
                     }
                     for funct in structHolder.functions {
                         rightContent += "functionName: "  + funct.name + "\n"
+                        for param in funct.parameters {
+                            rightContent += "parameter: ["
+                            if let externalName = param.externalParameterName {
+                                rightContent += "externalName: " + externalName + ", "
+                            }
+                            rightContent += "internalName: " + param.internalParameterName + ", "
+                            rightContent += "type: " + param.type + "]\n"
+                        }
                     }
                     
                     rightContent += "\n"

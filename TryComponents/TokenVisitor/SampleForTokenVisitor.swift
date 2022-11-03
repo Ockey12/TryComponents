@@ -10,7 +10,7 @@ import Foundation
 
 struct FunctionStruct {
 //    private func privateFunction() {}
-//    func ExtParamNameFunction(out in: Int) {}
+    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
 //    func InoutFunction(num: inout Int) {}
 //    func VariadicFunction(num: Int...) {}
 //    func DefaultFunction(text: String = "sampleText") {}
@@ -23,18 +23,18 @@ struct FunctionStruct {
 //
 //}
 
-protocol Protocol1 {
-
-}
-
-
-protocol Protocol2 {
-
-}
-
-struct ConformingStruct: Protocol1, Protocol2 {
-    
-}
+//protocol Protocol1 {
+//
+//}
+//
+//
+//protocol Protocol2 {
+//
+//}
+//
+//struct ConformingStruct: Protocol1, Protocol2 {
+//
+//}
 //struct SampleStruct: Protocol1 {
 //    var variable1 = 1
 //    var variable2 = 2

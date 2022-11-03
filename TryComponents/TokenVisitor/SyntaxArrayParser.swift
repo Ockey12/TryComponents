@@ -66,13 +66,20 @@ struct SyntaxArrayParser {
         
         enum syntaxNodeTypeForIdentifier {
             case structDeclSyntax
+            case functionDeclSyntax
+            case functionParameterSyntax
             case protocolDeclSyntax
             case inheritedTypeSyntax
+            
             
             init?(type: String) {
                 switch type {
                 case "StructDeclSyntax":
                     self = .structDeclSyntax
+                case "FunctionDeclSyntax":
+                    self = .functionDeclSyntax
+                case "FunctionParameterSyntax":
+                    self = .functionParameterSyntax
                 case "ProtocolDeclSyntax":
                     self = .protocolDeclSyntax
                 case "InheritedTypeSyntax":
@@ -129,9 +136,12 @@ struct SyntaxArrayParser {
                     // identifierContents[1]: syntaxNodeType
                     // identifierContents[2]: token.text
                     let identifierContents = element.components(separatedBy: " ")
-                    print("identifierContents[0]: " + identifierContents[0])
-                    print("identifierContents[1]: " + identifierContents[1])
-                    print("identifierContents[2]: " + identifierContents[2])
+                    for i in 0..<identifierContents.count {
+                        print("identifierContents[" + "\(i)" + "]: " + identifierContents[i])
+                    }
+//                    print("identifierContents[0]: " + identifierContents[0])
+//                    print("identifierContents[1]: " + identifierContents[1])
+//                    print("identifierContents[2]: " + identifierContents[2])
                     guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1]) else {
                         fatalError("ERROR: guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1])")
                     }
@@ -139,13 +149,26 @@ struct SyntaxArrayParser {
                     // currentHolderTypeFlagを参照して、直近に初期化したHolderのnameプロパティを更新する
                     // HoldersにcurrentHolderを格納する
                     switch syntaxNodeType {
-                    case .structDeclSyntax: // structの宣言
+                    case .structDeclSyntax: // structの宣言中
                         currentStructHolder.name = name
                         structHolders[name] = currentStructHolder
                         // 全体のスタック配列にHolderの種類と名前を追加する
                         stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
                         positionInStack += 1
-                    case .protocolDeclSyntax: // protocolの宣言
+                    case .functionDeclSyntax:
+                        currentFunctionHolder.name = name
+                        FunctionHolders[name] = currentFunctionHolder
+                        // 全体のスタック配列にHolderの種類と名前を追加する
+                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
+                        positionInStack += 1
+                    case .functionParameterSyntax:
+                        var parameterHolder = FunctionParameterHolder(internalParameterName: identifierContents[3], type: identifierContents[2])
+                        if identifierContents.count == 5 {
+                            parameterHolder.externalParameterName = identifierContents[4]
+                        }
+                        let holderName = stackArray[positionInStack].name
+                        FunctionHolders[holderName]?.parameters.append(parameterHolder)
+                    case .protocolDeclSyntax: // protocolの宣言中
                         currentProtocolHolder.name = name
                         protocolHolders[name] = currentProtocolHolder
                         // 全体のスタック配列にHolderの種類と名前を追加する

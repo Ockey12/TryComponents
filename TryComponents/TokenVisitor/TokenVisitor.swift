@@ -16,6 +16,8 @@ final class TokenVisitor: SyntaxRewriter {
     var getedTypes =  [String: Any]()
     var syntaxArray = [String]()
     
+    var functionParams = [String]()
+    
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
     
@@ -43,7 +45,8 @@ final class TokenVisitor: SyntaxRewriter {
             syntaxArray.append(currentSyntaxNodeType + "{")
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
-        } else if currentSyntaxNodeType == "InheritedTypeSyntax" {
+        } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
+                  (currentSyntaxNodeType == "FunctionParameterSyntax") {
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
         }
@@ -52,7 +55,13 @@ final class TokenVisitor: SyntaxRewriter {
     override func visit(_ token: TokenSyntax) -> Syntax {
         let tokenKind = "\(token.tokenKind)"
         if tokenKind.hasPrefix("identifier") {
-            syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
+            if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
+                // functionの引数を宣言中のとき
+                // 外部引数名、内部引数名、型をまとめて1つのidentifier要素にしたいので別の配列に格納する
+                functionParams.append(token.text)
+            } else {
+                syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
+            }
         }
         return token._syntaxNode
     }
@@ -64,6 +73,15 @@ final class TokenVisitor: SyntaxRewriter {
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
         } else if currentSyntaxNodeType == "InheritedTypeSyntax" {
+            syntaxNodeTypeStack.removeLast()
+            positionInStack -= 1
+        } else if currentSyntaxNodeType == "FunctionParameterSyntax" {
+            var identifierParams = "identifier " + "\(syntaxNodeTypeStack[positionInStack])"
+            for param in functionParams.reversed() {
+                identifierParams += " " + param
+            }
+            syntaxArray.append(identifierParams)
+            functionParams = []
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
         }

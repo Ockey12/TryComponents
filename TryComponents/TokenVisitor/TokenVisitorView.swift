@@ -48,7 +48,9 @@ struct TokenVisitorView: View {
                 
 //                rightContent = visitor.getedText
                 
+                print("---TokenVisitorView")
                 for text in visitor.syntaxArray {
+                    print(text)
                     rightContent += text + "\n"
                 }
 //                for content in visitor.getedTypes {
