@@ -81,7 +81,7 @@ struct SyntaxArrayParserView: View {
                     for funct in structHolder.functions {
                         rightContent += "functionName: "  + funct.name + "\n"
                         for param in funct.parameters {
-                            rightContent += "parameter: ["
+                            rightContent += "--parameter: ["
                             if let externalName = param.externalParameterName {
                                 rightContent += "externalName: " + externalName + ", "
                             }
@@ -91,7 +91,10 @@ struct SyntaxArrayParserView: View {
                             }
                             rightContent += "type: " + param.type
                             if param.isVariadic {
-                                rightContent  += "..."
+                                rightContent += "..."
+                            }
+                            if let defaultValue = param.defaultParameter {
+                                rightContent += "=" + defaultValue
                             }
                             rightContent += "]\n"
                         }

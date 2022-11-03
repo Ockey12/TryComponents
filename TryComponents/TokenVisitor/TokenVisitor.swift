@@ -19,6 +19,8 @@ final class TokenVisitor: SyntaxRewriter {
     var functionParams = [String]()
     var haveInoutKeyword = false
     var isVariadic = false
+    var haveDefaultValue = false
+    var defaultValue = ""
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -48,7 +50,8 @@ final class TokenVisitor: SyntaxRewriter {
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
         } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
-                  (currentSyntaxNodeType == "FunctionParameterSyntax") {
+                  (currentSyntaxNodeType == "FunctionParameterSyntax") ||
+                  (currentSyntaxNodeType == "InitializerClauseSyntax") {
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
         }
@@ -56,6 +59,12 @@ final class TokenVisitor: SyntaxRewriter {
     
     override func visit(_ token: TokenSyntax) -> Syntax {
         let tokenKind = "\(token.tokenKind)"
+        print(tokenKind)
+        
+        if tokenKind == "eof" {
+            return token._syntaxNode
+        }
+        
         if tokenKind.hasPrefix("identifier") {
             if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
                 // functionの引数を宣言中のとき
@@ -65,11 +74,21 @@ final class TokenVisitor: SyntaxRewriter {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
             }
         } else if tokenKind == "inoutKeyword" {
+            // functionのinoutキーワードを宣言しているとき
             haveInoutKeyword = true
         } else if (tokenKind == "ellipsis") &&
                   (syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax") {
+            // functionの可変長引数を宣言しているとき
             isVariadic = true
-        }
+        } else if syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax" {
+            if syntaxNodeTypeStack[positionInStack - 1] == "FunctionParameterSyntax" {
+                // functionのデフォルト引数を宣言しているとき
+                if (tokenKind != "equal") && (tokenKind != "stringQuote") {
+                    haveDefaultValue = true
+                    defaultValue = token.text
+                }
+            }
+        } // end if
         return token._syntaxNode
     }
     
@@ -101,6 +120,15 @@ final class TokenVisitor: SyntaxRewriter {
                 syntaxArray.append("variadicParameter")
                 isVariadic = false
             }
+            
+            if haveDefaultValue {
+                syntaxArray.append("defaultValue " + defaultValue)
+                haveDefaultValue = false
+                defaultValue = ""
+            }
+        } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
+            syntaxNodeTypeStack.removeLast()
+            positionInStack -= 1
         }
     }
 }

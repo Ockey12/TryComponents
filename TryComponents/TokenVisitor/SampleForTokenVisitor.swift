@@ -9,11 +9,13 @@ import Foundation
 //import SwiftUI
 
 struct FunctionStruct {
+//    var variable1 = 1
 //    private func privateFunction() {}
 //    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
 //    func InoutFunction(num: inout Int) {}
-    func VariadicFunction(num: Int...) {}
-//    func DefaultFunction(text: String = "sampleText") {}
+//    func VariadicFunction(num: Int...) {}
+    func DefaultFunction1(text: String = "sampleText") {}
+    func DefaultFunction2(num: Int = 10000000000) {}
 //    func ReturnFunction() -> Int {
 //        return 0
 //    }

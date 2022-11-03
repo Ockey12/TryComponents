@@ -249,6 +249,12 @@ struct SyntaxArrayParser {
                     let holderName = stackArray[positionInStack].name
                     let i = (FunctionHolders[holderName]?.parameters.count)! - 1
                     FunctionHolders[holderName]?.parameters[i].isVariadic = true
+                } else if element.hasPrefix("defaultValue") {
+                    // functionで直前に抽出した引数がデフォルト値を持っていたとき
+                    let elementContents = element.components(separatedBy: " ")
+                    let holderName = stackArray[positionInStack].name
+                    let i = (FunctionHolders[holderName]?.parameters.count)! - 1
+                    FunctionHolders[holderName]?.parameters[i].defaultParameter = elementContents[1]
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する
