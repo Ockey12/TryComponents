@@ -71,6 +71,27 @@ struct SyntaxArrayParserView: View {
                     }
                     for nestStruct in structHolder.nestingStructs {
                         rightContent += "nestStructName: " + nestStruct.name + "\n"
+                        for funct in nestStruct.functions {
+                            rightContent += "--functionName: "  + funct.name + "\n"
+                            for param in funct.parameters {
+                                rightContent += "----parameter: ["
+                                if let externalName = param.externalParameterName {
+                                    rightContent += "externalName: " + externalName + ", "
+                                }
+                                rightContent += "internalName: " + param.internalParameterName + ", "
+                                if param.haveInoutKeyword {
+                                    rightContent += "inout, "
+                                }
+                                rightContent += "type: " + param.type
+                                if param.isVariadic {
+                                    rightContent += "..."
+                                }
+                                if let defaultValue = param.defaultParameter {
+                                    rightContent += " = " + defaultValue
+                                }
+                                rightContent += "]\n"
+                            } // end for
+                        } // end for
                     }
                     for nestEnum in structHolder.nestingEnums {
                         rightContent += "nestEnumName: " + nestEnum.name + "\n"
@@ -94,11 +115,14 @@ struct SyntaxArrayParserView: View {
                                 rightContent += "..."
                             }
                             if let defaultValue = param.defaultParameter {
-                                rightContent += "=" + defaultValue
+                                rightContent += " = " + defaultValue
                             }
                             rightContent += "]\n"
+                        } // end for
+                        if let returnType = funct.returnValueType {
+                            rightContent += "--returnType: " + returnType + "\n"
                         }
-                    }
+                    } // end for
                     rightContent += "\n"
                 } // end for
             case .failure:

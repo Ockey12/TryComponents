@@ -11,5 +11,5 @@ struct FunctionHolder {
     var accessLevel: AccessLevel = .Internal
     var name = ""
     var parameters = [FunctionParameterHolder]()
-    var returnValueType = ""
+    var returnValueType: String?
 }

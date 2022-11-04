@@ -251,10 +251,29 @@ struct SyntaxArrayParser {
                     FunctionHolders[holderName]?.parameters[i].isVariadic = true
                 } else if element.hasPrefix("defaultValue") {
                     // functionで直前に抽出した引数がデフォルト値を持っていたとき
+                    // elementContents[0]: "defaultValue"
+                    // elementContents[1]: デフォルト引数の値
                     let elementContents = element.components(separatedBy: " ")
                     let holderName = stackArray[positionInStack].name
                     let i = (FunctionHolders[holderName]?.parameters.count)! - 1
                     FunctionHolders[holderName]?.parameters[i].defaultParameter = elementContents[1]
+                } else if element.hasPrefix("returnType") {
+                    // 直前に引数の宣言を終えたfunctionが返り値の型を宣言しているとき
+                    // elementContents[0]: "returnType"
+                    // elementContents[1~]: 返り値の型
+                    let elementContents = element.components(separatedBy: " ")
+                    let holderName = stackArray[positionInStack].name
+                    var currentReturnType = ""
+                    for (index, element) in elementContents.enumerated() {
+                        if index != 0 {
+                            currentReturnType += element
+                            // element.components(separatedBy: " ")で消えた" "を追加する
+                            if element.hasSuffix(",") || element.hasSuffix(":") {
+                                currentReturnType += " "
+                            }
+                        }
+                    }
+                    FunctionHolders[holderName]?.returnValueType = currentReturnType
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する

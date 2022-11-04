@@ -14,11 +14,20 @@ struct FunctionStruct {
 //    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
 //    func InoutFunction(num: inout Int) {}
 //    func VariadicFunction(num: Int...) {}
-    func DefaultFunction1(text: String = "sampleText") {}
-    func DefaultFunction2(num: Int = 10000000000) {}
-//    func ReturnFunction() -> Int {
-//        return 0
+//    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
+//    struct nestedStruct {
+//        func nestedFunction(for name: String) {}
 //    }
+//    func DefaultFunction2(num: Int = 10000000000) {}
+    func returnFunction(text: String) -> Int {
+        return 0
+    }
+    func returnDectionaryFunction() -> [String: Int] {
+        return ["Key": 100000]
+    }
+    func returnTupleFunction() -> (Double, Float) {
+        return (3.3, 9.9)
+    }
 }
 
 //struct SampleStruct {

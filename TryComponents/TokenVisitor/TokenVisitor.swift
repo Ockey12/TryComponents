@@ -16,11 +16,14 @@ final class TokenVisitor: SyntaxRewriter {
     var getedTypes =  [String: Any]()
     var syntaxArray = [String]()
     
+    // functionの宣言
     var functionParams = [String]()
     var haveInoutKeyword = false
     var isVariadic = false
     var haveDefaultValue = false
     var defaultValue = ""
+    var haveReturnValue = false
+    var returnType = ""
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -51,7 +54,8 @@ final class TokenVisitor: SyntaxRewriter {
             positionInStack += 1
         } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
                   (currentSyntaxNodeType == "FunctionParameterSyntax") ||
-                  (currentSyntaxNodeType == "InitializerClauseSyntax") {
+                  (currentSyntaxNodeType == "InitializerClauseSyntax") ||
+                  (currentSyntaxNodeType == "ReturnClauseSyntax"){
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
         }
@@ -70,6 +74,10 @@ final class TokenVisitor: SyntaxRewriter {
                 // functionの引数を宣言中のとき
                 // 外部引数名、内部引数名、型をまとめて1つのidentifier要素にしたいので別の配列に格納する
                 functionParams.append(token.text)
+            } else if syntaxNodeTypeStack[positionInStack]  == "ReturnClauseSyntax" {
+                // functionの返り値の型を宣言中のとき
+                // "String"や"Int"を配列に格納する
+                returnType += token.text
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
             }
@@ -86,6 +94,17 @@ final class TokenVisitor: SyntaxRewriter {
                 if (tokenKind != "equal") && (tokenKind != "stringQuote") {
                     haveDefaultValue = true
                     defaultValue = token.text
+                }
+            }
+        } else if syntaxNodeTypeStack[positionInStack] == "ReturnClauseSyntax" {
+            // functionの返り値の型を宣言しているとき
+            if tokenKind != "arrow" { // "->"は返り値の型と関係ないので無視する
+                if tokenKind == "comma" {
+                    returnType += ", "
+                } else if tokenKind == "colon" {
+                    returnType += ": "
+                } else {
+                    returnType += token.text
                 }
             }
         } // end if
@@ -127,6 +146,11 @@ final class TokenVisitor: SyntaxRewriter {
                 defaultValue = ""
             }
         } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
+            syntaxNodeTypeStack.removeLast()
+            positionInStack -= 1
+        } else if currentSyntaxNodeType == "ReturnClauseSyntax" {
+            syntaxArray.append("returnType " + returnType)
+            returnType = ""
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
         }
