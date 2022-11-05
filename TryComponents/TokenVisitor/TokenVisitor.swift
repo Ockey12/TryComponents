@@ -55,7 +55,9 @@ final class TokenVisitor: SyntaxRewriter {
         } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
                   (currentSyntaxNodeType == "FunctionParameterSyntax") ||
                   (currentSyntaxNodeType == "InitializerClauseSyntax") ||
-                  (currentSyntaxNodeType == "ReturnClauseSyntax"){
+                  (currentSyntaxNodeType == "ReturnClauseSyntax") ||
+                  (currentSyntaxNodeType == "GenericParameterSyntax") ||
+                  (currentSyntaxNodeType == "CodeBlockSyntax"){
             syntaxNodeTypeStack.append(currentSyntaxNodeType)
             positionInStack += 1
         }
@@ -70,7 +72,11 @@ final class TokenVisitor: SyntaxRewriter {
         }
         
         if tokenKind.hasPrefix("identifier") {
-            if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
+            if syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax" {
+                if syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax{" {
+                    // functionのCodeBlockSyntax内の情報は無視する
+                }
+            } else if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
                 // functionの引数を宣言中のとき
                 // 外部引数名、内部引数名、型をまとめて1つのidentifier要素にしたいので別の配列に格納する
                 functionParams.append(token.text)
@@ -78,9 +84,11 @@ final class TokenVisitor: SyntaxRewriter {
                 // functionの返り値の型を宣言中のとき
                 // "String"や"Int"を配列に格納する
                 returnType += token.text
+//            } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
+//                syntaxArray.append("genericParameter: " + token.text)
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
-            }
+            } // end if
         } else if tokenKind == "inoutKeyword" {
             // functionのinoutキーワードを宣言しているとき
             haveInoutKeyword = true
@@ -145,14 +153,15 @@ final class TokenVisitor: SyntaxRewriter {
                 haveDefaultValue = false
                 defaultValue = ""
             }
-        } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
         } else if currentSyntaxNodeType == "ReturnClauseSyntax" {
             syntaxArray.append("returnType " + returnType)
             returnType = ""
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
-        }
+        } else if (currentSyntaxNodeType == "InitializerClauseSyntax") ||
+                  (currentSyntaxNodeType == "GenericParameterSyntax") {
+              syntaxNodeTypeStack.removeLast()
+              positionInStack -= 1
+          }
     }
 }

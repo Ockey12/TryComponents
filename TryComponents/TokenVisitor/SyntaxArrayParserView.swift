@@ -101,6 +101,16 @@ struct SyntaxArrayParserView: View {
                     }
                     for funct in structHolder.functions {
                         rightContent += "functionName: "  + funct.name + "\n"
+                        if 0 < funct.genericParameters.count {
+                            rightContent += "genericParameters: <"
+                            for (index, element) in funct.genericParameters.enumerated() {
+                                rightContent += element
+                                if index != funct.genericParameters.count - 1 {
+                                    rightContent += ", "
+                                }
+                            } // end for
+                            rightContent += ">\n"
+                        } // end if
                         for param in funct.parameters {
                             rightContent += "--parameter: ["
                             if let externalName = param.externalParameterName {

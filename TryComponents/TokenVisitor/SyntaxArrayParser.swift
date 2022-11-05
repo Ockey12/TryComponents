@@ -70,6 +70,7 @@ struct SyntaxArrayParser {
             case functionParameterSyntax
             case protocolDeclSyntax
             case inheritedTypeSyntax
+            case genericParameterSyntax
             
             
             init?(type: String) {
@@ -84,6 +85,8 @@ struct SyntaxArrayParser {
                     self = .protocolDeclSyntax
                 case "InheritedTypeSyntax":
                     self = .inheritedTypeSyntax
+                case "GenericParameterSyntax":
+                    self = .genericParameterSyntax
                 default:
                     return nil
                 }
@@ -139,9 +142,6 @@ struct SyntaxArrayParser {
                     for i in 0..<identifierContents.count {
                         print("identifierContents[" + "\(i)" + "]: " + identifierContents[i])
                     }
-//                    print("identifierContents[0]: " + identifierContents[0])
-//                    print("identifierContents[1]: " + identifierContents[1])
-//                    print("identifierContents[2]: " + identifierContents[2])
                     guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1]) else {
                         fatalError("ERROR: guard let syntaxNodeType = syntaxNodeTypeForIdentifier(type: identifierContents[1])")
                     }
@@ -192,6 +192,9 @@ struct SyntaxArrayParser {
                         case .extension:
                             break
                         } // end switch
+                    case .genericParameterSyntax: // functionのジェネリクスを宣言中
+                        let holderName = stackArray[positionInStack].name
+                        FunctionHolders[holderName]?.genericParameters.append(name)
                     }
 //                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
 //                        let holderName = stackArray[positionInStack].name

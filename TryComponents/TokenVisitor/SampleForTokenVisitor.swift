@@ -9,6 +9,9 @@ import Foundation
 //import SwiftUI
 
 struct FunctionStruct {
+    func genericsFunction<TTT, UUU>(x: TTT, y: UUU) -> UUU {
+        return y
+    }
 //    var variable1 = 1
 //    private func privateFunction() {}
 //    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
@@ -22,12 +25,12 @@ struct FunctionStruct {
     func returnFunction(text: String) -> Int {
         return 0
     }
-    func returnDectionaryFunction() -> [String: Int] {
-        return ["Key": 100000]
-    }
-    func returnTupleFunction() -> (Double, Float) {
-        return (3.3, 9.9)
-    }
+//    func returnDectionaryFunction() -> [String: Int] {
+//        return ["Key": 100000]
+//    }
+//    func returnTupleFunction() -> (Double, Float) {
+//        return (3.3, 9.9)
+//    }
 }
 
 //struct SampleStruct {
