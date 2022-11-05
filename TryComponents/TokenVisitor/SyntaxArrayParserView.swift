@@ -97,7 +97,12 @@ struct SyntaxArrayParserView: View {
                         rightContent += "nestEnumName: " + nestEnum.name + "\n"
                     }
                     for variable in structHolder.variables {
-                        rightContent += "variableName: " + variable.name + "\n"
+                        if variable.isVariable {
+                            rightContent += "var "
+                        } else {
+                            rightContent += "let "
+                        }
+                        rightContent += variable.name + "\n"
                     }
                     for funct in structHolder.functions {
                         rightContent += "functionName: "  + funct.name + "\n"

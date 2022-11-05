@@ -26,6 +26,9 @@ final class TokenVisitor: SyntaxRewriter {
     var haveReturnValue = false
     var returnType = ""
     
+    // variableの宣言
+    var variableType = ""
+    
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
     
@@ -55,21 +58,18 @@ final class TokenVisitor: SyntaxRewriter {
             // function宣言中のCodeBlockSyntax内の情報は無視する
         } else {
             if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
-                if (1 < positionInStack) &&
-                   (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
-                   (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
-                    
-                } else {
-                    syntaxArray.append(currentSyntaxNodeType + "{")
-                    syntaxNodeTypeStack.append(currentSyntaxNodeType)
-                    positionInStack += 1
-                }
+                syntaxArray.append(currentSyntaxNodeType + "{")
+                syntaxNodeTypeStack.append(currentSyntaxNodeType)
+                positionInStack += 1
             } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
                       (currentSyntaxNodeType == "FunctionParameterSyntax") ||
                       (currentSyntaxNodeType == "InitializerClauseSyntax") ||
                       (currentSyntaxNodeType == "ReturnClauseSyntax") ||
                       (currentSyntaxNodeType == "GenericParameterSyntax") ||
-                      (currentSyntaxNodeType == "CodeBlockSyntax"){
+                      (currentSyntaxNodeType == "CodeBlockSyntax") ||
+                      (currentSyntaxNodeType == "PatternBindingSyntax") ||
+                      (currentSyntaxNodeType == "IdentifierPatternSyntax") ||
+                      (currentSyntaxNodeType == "TypeAnnotationSyntax") {
                 syntaxNodeTypeStack.append(currentSyntaxNodeType)
                 positionInStack += 1
             }
@@ -103,6 +103,23 @@ final class TokenVisitor: SyntaxRewriter {
             } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
                 // functionのgenericParameterを宣言中のとき
                 genericParameter += token.text
+            } else if (1 < positionInStack) &&
+                      (syntaxNodeTypeStack[positionInStack - 1] == "PatternBindingSyntax") &&
+                      (syntaxNodeTypeStack[positionInStack - 2] == "VariableDeclSyntax") {
+                if syntaxNodeTypeStack[positionInStack] == "IdentifierPatternSyntax" {
+                    // variable宣言中の変数名
+                    syntaxArray.append("identifier " + "VariableName " + "\(token.text)")
+                } else if syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax" {
+                    // variable宣言中の型
+                    variableType += token.text
+//                    if tokenKind == "comma" {
+//                        variableType += ", "
+//                    } else if tokenKind == "colon" {
+//                        variableType += ": "
+//                    } else {
+//                        variableType += token.text
+//                    } // end if
+                }
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
             } // end if
@@ -130,12 +147,25 @@ final class TokenVisitor: SyntaxRewriter {
                     returnType += ": "
                 } else {
                     returnType += token.text
-                }
-            }
+                } // end if
+            } // end if
         } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
             // functionのgenericParameterを宣言中のとき
             if tokenKind == "colon" {
                 genericParameter += ": "
+            }
+        } else if (tokenKind == "varKeyword") ||
+                  (tokenKind == "letKeyword") {
+            // プロパティ宣言中のvar/letキーワード
+            syntaxArray.append(tokenKind)
+        } else if (syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax") &&
+                  (syntaxNodeTypeStack[positionInStack - 1] == "PatternBindingSyntax") &&
+                  (syntaxNodeTypeStack[positionInStack - 2] == "VariableDeclSyntax") {
+            // variableの型宣言中の":"と","
+            if tokenKind == "comma" {
+                variableType += ", "
+            } else if tokenKind == "colon" {
+                variableType += ": "
             }
         } // end if
         return token._syntaxNode
@@ -146,7 +176,8 @@ final class TokenVisitor: SyntaxRewriter {
         
         if (1 < positionInStack) &&
            (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
-           (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
+           (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax") {
+            // function宣言中のCodeBlockSyntax内の情報は、CodeBlockSyntaxを抜けること以外は無視する
             if currentSyntaxNodeType == "CodeBlockSyntax" {
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
@@ -195,6 +226,17 @@ final class TokenVisitor: SyntaxRewriter {
             } else if currentSyntaxNodeType == "GenericParameterSyntax" {
                 syntaxArray.append("identifier GenericParameterSyntax " + genericParameter)
                 genericParameter = ""
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "PatternBindingSyntax" {
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "IdentifierPatternSyntax" {
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "TypeAnnotationSyntax" {
+                syntaxArray.append("identifier VariableType " + variableType.dropFirst(2))
+                variableType = ""
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
             } // end if

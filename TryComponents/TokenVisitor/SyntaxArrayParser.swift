@@ -71,6 +71,7 @@ struct SyntaxArrayParser {
             case protocolDeclSyntax
             case inheritedTypeSyntax
             case genericParameterSyntax
+            case variableName
             
             
             init?(type: String) {
@@ -87,6 +88,8 @@ struct SyntaxArrayParser {
                     self = .inheritedTypeSyntax
                 case "GenericParameterSyntax":
                     self = .genericParameterSyntax
+                case "VariableName":
+                    self = .variableName
                 default:
                     return nil
                 }
@@ -204,6 +207,9 @@ struct SyntaxArrayParser {
                             genericParameter += " " + identifierContents[3]
                         }
                         FunctionHolders[holderName]?.genericParameters.append(genericParameter)
+                    case .variableName: // variableの名前を宣言中
+                        currentVariableHolder.name = name
+                        variableHolders[name] = currentVariableHolder
                     }
 //                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
 //                        let holderName = stackArray[positionInStack].name
@@ -286,6 +292,11 @@ struct SyntaxArrayParser {
                         }
                     }
                     FunctionHolders[holderName]?.returnValueType = currentReturnType
+                } else if element == "letKeyword" {
+                    // "identifier VariableDeclSyntax プロパティ名"より前
+                    // まだcurrentVariableHolderをvariableHoldersに格納していない
+                    // 直接currentVariableHolderを更新する
+                    currentVariableHolder.isVariable = false
                 } else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する
