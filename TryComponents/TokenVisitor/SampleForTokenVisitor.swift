@@ -12,6 +12,8 @@ struct VariableStruct {
     let typeInferenceVariable = 1111111111
     var nomalVariable: String = "2222222222"
     var childVariable: ChildStruct = ChildStruct()
+    var dictionaryVariable: [String: Int] = ["Key": 333333]
+    var toupleVariable: (Double, Float) = (4.444, 5.55)
 //    let _ = "3333333333"
 //    @State var stateVariable: Int
 //    static var staticVariable: Int = 1111111111

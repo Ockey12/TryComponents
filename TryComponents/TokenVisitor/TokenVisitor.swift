@@ -28,6 +28,7 @@ final class TokenVisitor: SyntaxRewriter {
     
     // variableの宣言
     var variableType = ""
+    var variableDefaultValue = ""
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -112,13 +113,9 @@ final class TokenVisitor: SyntaxRewriter {
                 } else if syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax" {
                     // variable宣言中の型
                     variableType += token.text
-//                    if tokenKind == "comma" {
-//                        variableType += ", "
-//                    } else if tokenKind == "colon" {
-//                        variableType += ": "
-//                    } else {
-//                        variableType += token.text
-//                    } // end if
+                } else if syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax" {
+                    // variable宣言中の初期値
+                    variableDefaultValue += token.text
                 }
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
@@ -130,14 +127,20 @@ final class TokenVisitor: SyntaxRewriter {
                   (syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax") {
             // functionの可変長引数を宣言しているとき
             isVariadic = true
-        } else if syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax" {
-            if syntaxNodeTypeStack[positionInStack - 1] == "FunctionParameterSyntax" {
-                // functionのデフォルト引数を宣言しているとき
-                if (tokenKind != "equal") && (tokenKind != "stringQuote") {
-                    haveDefaultValue = true
-                    defaultValue = token.text
-                }
+        } else if (syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax") &&
+                  (syntaxNodeTypeStack[positionInStack - 1] == "FunctionParameterSyntax") {
+            // functionのデフォルト引数を宣言しているとき
+            if (tokenKind != "equal") && (tokenKind != "stringQuote") {
+                haveDefaultValue = true
+                defaultValue = token.text
             }
+//            if syntaxNodeTypeStack[positionInStack - 1] == "FunctionParameterSyntax" {
+//                // functionのデフォルト引数を宣言しているとき
+//                if (tokenKind != "equal") && (tokenKind != "stringQuote") {
+//                    haveDefaultValue = true
+//                    defaultValue = token.text
+//                }
+//            }
         } else if syntaxNodeTypeStack[positionInStack] == "ReturnClauseSyntax" {
             // functionの返り値の型を宣言しているとき
             if tokenKind != "arrow" { // "->"は返り値の型と関係ないので無視する
@@ -158,14 +161,28 @@ final class TokenVisitor: SyntaxRewriter {
                   (tokenKind == "letKeyword") {
             // プロパティ宣言中のvar/letキーワード
             syntaxArray.append(tokenKind)
-        } else if (syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax") &&
+        } else if ((syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax") ||
+                   (syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax")
+                  ) &&
                   (syntaxNodeTypeStack[positionInStack - 1] == "PatternBindingSyntax") &&
                   (syntaxNodeTypeStack[positionInStack - 2] == "VariableDeclSyntax") {
-            // variableの型宣言中の":"と","
-            if tokenKind == "comma" {
-                variableType += ", "
-            } else if tokenKind == "colon" {
-                variableType += ": "
+            if syntaxNodeTypeStack[positionInStack] == "TypeAnnotationSyntax" {
+                // variableの型宣言中の":", ",", "[", "]", "(", ")"
+                variableType += token.text
+                if (tokenKind == "comma") ||
+                   (tokenKind == "colon") {
+                    variableType += " "
+                }
+            } else if syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax" {
+                // variableの宣言中の初期値
+                // 初期値を代入する"="は無視する
+                if tokenKind != "equal" {
+                    variableDefaultValue += token.text
+                }
+                if (tokenKind == "comma") ||
+                   (tokenKind == "colon") {
+                    variableDefaultValue += " "
+                }
             }
         } // end if
         return token._syntaxNode
@@ -221,6 +238,11 @@ final class TokenVisitor: SyntaxRewriter {
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
             } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
+                if (syntaxNodeTypeStack[positionInStack - 1] == "PatternBindingSyntax") &&
+                   (syntaxNodeTypeStack[positionInStack - 2] == "VariableDeclSyntax") {
+                    syntaxArray.append("VariableDefaultValue " + variableDefaultValue)
+                    variableDefaultValue = ""
+                }
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
             } else if currentSyntaxNodeType == "GenericParameterSyntax" {
