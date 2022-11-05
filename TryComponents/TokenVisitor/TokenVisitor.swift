@@ -49,20 +49,32 @@ final class TokenVisitor: SyntaxRewriter {
     
     override func visitPre(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
-        if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
-            syntaxArray.append(currentSyntaxNodeType + "{")
-            syntaxNodeTypeStack.append(currentSyntaxNodeType)
-            positionInStack += 1
-        } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
-                  (currentSyntaxNodeType == "FunctionParameterSyntax") ||
-                  (currentSyntaxNodeType == "InitializerClauseSyntax") ||
-                  (currentSyntaxNodeType == "ReturnClauseSyntax") ||
-                  (currentSyntaxNodeType == "GenericParameterSyntax") ||
-                  (currentSyntaxNodeType == "CodeBlockSyntax"){
-            syntaxNodeTypeStack.append(currentSyntaxNodeType)
-            positionInStack += 1
+        if (1 < positionInStack) &&
+           (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
+           (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
+            // function宣言中のCodeBlockSyntax内の情報は無視する
+        } else {
+            if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
+                if (1 < positionInStack) &&
+                   (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
+                   (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
+                    
+                } else {
+                    syntaxArray.append(currentSyntaxNodeType + "{")
+                    syntaxNodeTypeStack.append(currentSyntaxNodeType)
+                    positionInStack += 1
+                }
+            } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
+                      (currentSyntaxNodeType == "FunctionParameterSyntax") ||
+                      (currentSyntaxNodeType == "InitializerClauseSyntax") ||
+                      (currentSyntaxNodeType == "ReturnClauseSyntax") ||
+                      (currentSyntaxNodeType == "GenericParameterSyntax") ||
+                      (currentSyntaxNodeType == "CodeBlockSyntax"){
+                syntaxNodeTypeStack.append(currentSyntaxNodeType)
+                positionInStack += 1
+            }
         }
-    }
+    } // end visitPre()
     
     override func visit(_ token: TokenSyntax) -> Syntax {
         let tokenKind = "\(token.tokenKind)"
@@ -72,12 +84,15 @@ final class TokenVisitor: SyntaxRewriter {
             return token._syntaxNode
         }
         
+        if (1 < positionInStack) &&
+           (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
+           (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
+            // functionのCodeBlockSyntax内の情報は無視する
+            return token._syntaxNode
+        }
+        
         if tokenKind.hasPrefix("identifier") {
-            if syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax" {
-                if syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax{" {
-                    // functionのCodeBlockSyntax内の情報は無視する
-                }
-            } else if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
+            if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
                 // functionの引数を宣言中のとき
                 // 外部引数名、内部引数名、型をまとめて1つのidentifier要素にしたいので別の配列に格納する
                 functionParams.append(token.text)
@@ -124,55 +139,65 @@ final class TokenVisitor: SyntaxRewriter {
             }
         } // end if
         return token._syntaxNode
-    }
+    } // end visit()
     
     override func visitPost(_ node: Syntax) {
         let currentSyntaxNodeType = "\(node.syntaxNodeType)"
-        if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
-            syntaxArray.append(currentSyntaxNodeType + "}")
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-        } else if currentSyntaxNodeType == "InheritedTypeSyntax" {
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-        } else if currentSyntaxNodeType == "FunctionParameterSyntax" {
-            var identifierParams = "identifier " + "\(syntaxNodeTypeStack[positionInStack])"
-            for param in functionParams.reversed() {
-                identifierParams += " " + param
+        
+        if (1 < positionInStack) &&
+           (syntaxNodeTypeStack[positionInStack] == "CodeBlockSyntax") &&
+           (syntaxNodeTypeStack[positionInStack - 1] == "FunctionDeclSyntax"){
+            if currentSyntaxNodeType == "CodeBlockSyntax" {
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
             }
-            syntaxArray.append(identifierParams)
-            functionParams = []
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-            
-            if haveInoutKeyword {
-                syntaxArray.append("inoutKeyword")
-                haveInoutKeyword = false
-            }
-            
-            if isVariadic {
-                syntaxArray.append("variadicParameter")
-                isVariadic = false
-            }
-            
-            if haveDefaultValue {
-                syntaxArray.append("defaultValue " + defaultValue)
-                haveDefaultValue = false
-                defaultValue = ""
-            }
-        } else if currentSyntaxNodeType == "ReturnClauseSyntax" {
-            syntaxArray.append("returnType " + returnType)
-            returnType = ""
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-        } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-        } else if currentSyntaxNodeType == "GenericParameterSyntax" {
-            syntaxArray.append("identifier GenericParameterSyntax " + genericParameter)
-            genericParameter = ""
-            syntaxNodeTypeStack.removeLast()
-            positionInStack -= 1
-        }
-    }
+        } else {
+            if currentSyntaxNodeType.hasSuffix("DeclSyntax") {
+                syntaxArray.append(currentSyntaxNodeType + "}")
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "InheritedTypeSyntax" {
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "FunctionParameterSyntax" {
+                var identifierParams = "identifier " + "\(syntaxNodeTypeStack[positionInStack])"
+                for param in functionParams.reversed() {
+                    identifierParams += " " + param
+                }
+                syntaxArray.append(identifierParams)
+                functionParams = []
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+                
+                if haveInoutKeyword {
+                    syntaxArray.append("inoutKeyword")
+                    haveInoutKeyword = false
+                }
+                
+                if isVariadic {
+                    syntaxArray.append("variadicParameter")
+                    isVariadic = false
+                }
+                
+                if haveDefaultValue {
+                    syntaxArray.append("defaultValue " + defaultValue)
+                    haveDefaultValue = false
+                    defaultValue = ""
+                }
+            } else if currentSyntaxNodeType == "ReturnClauseSyntax" {
+                syntaxArray.append("returnType " + returnType)
+                returnType = ""
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if currentSyntaxNodeType == "GenericParameterSyntax" {
+                syntaxArray.append("identifier GenericParameterSyntax " + genericParameter)
+                genericParameter = ""
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } // end if
+        } // end if
+    } // end visitPost()
 }

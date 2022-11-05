@@ -13,25 +13,29 @@ struct FunctionStruct {
         let returnValue = y
         return returnValue
     }
+    func genericsFunction2<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
+        let returnValue = y
+        return returnValue
+    }
 //    var variable1 = 1
 //    private func privateFunction() {}
-//    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
-//    func InoutFunction(num: inout Int) {}
-//    func VariadicFunction(num: Int...) {}
-//    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
-//    struct nestedStruct {
-//        func nestedFunction(for name: String) {}
-//    }
-//    func DefaultFunction2(num: Int = 10000000000) {}
-//    func returnFunction(text: String) -> Int {
-//        return 0
-//    }
-//    func returnDectionaryFunction() -> [String: Int] {
-//        return ["Key": 100000]
-//    }
-//    func returnTupleFunction() -> (Double, Float) {
-//        return (3.3, 9.9)
-//    }
+    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
+    func InoutFunction(num: inout Int) {}
+    func VariadicFunction(num: Int...) {}
+    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
+    struct nestedStruct {
+        func nestedFunction(for name: String) {}
+    }
+    func DefaultFunction2(num: Int = 10000000000) {}
+    func returnFunction(text: String) -> Int {
+        return 0
+    }
+    func returnDectionaryFunction() -> [String: Int] {
+        return ["Key": 100000]
+    }
+    func returnTupleFunction() -> (Double, Float) {
+        return (3.3, 9.9)
+    }
 }
 
 //struct SampleStruct {
