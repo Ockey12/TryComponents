@@ -210,6 +210,9 @@ struct SyntaxArrayParser {
                     case .variableName: // variableの名前を宣言中
                         currentVariableHolder.name = name
                         variableHolders[name] = currentVariableHolder
+                        // 全体のスタック配列にHolderの種類と名前を追加する
+                        stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
+                        positionInStack += 1
                     }
 //                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
 //                        let holderName = stackArray[positionInStack].name
@@ -278,7 +281,7 @@ struct SyntaxArrayParser {
                 } else if element.hasPrefix("returnType") {
                     // 直前に引数の宣言を終えたfunctionが返り値の型を宣言しているとき
                     // elementContents[0]: "returnType"
-                    // elementContents[1~]: 返り値の型
+                    // elementContents[1...]: 返り値の型
                     let elementContents = element.components(separatedBy: " ")
                     let holderName = stackArray[positionInStack].name
                     var currentReturnType = ""
@@ -297,7 +300,33 @@ struct SyntaxArrayParser {
                     // まだcurrentVariableHolderをvariableHoldersに格納していない
                     // 直接currentVariableHolderを更新する
                     currentVariableHolder.isVariable = false
-                } else if element.hasSuffix(endDeclSyntaxKeyword) {
+                } else if element.hasPrefix("VariableType "){
+                    // variableの型を宣言している
+                    // elementContents[0]: "VariableType"
+                    // elementContents[1...]: 型
+                    let elementContents = element.components(separatedBy: " ")
+                    let holderName = stackArray[positionInStack].name
+                    var currentVariableType = ""
+                    for (index, element) in elementContents.enumerated() {
+                        if index != 0 {
+                            currentVariableType += element
+                        }
+                    }
+                    variableHolders[holderName]?.type = currentVariableType
+                } else if element.hasPrefix("VariableInitialValue ") {
+                    //variableの初期値を宣言している
+                    // elementContents[0]: "VariableType"
+                    // elementContents[1...]: 初期値
+                    let elementContents = element.components(separatedBy: " ")
+                    let holderName = stackArray[positionInStack].name
+                    var currentInitialValue = ""
+                    for (index, element) in elementContents.enumerated() {
+                        if index != 0 {
+                            currentInitialValue += element
+                        }
+                    }
+                    variableHolders[holderName]?.initialValue = currentInitialValue
+                }else if element.hasSuffix(endDeclSyntaxKeyword) {
                     // endDeclSyntaxKeywordを見つけたとき
                     // 全体のスタック配列から、直近に宣言中のHolderの名前を取得する
                     let currentHolderName = stackArray[positionInStack].name

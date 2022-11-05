@@ -13,6 +13,6 @@ struct VariableHolder {
     var accessLevel: AccessLevel = .Internal
     var isVariable = true
     var name = ""
-    var type = ""
-    var initialValue = ""
+    var type: String?
+    var initialValue: String?
 }

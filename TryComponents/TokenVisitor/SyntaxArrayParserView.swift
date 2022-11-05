@@ -102,7 +102,14 @@ struct SyntaxArrayParserView: View {
                         } else {
                             rightContent += "let "
                         }
-                        rightContent += variable.name + "\n"
+                        rightContent += variable.name
+                        if let type = variable.type {
+                            rightContent += ": " + type
+                        }
+                        if let initialValue = variable.initialValue {
+                            rightContent += " = " + initialValue
+                        }
+                        rightContent += "\n"
                     }
                     for funct in structHolder.functions {
                         rightContent += "functionName: "  + funct.name + "\n"

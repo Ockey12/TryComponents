@@ -28,7 +28,7 @@ final class TokenVisitor: SyntaxRewriter {
     
     // variableの宣言
     var variableType = ""
-    var variableDefaultValue = ""
+    var variableInitialValue = ""
     
     private var syntaxNodeTypeStack = [String]()
     private var positionInStack = -1
@@ -115,7 +115,7 @@ final class TokenVisitor: SyntaxRewriter {
                     variableType += token.text
                 } else if syntaxNodeTypeStack[positionInStack] == "InitializerClauseSyntax" {
                     // variable宣言中の初期値
-                    variableDefaultValue += token.text
+                    variableInitialValue += token.text
                 }
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
@@ -177,11 +177,11 @@ final class TokenVisitor: SyntaxRewriter {
                 // variableの宣言中の初期値
                 // 初期値を代入する"="は無視する
                 if tokenKind != "equal" {
-                    variableDefaultValue += token.text
+                    variableInitialValue += token.text
                 }
                 if (tokenKind == "comma") ||
                    (tokenKind == "colon") {
-                    variableDefaultValue += " "
+                    variableInitialValue += " "
                 }
             }
         } // end if
@@ -240,8 +240,8 @@ final class TokenVisitor: SyntaxRewriter {
             } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
                 if (syntaxNodeTypeStack[positionInStack - 1] == "PatternBindingSyntax") &&
                    (syntaxNodeTypeStack[positionInStack - 2] == "VariableDeclSyntax") {
-                    syntaxArray.append("VariableDefaultValue " + variableDefaultValue)
-                    variableDefaultValue = ""
+                    syntaxArray.append("VariableInitialValue " + variableInitialValue)
+                    variableInitialValue = ""
                 }
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
@@ -257,7 +257,7 @@ final class TokenVisitor: SyntaxRewriter {
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
             } else if currentSyntaxNodeType == "TypeAnnotationSyntax" {
-                syntaxArray.append("identifier VariableType " + variableType.dropFirst(2))
+                syntaxArray.append("VariableType " + variableType.dropFirst(2))
                 variableType = ""
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
