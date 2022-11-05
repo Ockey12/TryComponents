@@ -17,6 +17,7 @@ final class TokenVisitor: SyntaxRewriter {
     var syntaxArray = [String]()
     
     // functionの宣言
+    var genericParameter = ""
     var functionParams = [String]()
     var haveInoutKeyword = false
     var isVariadic = false
@@ -84,8 +85,9 @@ final class TokenVisitor: SyntaxRewriter {
                 // functionの返り値の型を宣言中のとき
                 // "String"や"Int"を配列に格納する
                 returnType += token.text
-//            } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
-//                syntaxArray.append("genericParameter: " + token.text)
+            } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
+                // functionのgenericParameterを宣言中のとき
+                genericParameter += token.text
             } else {
                 syntaxArray.append("identifier " + "\(syntaxNodeTypeStack[positionInStack]) " + "\(token.text)")
             } // end if
@@ -114,6 +116,11 @@ final class TokenVisitor: SyntaxRewriter {
                 } else {
                     returnType += token.text
                 }
+            }
+        } else if syntaxNodeTypeStack[positionInStack] == "GenericParameterSyntax" {
+            // functionのgenericParameterを宣言中のとき
+            if tokenKind == "colon" {
+                genericParameter += ": "
             }
         } // end if
         return token._syntaxNode
@@ -158,10 +165,14 @@ final class TokenVisitor: SyntaxRewriter {
             returnType = ""
             syntaxNodeTypeStack.removeLast()
             positionInStack -= 1
-        } else if (currentSyntaxNodeType == "InitializerClauseSyntax") ||
-                  (currentSyntaxNodeType == "GenericParameterSyntax") {
-              syntaxNodeTypeStack.removeLast()
-              positionInStack -= 1
-          }
+        } else if currentSyntaxNodeType == "InitializerClauseSyntax" {
+            syntaxNodeTypeStack.removeLast()
+            positionInStack -= 1
+        } else if currentSyntaxNodeType == "GenericParameterSyntax" {
+            syntaxArray.append("identifier GenericParameterSyntax " + genericParameter)
+            genericParameter = ""
+            syntaxNodeTypeStack.removeLast()
+            positionInStack -= 1
+        }
     }
 }

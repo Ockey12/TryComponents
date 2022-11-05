@@ -162,6 +162,9 @@ struct SyntaxArrayParser {
                         stackArray.append(StackArrayElement(holderType: currentHolderTypeFlag, name: name))
                         positionInStack += 1
                     case .functionParameterSyntax: // functionの引数の宣言中
+                        // identifierContents[2]: 引数の型
+                        // identifierContents[3]: 内部引数名
+                        // identifierContents[4]: 外部引数名
                         var parameterHolder = FunctionParameterHolder(internalParameterName: identifierContents[3], type: identifierContents[2])
                         if identifierContents.count == 5 {
                             parameterHolder.externalParameterName = identifierContents[4]
@@ -194,7 +197,13 @@ struct SyntaxArrayParser {
                         } // end switch
                     case .genericParameterSyntax: // functionのジェネリクスを宣言中
                         let holderName = stackArray[positionInStack].name
-                        FunctionHolders[holderName]?.genericParameters.append(name)
+                        var genericParameter = name
+                        // "identifier GenericParameterSyntax TTT: Equatable"のように4つに分割される場合がある
+                        // identifierContents[3]: genericParameterが準拠しなければならないプロトコル
+                        if identifierContents.count == 4 {
+                            genericParameter += " " + identifierContents[3]
+                        }
+                        FunctionHolders[holderName]?.genericParameters.append(genericParameter)
                     }
 //                    if inheritedTypeSyntaxFlag { // protocolの宣言ではなく、protocolへの準拠
 //                        let holderName = stackArray[positionInStack].name

@@ -9,8 +9,9 @@ import Foundation
 //import SwiftUI
 
 struct FunctionStruct {
-    func genericsFunction<TTT, UUU>(x: TTT, y: UUU) -> UUU {
-        return y
+    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
+        let returnValue = y
+        return returnValue
     }
 //    var variable1 = 1
 //    private func privateFunction() {}
@@ -22,9 +23,9 @@ struct FunctionStruct {
 //        func nestedFunction(for name: String) {}
 //    }
 //    func DefaultFunction2(num: Int = 10000000000) {}
-    func returnFunction(text: String) -> Int {
-        return 0
-    }
+//    func returnFunction(text: String) -> Int {
+//        return 0
+//    }
 //    func returnDectionaryFunction() -> [String: Int] {
 //        return ["Key": 100000]
 //    }
