@@ -322,7 +322,11 @@ struct SyntaxArrayParser {
                     var currentInitialValue = ""
                     for (index, element) in elementContents.enumerated() {
                         if index != 0 {
-                            currentInitialValue += element
+                            if 2 <= index {
+                                currentInitialValue += " " + element
+                            } else {
+                                currentInitialValue += element
+                            }
                         }
                     }
                     variableHolders[holderName]?.initialValue = currentInitialValue
