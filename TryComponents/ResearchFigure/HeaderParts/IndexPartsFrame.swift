@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IndexFrame: Shape {
+struct IndexPartsFrame: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
             // bottom left
@@ -38,7 +38,7 @@ struct IndexFrame: Shape {
 
 struct IndexFrame_Previews: PreviewProvider {
     static var previews: some View {
-        IndexFrame()
+        IndexPartsFrame()
             .stroke(lineWidth: 3)
     }
 }
