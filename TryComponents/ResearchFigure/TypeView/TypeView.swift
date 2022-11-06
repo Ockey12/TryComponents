@@ -49,14 +49,14 @@ struct TypeView: View {
 //            HeaderPartsView(width: width)
 //                .offset(x: 0, y: 0)
             
-            DetailPartsWithText(width: width)
-                .offset(x: 0, y: headerPartsHeight)
-            
-            DetailPartsWithText(width: width)
-                .offset(x: 0, y: headerPartsHeight + detailPartsHeight)
-            
-            DetailPartsWithText(width: width)
-                .offset(x: 0, y: headerPartsHeight + detailPartsHeight*2)
+//            DetailPartsWithText(width: width)
+//                .offset(x: 0, y: headerPartsHeight)
+//
+//            DetailPartsWithText(width: width)
+//                .offset(x: 0, y: headerPartsHeight + detailPartsHeight)
+//
+//            DetailPartsWithText(width: width)
+//                .offset(x: 0, y: headerPartsHeight + detailPartsHeight*2)
         }
         .frame(width: width + arrowTerminalWidth*2, height: headerPartsHeight + detailPartsHeight*3 + connectionHeight)
     }

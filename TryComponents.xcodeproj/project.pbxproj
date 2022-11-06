@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC2608B9290A7296000FD2AE /* TokenVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2608B8290A7296000FD2AE /* TokenVisitor.swift */; };
-		AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */; };
+		AC3BE4F028ED7E7100E1142C /* DetailPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsView.swift */; };
 		AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */; };
 		AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */; };
 		AC3BE4F628EECDC700E1142C /* ExtensionGetMaxTextWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */; };
@@ -59,6 +59,7 @@
 		ACA803D22917A0F0003C22A2 /* ConvertedToTextStructHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803D12917A0F0003C22A2 /* ConvertedToTextStructHolder.swift */; };
 		ACA803D42917A334003C22A2 /* HeaderPartsIndexType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803D32917A334003C22A2 /* HeaderPartsIndexType.swift */; };
 		ACA803D62917A406003C22A2 /* AccessLevelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803D52917A406003C22A2 /* AccessLevelIcon.swift */; };
+		ACA803D82917A820003C22A2 /* DetailPartsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA803D72917A820003C22A2 /* DetailPartsType.swift */; };
 		ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92628F7F998006A5304 /* TypeView.swift */; };
 		ACC2E92928F85AAD006A5304 /* [Sample]instanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */; };
 		ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */; };
@@ -67,7 +68,7 @@
 
 /* Begin PBXFileReference section */
 		AC2608B8290A7296000FD2AE /* TokenVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVisitor.swift; sourceTree = "<group>"; };
-		AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsWithText.swift; sourceTree = "<group>"; };
+		AC3BE4EF28ED7E7100E1142C /* DetailPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsView.swift; sourceTree = "<group>"; };
 		AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F528EECDC700E1142C /* ExtensionGetMaxTextWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGetMaxTextWidth.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		ACA803D12917A0F0003C22A2 /* ConvertedToTextStructHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertedToTextStructHolder.swift; sourceTree = "<group>"; };
 		ACA803D32917A334003C22A2 /* HeaderPartsIndexType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsIndexType.swift; sourceTree = "<group>"; };
 		ACA803D52917A406003C22A2 /* AccessLevelIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLevelIcon.swift; sourceTree = "<group>"; };
+		ACA803D72917A820003C22A2 /* DetailPartsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsType.swift; sourceTree = "<group>"; };
 		ACC2E92628F7F998006A5304 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "[Sample]instanceView.swift"; sourceTree = "<group>"; };
 		ACC2E92B28FBA833006A5304 /* getMaxStringCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMaxStringCount.swift; sourceTree = "<group>"; };
@@ -266,8 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */,
+				ACA803D72917A820003C22A2 /* DetailPartsType.swift */,
 				AC46068F28ED62210083A91E /* DetailPartsFrame.swift */,
-				AC3BE4EF28ED7E7100E1142C /* DetailPartsWithText.swift */,
+				AC3BE4EF28ED7E7100E1142C /* DetailPartsView.swift */,
 			);
 			path = DetailParts;
 			sourceTree = "<group>";
@@ -401,7 +404,7 @@
 				ACA098A428E13A2000670F00 /* HeaderPartsView.swift in Sources */,
 				ACC2E92728F7F998006A5304 /* TypeView.swift in Sources */,
 				ACC2E92C28FBA833006A5304 /* getMaxStringCount.swift in Sources */,
-				AC3BE4F028ED7E7100E1142C /* DetailPartsWithText.swift in Sources */,
+				AC3BE4F028ED7E7100E1142C /* DetailPartsView.swift in Sources */,
 				AC9290A4289CFDC400F4900E /* Persistence.swift in Sources */,
 				AC6F375228B899BD001674C5 /* StringVisitor.swift in Sources */,
 				ACA803D42917A334003C22A2 /* HeaderPartsIndexType.swift in Sources */,
@@ -417,6 +420,7 @@
 				AC6F374B28A4F03F001674C5 /* MySyntaxRewriter.swift in Sources */,
 				ACA803CA29116599003C22A2 /* ProtocolHolder.swift in Sources */,
 				AC6F375828B8A527001674C5 /* StringVisitorView.swift in Sources */,
+				ACA803D82917A820003C22A2 /* DetailPartsType.swift in Sources */,
 				ACA803C2290EAB87003C22A2 /* AstVisitor.swift in Sources */,
 				ACA803C4290EABE5003C22A2 /* AstVisitorView.swift in Sources */,
 				ACA803B8290E479E003C22A2 /* FunctionHolder.swift in Sources */,

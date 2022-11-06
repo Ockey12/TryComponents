@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct DetailPartsWithText: View {
+struct DetailPartsView: View {
+    let detailPartsType: DetailPartsType
+    let texts: [String]
     var width: CGFloat // = DetailPartsSettingValues.minWidth
     var widthFromLeftEdgeToConnection: CGFloat {
         (width - headerWidth) / 2 + arrowTerminalWidth
     }
     
-    @State private var maxTextWidth: CGFloat = 0
+//    @State private var maxTextWidth: CGFloat = 0
     
     let headerHeight = DetailPartsSettingValues.connectionHeight
     let headerWidth = DetailPartsSettingValues.connectionWidth
@@ -23,11 +25,11 @@ struct DetailPartsWithText: View {
     let textTrailPadding = DetailPartsSettingValues.textTrailPadding
     let borderWidth = DetailPartsSettingValues.borderWidth
     
-    let texts = ["var body",
-                 "a",
-                 ".frame(width: CGFloat(text.count)*characterWidth)",
-                 "DetailPartsWithText",
-                ]
+//    let texts = ["var body",
+//                 "a",
+//                 ".frame(width: CGFloat(text.count)*characterWidth)",
+//                 "DetailPartsWithText",
+//                ]
     
     var body: some View {
         ZStack {
@@ -39,7 +41,7 @@ struct DetailPartsWithText: View {
                 .fill(.black)
 
             // connection header title
-            Text("Rawvalue Type")
+            Text(detailPartsType.string)
                 .lineLimit(1)
                 .font(.system(size:50))
 //                .bold() 
@@ -78,14 +80,19 @@ struct DetailPartsWithText: View {
         }
     }
     
-    func getMaxWidth() -> CGFloat {
-        return maxTextWidth
-    }
+//    func getMaxWidth() -> CGFloat {
+//        return maxTextWidth
+//    }
 }
 
 struct DetailPartsWithText_Previews: PreviewProvider {
     static var previews: some View {
-        DetailPartsWithText(width: 1200)
+        DetailPartsView(detailPartsType: .rawvalueType, texts: ["aaaaaaaaaaaaaaaaa",
+                                                                    "a",
+                                                                    ".frame(width: CGFloat(text.count)*characterWidth)",
+                                                                    "DetailPartsWithText",
+                                                                    "DetailPartsWithText",
+                                                                   ], width: 1200)
             .frame(width: 1530, height: 600)
     }
 }
