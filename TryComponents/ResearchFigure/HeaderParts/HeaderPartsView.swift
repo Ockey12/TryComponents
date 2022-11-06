@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeaderPartsView: View {
+    let accessLevelIcon: AccessLevelIcon
+    let headerPartsIndexType: HeaderPartsIndexType
     var width: CGFloat
     
     @State private var maxTextWidth: CGFloat = 0
@@ -28,7 +30,7 @@ struct HeaderPartsView: View {
 //            HeaderPartsFrameWithText(width: width)
 //                .position(x: arrowTerminalWidth +  width/2, y: itemHeight + (oneVerticalLineWithoutArrow*2 + arrowTerminalHeight + bottomPaddingForLastText + connectionHeight)/2)
             
-            IndexFrameWithText()
+            IndexFrameWithText(accessLevelIcon: accessLevelIcon, headerPartsIndexType: headerPartsIndexType)
                 .offset(x: arrowTerminalWidth, y: 0)
             
             HeaderPartsFrameWithText(width: width)
@@ -42,7 +44,7 @@ struct HeaderPartsView: View {
 
 struct HeaderPartsView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsView(width: 1200)
+        HeaderPartsView(accessLevelIcon: .private, headerPartsIndexType: .struct, width: 1200)
             .frame(width: 1500, height: 350)
     }
 }

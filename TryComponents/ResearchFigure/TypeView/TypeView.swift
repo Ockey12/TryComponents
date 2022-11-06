@@ -46,8 +46,8 @@ struct TypeView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            HeaderPartsView(width: width)
-                .offset(x: 0, y: 0)
+//            HeaderPartsView(width: width)
+//                .offset(x: 0, y: 0)
             
             DetailPartsWithText(width: width)
                 .offset(x: 0, y: headerPartsHeight)

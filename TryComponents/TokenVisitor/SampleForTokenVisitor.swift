@@ -15,6 +15,7 @@ struct VariableStruct {
     var dictionaryVariable: [String: Int?] = ["Key": 333333]
 //    var toupleVariable: (Double, Float) = (4.444, 5.55)
     @State var stateVariable: Int
+    
 //    static var staticVariable: Int = 1111111111
 //    lazy var lazyVariable: Int = {
 //        return 2222222222
