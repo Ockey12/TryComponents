@@ -97,6 +97,9 @@ struct SyntaxArrayParserView: View {
                         rightContent += "nestEnumName: " + nestEnum.name + "\n"
                     }
                     for variable in structHolder.variables {
+                        if let attribute = variable.customAttribute {
+                            rightContent += attribute + " "
+                        }
                         if variable.isVariable {
                             rightContent += "var "
                         } else {

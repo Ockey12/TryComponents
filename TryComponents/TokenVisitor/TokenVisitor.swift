@@ -27,6 +27,7 @@ final class TokenVisitor: SyntaxRewriter {
     var returnType = ""
     
     // variableの宣言
+    var variableCustomAttribute = ""
     var variableType = ""
     var variableInitialValue = ""
     
@@ -62,6 +63,11 @@ final class TokenVisitor: SyntaxRewriter {
                 syntaxArray.append(currentSyntaxNodeType + "{")
                 syntaxNodeTypeStack.append(currentSyntaxNodeType)
                 positionInStack += 1
+            } else if (currentSyntaxNodeType == "CustomAttributeSyntax") &&
+                      (syntaxNodeTypeStack[positionInStack] == "VariableDeclSyntax") {
+                // variable宣言中の@ Stateなど
+                syntaxNodeTypeStack.append(currentSyntaxNodeType)
+                positionInStack += 1
             } else if (currentSyntaxNodeType == "InheritedTypeSyntax") ||
                       (currentSyntaxNodeType == "FunctionParameterSyntax") ||
                       (currentSyntaxNodeType == "InitializerClauseSyntax") ||
@@ -92,7 +98,12 @@ final class TokenVisitor: SyntaxRewriter {
             return token._syntaxNode
         }
         
-        if tokenKind.hasPrefix("identifier") {
+        if (1 < positionInStack) &&
+           (syntaxNodeTypeStack[positionInStack] == "CustomAttributeSyntax") &&
+           (syntaxNodeTypeStack[positionInStack - 1] == "VariableDeclSyntax") {
+            // variable宣言中の@ Stateなど
+            variableCustomAttribute += token.text
+        } else if tokenKind.hasPrefix("identifier") {
             if syntaxNodeTypeStack[positionInStack] == "FunctionParameterSyntax" {
                 // functionの引数を宣言中のとき
                 // 外部引数名、内部引数名、型をまとめて1つのidentifier要素にしたいので別の配列に格納する
@@ -134,13 +145,6 @@ final class TokenVisitor: SyntaxRewriter {
                 haveDefaultValue = true
                 defaultValue = token.text
             }
-//            if syntaxNodeTypeStack[positionInStack - 1] == "FunctionParameterSyntax" {
-//                // functionのデフォルト引数を宣言しているとき
-//                if (tokenKind != "equal") && (tokenKind != "stringQuote") {
-//                    haveDefaultValue = true
-//                    defaultValue = token.text
-//                }
-//            }
         } else if syntaxNodeTypeStack[positionInStack] == "ReturnClauseSyntax" {
             // functionの返り値の型を宣言しているとき
             if tokenKind != "arrow" { // "->"は返り値の型と関係ないので無視する
@@ -259,6 +263,13 @@ final class TokenVisitor: SyntaxRewriter {
             } else if currentSyntaxNodeType == "TypeAnnotationSyntax" {
                 syntaxArray.append("VariableType " + variableType.dropFirst(2))
                 variableType = ""
+                syntaxNodeTypeStack.removeLast()
+                positionInStack -= 1
+            } else if (currentSyntaxNodeType == "CustomAttributeSyntax") &&
+                      (syntaxNodeTypeStack[positionInStack - 1] == "VariableDeclSyntax") {
+                // variable宣言中の@ Stateなど
+                syntaxArray.append("VariableCustomAttribute " + variableCustomAttribute)
+                variableCustomAttribute = ""
                 syntaxNodeTypeStack.removeLast()
                 positionInStack -= 1
             } // end if

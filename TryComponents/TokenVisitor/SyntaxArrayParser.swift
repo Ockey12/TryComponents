@@ -295,6 +295,14 @@ struct SyntaxArrayParser {
                         }
                     }
                     FunctionHolders[holderName]?.returnValueType = currentReturnType
+                } else if element.hasPrefix("VariableCustomAttribute") {
+                    // "identifier VariableDeclSyntax プロパティ名"より前
+                    // まだcurrentVariableHolderをvariableHoldersに格納していない
+                    // 直接currentVariableHolderを更新する
+                    // elementContents[0]: "VariableCustomAttribute"
+                    // elementContents[1]: CustomAttribute
+                    let elementContents = element.components(separatedBy: " ")
+                    currentVariableHolder.customAttribute = elementContents[1]
                 } else if element == "letKeyword" {
                     // "identifier VariableDeclSyntax プロパティ名"より前
                     // まだcurrentVariableHolderをvariableHoldersに格納していない

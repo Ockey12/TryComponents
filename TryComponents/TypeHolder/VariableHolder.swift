@@ -8,7 +8,7 @@
 import Foundation
 
 struct VariableHolder {
-    var havePropertyWrapper = false
+    var customAttribute: String?
     var haveStaticKeyword = false
     var accessLevel: AccessLevel = .Internal
     var isVariable = true
