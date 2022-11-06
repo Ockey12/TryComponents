@@ -10,6 +10,7 @@ import SwiftUI
 struct HeaderPartsView: View {
     let accessLevelIcon: AccessLevelIcon
     let headerPartsIndexType: HeaderPartsIndexType
+    let name: String
     var width: CGFloat
     
     @State private var maxTextWidth: CGFloat = 0
@@ -33,7 +34,7 @@ struct HeaderPartsView: View {
             IndexFrameWithText(accessLevelIcon: accessLevelIcon, headerPartsIndexType: headerPartsIndexType)
                 .offset(x: arrowTerminalWidth, y: 0)
             
-            HeaderPartsFrameWithText(width: width)
+            HeaderPartsFrameWithText(name: name, width: width)
                 .offset(x: 0, y: itemHeight)
                 .foregroundColor(.clear)
                 .background(.clear)
@@ -44,7 +45,7 @@ struct HeaderPartsView: View {
 
 struct HeaderPartsView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsView(accessLevelIcon: .private, headerPartsIndexType: .struct, width: 1200)
+        HeaderPartsView(accessLevelIcon: .private, headerPartsIndexType: .struct, name: "CounterCounterCounter", width: 1200)
             .frame(width: 1500, height: 350)
     }
 }

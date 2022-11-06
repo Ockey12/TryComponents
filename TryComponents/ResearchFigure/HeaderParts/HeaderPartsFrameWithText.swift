@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HeaderPartsFrameWithText: View {
-    var width: CGFloat
-    @State private var maxTextWidth: CGFloat = 0
+    let name: String
+    let width: CGFloat
+//    @State private var maxTextWidth: CGFloat = 0
     
     let itemHeight = HeaderPartsSettingValues.itemHeight
     let arrowTerminalWidth = HeaderPartsSettingValues.arrowTerminalWidth
@@ -28,16 +29,16 @@ struct HeaderPartsFrameWithText: View {
             
             // invisible View
             // get max width of texts
-            Text("Counter")
-                .lineLimit(1)
-                .font(.system(size: 50))
-                .foregroundColor(.clear)
-                .background(.clear)
-                .getMaxTextWidth(maxWidth: $maxTextWidth)
-                .position(x: width/2 + arrowTerminalWidth, y: itemHeight/2)
+//            Text("Counter")
+//                .lineLimit(1)
+//                .font(.system(size: 50))
+//                .foregroundColor(.clear)
+//                .background(.clear)
+//                .getMaxTextWidth(maxWidth: $maxTextWidth)
+//                .position(x: width/2 + arrowTerminalWidth, y: itemHeight/2)
             
             // visible View
-            Text("Counter")
+            Text(name)
                 .lineLimit(1)
                 .font(.system(size: 50))
                 .foregroundColor(.black)
@@ -47,14 +48,14 @@ struct HeaderPartsFrameWithText: View {
         }
     }
     
-    func getMaxWidth() -> CGFloat {
-        return maxTextWidth
-    }
+//    func getMaxWidth() -> CGFloat {
+//        return maxTextWidth
+//    }
 }
 
 struct HeaderPartsFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsFrameWithText(width: 1000)
+        HeaderPartsFrameWithText(name:"CounterCounter", width: 1000)
             .frame(width: 1030, height: 200)
             
     }
