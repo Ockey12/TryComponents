@@ -317,6 +317,9 @@ struct SyntaxArrayParser {
                     var currentVariableType = ""
                     for (index, element) in elementContents.enumerated() {
                         if index != 0 {
+                            if 2 <= index {
+                                currentVariableType += " "
+                            }
                             currentVariableType += element
                         }
                     }
@@ -331,10 +334,9 @@ struct SyntaxArrayParser {
                     for (index, element) in elementContents.enumerated() {
                         if index != 0 {
                             if 2 <= index {
-                                currentInitialValue += " " + element
-                            } else {
-                                currentInitialValue += element
+                                currentInitialValue += " "
                             }
+                            currentInitialValue += element
                         }
                     }
                     variableHolders[holderName]?.initialValue = currentInitialValue
