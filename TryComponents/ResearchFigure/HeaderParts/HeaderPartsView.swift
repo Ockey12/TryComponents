@@ -13,7 +13,7 @@ struct HeaderPartsView: View {
     let name: String
     var width: CGFloat
     
-    @State private var maxTextWidth: CGFloat = 0
+//    @State private var maxTextWidth: CGFloat = 0
     
     let indexWidth = HeaderPartsSettingValues.indexWidth
     let itemHeight = HeaderPartsSettingValues.itemHeight

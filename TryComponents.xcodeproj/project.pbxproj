@@ -235,7 +235,6 @@
 		ACA0989D28E0445A00670F00 /* ResearchFigure */ = {
 			isa = PBXGroup;
 			children = (
-				ACA803D32917A334003C22A2 /* HeaderPartsIndexType.swift */,
 				ACA803D52917A406003C22A2 /* AccessLevelIcon.swift */,
 				ACC2E92828F85AAD006A5304 /* [Sample]instanceView.swift */,
 				ACC2E92D28FBAAA8006A5304 /* System50CharSize.swift */,
@@ -250,6 +249,7 @@
 		ACA098A028E04D9B00670F00 /* HeaderParts */ = {
 			isa = PBXGroup;
 			children = (
+				ACA803D32917A334003C22A2 /* HeaderPartsIndexType.swift */,
 				AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */,
 				ACA098A128E04DCA00670F00 /* IndexFrame.swift */,
 				ACA098A728E13F9E00670F00 /* IndexFrameWithText.swift */,
