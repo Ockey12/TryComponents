@@ -7,8 +7,15 @@
 
 import Foundation
 
-struct ConvertedToTextStructHolder {
+struct ConvertedToStringStructHolder {
+    var name = ""
+    var accessLevelIcon = ""
     var conformingProtocolNames = [String]()
     var variables = [String]()
     var functions = [String]()
+    
+    var allStrings: [String] {
+        let array = [name]
+        return array + conformingProtocolNames + variables + functions
+    }
 }

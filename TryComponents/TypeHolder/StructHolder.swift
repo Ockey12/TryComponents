@@ -8,7 +8,7 @@
 import Foundation
 
 struct StructHolder {
-    var accessLevel: AccessLevel = .Internal
+    var accessLevel: AccessLevel = .internal
     var name = ""
     var conformingProtocolNames = [String]()
     var variables = [VariableHolder]()

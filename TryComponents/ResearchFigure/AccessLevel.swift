@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AccessLevelIcon {
+enum AccessLevel {
     case `open`
     case `public`
     case `internal`

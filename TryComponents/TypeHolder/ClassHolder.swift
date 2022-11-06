@@ -8,7 +8,7 @@
 import Foundation
 
 struct ClassHolder {
-    var accessLevel: AccessLevel = .Internal
+    var accessLevel: AccessLevel = .internal
     var name = ""
     var inheritedClass = ""
     var conformingProtocolNames = [String]()

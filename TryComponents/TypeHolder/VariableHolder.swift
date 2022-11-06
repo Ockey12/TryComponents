@@ -10,7 +10,7 @@ import Foundation
 struct VariableHolder {
     var customAttribute: String?
     var haveStaticKeyword = false
-    var accessLevel: AccessLevel = .Internal
+    var accessLevel: AccessLevel = .internal
     var isVariable = true
     var name = ""
     var type: String?

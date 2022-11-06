@@ -12,6 +12,11 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             VStack {
+                StructHolderToTextConverterView()
+                    .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+                
+                Divider()
+                
                 SyntaxArrayParserView()
                     .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
                 

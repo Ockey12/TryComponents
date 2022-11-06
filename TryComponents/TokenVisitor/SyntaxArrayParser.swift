@@ -33,7 +33,7 @@ struct SyntaxArrayParser {
         case `extension` = "Extension"
     }
     
-    mutating func parse(syntaxes: [String]) {
+    mutating func parse(syntaxArray: [String]) {
         var stackArray = [StackArrayElement]()
         var structHolders = [String: StructHolder]()
         var classHolders = [String: ClassHolder]()
@@ -96,7 +96,7 @@ struct SyntaxArrayParser {
             }
         }
         
-        for element in syntaxes {
+        for element in syntaxArray {
             print(element)
             // Import文は必要じゃないので、ImportDeclSyntaxを抜けるまではスキップする
             if element == startImportDeclSyntax {

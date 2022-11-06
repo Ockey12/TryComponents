@@ -18,7 +18,7 @@ struct DetailPartsView: View {
     enum PartsType {
         case parentClass
         case rawvalueType
-        case `protocol`
+        case conform
         case `case`
         case nested
         case property
@@ -32,8 +32,8 @@ struct DetailPartsView: View {
                 return "Parent Class"
             case .rawvalueType:
                 return "Rawvalue Type"
-            case .protocol:
-                return "Protocol"
+            case .conform:
+                return "Conform"
             case .case:
                 return "Case"
             case .nested:

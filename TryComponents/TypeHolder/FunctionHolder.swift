@@ -8,7 +8,7 @@
 import Foundation
 
 struct FunctionHolder {
-    var accessLevel: AccessLevel = .Internal
+    var accessLevel: AccessLevel = .internal
     var name = ""
     var genericParameters = [String]()
     var parameters = [FunctionParameterHolder]()

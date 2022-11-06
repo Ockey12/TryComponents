@@ -8,7 +8,7 @@
 import Foundation
 
 struct EnumHolder {
-    var accessLevel: AccessLevel = .Internal
+    var accessLevel: AccessLevel = .internal
     var name = ""
     var rawvalueType = ""
     var conformingProtocolNames = [String]()

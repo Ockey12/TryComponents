@@ -47,7 +47,7 @@ struct SyntaxArrayParserView: View {
                 _ = visitor.visit(parsedContent)
                 
                 var syntaxesParser = SyntaxArrayParser()
-                syntaxesParser.parse(syntaxes: visitor.syntaxArray)
+                syntaxesParser.parse(syntaxArray: visitor.syntaxArray)
                 // protocol
                 let protocolHolders = syntaxesParser.getResultProtocolHolders()
                 for protocolHolder in protocolHolders {

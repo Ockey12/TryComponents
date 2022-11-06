@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct IndexPartsFrameWithText: View {
-    let accessLevelIcon: AccessLevelIcon
+    let accessLevelIcon: String
     let headerPartsIndexType: IndexType
+    
+    var text: String {
+        if accessLevelIcon == " " {
+            return headerPartsIndexType.string
+        } else {
+            return accessLevelIcon + "  " + headerPartsIndexType.string
+        }
+    }
 //    var with: CGFloat
 //    var height: CGFloat {
 //        return with / 3
@@ -49,7 +57,7 @@ struct IndexPartsFrameWithText: View {
                 .fill(Color.black)
                 .frame(width: width, height: height)
             
-            Text(accessLevelIcon.icon + "  " + headerPartsIndexType.string)
+            Text(text)
                 .lineLimit(1)
                 .frame(width: width, height: height)
                 .font(.system(size: 50))
@@ -60,7 +68,7 @@ struct IndexPartsFrameWithText: View {
 
 struct IndexFrameWithText_Previews: PreviewProvider {
     static var previews: some View {
-        IndexPartsFrameWithText(accessLevelIcon: .open, headerPartsIndexType: .protocol)
+        IndexPartsFrameWithText(accessLevelIcon: AccessLevel.open.icon, headerPartsIndexType: .protocol)
             .frame(width: 400, height: 400)
     }
 }

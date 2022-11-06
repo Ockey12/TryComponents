@@ -46,7 +46,7 @@ struct VariableStruct {
 //    }
 }
 
-struct ChildStruct {}
+//struct ChildStruct {}
 
 //struct FunctionStruct {
 //    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {

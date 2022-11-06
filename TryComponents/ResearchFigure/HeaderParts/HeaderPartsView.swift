@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderPartsView: View {
-    let accessLevelIcon: AccessLevelIcon
+    let accessLevelIcon: String
     let headerPartsIndexType: IndexPartsFrameWithText.IndexType
     let name: String
     var width: CGFloat
@@ -45,7 +45,7 @@ struct HeaderPartsView: View {
 
 struct HeaderPartsView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderPartsView(accessLevelIcon: .private, headerPartsIndexType: .struct, name: "CounterCounterCounter", width: 1200)
+        HeaderPartsView(accessLevelIcon: AccessLevel.private.icon, headerPartsIndexType: .struct, name: "CounterCounterCounter", width: 1200)
             .frame(width: 1500, height: 350)
     }
 }
