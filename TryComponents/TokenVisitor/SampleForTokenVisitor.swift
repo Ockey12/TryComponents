@@ -8,7 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct VariableStruct {
+protocol Protocol1 {
+
+}
+
+struct VariableStruct: Protocol1 {
 //    let typeInferenceVariable = 1111111111
 //    var nomalVariable: String = "2222222222"
 //    var childVariable: ChildStruct = ChildStruct()
@@ -44,6 +48,11 @@ struct VariableStruct {
 //    var omitSetterVariable: String {
 //        return "omitSetter omitSetter omitSetter"
 //    }
+    
+    func genericsFunction2<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
+        let returnValue = y
+        return returnValue
+    }
 }
 
 //struct ChildStruct {}
@@ -79,10 +88,6 @@ struct VariableStruct {
 //}
 
 //struct SampleStruct {
-//
-//}
-
-//protocol Protocol1 {
 //
 //}
 //

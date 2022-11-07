@@ -52,8 +52,8 @@ struct StructHolderToTextConverter {
                         if index < functionHolder.genericParameters.count - 1 {
                             functionString += ", "
                         }
-                        functionString += ">"
                     } // end for
+                    functionString += ">"
                 } // end if
                 
                 functionString += "("
