@@ -72,6 +72,6 @@ struct DetailPartsFrame: Shape {
 struct DetailPartsFrame_Previews: PreviewProvider {
     static var previews: some View {
         DetailPartsFrame(width: 800, numberOfItems: 5)
-            .frame(width: 1200, height: 1000)
+            .frame(width: 830, height: 1000)
     }
 }

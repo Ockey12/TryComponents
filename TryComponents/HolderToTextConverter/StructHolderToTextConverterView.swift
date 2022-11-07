@@ -18,6 +18,23 @@ struct StructHolderToTextConverterView: View {
     @State private var convertedToTextStructHolders = [ConvertedToStringStructHolder]()
     @State private var height = HeaderPartsSettingValues.itemHeight*2 + DetailPartsSettingValues.bottomPaddingForLastText
     
+    @State private var lastMagnificationValue = 1.0
+    var magnification: some Gesture {
+        MagnificationGesture()
+            .onChanged { value in
+                // 前回の拡大率に対して今回の拡大率の割合を計算
+                let changeRate = value / lastMagnificationValue
+                // 前回からの拡大率の変更割合分を乗算する
+                ratio *= changeRate
+                // 前回の拡大率を今回の拡大率で更新
+                lastMagnificationValue = value
+            }
+            .onEnded { value in
+                // 次回のジェスチャー時に1.0から始まる為、終了時に1.0に変更する
+                lastMagnificationValue = 1.0
+            }
+    }
+    
     private var width: CGFloat {
         var maxWidth: CGFloat = DetailPartsSettingValues.minWidth
         if 0 < convertedToTextStructHolders.count {
@@ -66,70 +83,62 @@ struct StructHolderToTextConverterView: View {
         return offsetY
     }
     
+    private func getVStackHeight(holder: ConvertedToStringStructHolder) -> CGFloat {
+        var height: CGFloat = headerPartsHeight + connectionHeight + 2
+        if 0 < holder.conformingProtocolNames.count {
+            height += detailItemHeight*CGFloat(holder.conformingProtocolNames.count)
+            height += detailBottomPaddingForLastText
+            height += connectionHeight
+        }
+        if 0 < holder.variables.count {
+            height += detailItemHeight*CGFloat(holder.variables.count)
+            height += detailBottomPaddingForLastText
+            height += connectionHeight
+        }
+        if 0 < holder.functions.count {
+            height += detailItemHeight*CGFloat(holder.functions.count)
+            height += detailBottomPaddingForLastText
+            height += connectionHeight
+        }
+        return height
+    }
+    
     var body: some View {
         VStack {
-            ScrollView {
+            ScrollView([.vertical, .horizontal]) {
                 if 0 < convertedToTextStructHolders.count {
                     let holder = convertedToTextStructHolders[0]
-//                    GeometryReader { geometry in
-//                        ZStack(alignment: .topLeading) {
-//                            HeaderPartsView(accessLevelIcon: holder.accessLevelIcon, headerPartsIndexType: .struct, name: holder.name, width: width)
-//                                .offset(x: 0, y: 0)
-//
-//                            if 0 < holder.conformingProtocolNames.count {
-//                                DetailPartsView(detailPartsType: .conform, texts: holder.conformingProtocolNames, width: width)
-//                                    .offset(x: 0, y: headerPartsHeight)
-//                            }
-//
-//                            if 0 < holder.variables.count {
-//                                DetailPartsView(detailPartsType: .property, texts: holder.variables, width: width)
-//                                    .offset(x: 0, y: getVariablePartsOffsetY(holder: holder))
-//                            }
-//                            Text("width: \(geometry.size.width), height: \(geometry.size.height)")
-//                                .offset(x: 0, y: getVariablePartsOffsetY(holder: holder))
-//                                .foregroundColor(.red)
-////                            Text("height: \(geometry.size.height)")
-//
-//                        }
-//                        .scaleEffect(ratio)
-//                        .frame(width: geometry.size.width, height: geometry.size.height)
-//                        .border(.blue)
-//                    }
-                    ZStack(alignment: .topLeading) {
+                    VStack(spacing: 0) {
                         HeaderPartsView(accessLevelIcon: holder.accessLevelIcon, headerPartsIndexType: .struct, name: holder.name, width: width)
-                            .offset(x: 0, y: 0)
-
+                            .offset(x: 0, y: 2) // indexのborderが上にはみ出るため、はみ出る分だけ下げる
+                            .frame(width: width + arrowTerminalWidth*2, height: headerPartsHeight)
+                        
                         if 0 < holder.conformingProtocolNames.count {
                             DetailPartsView(detailPartsType: .conform, texts: holder.conformingProtocolNames, width: width)
-                                .offset(x: 0, y: headerPartsHeight)
+                                .frame(width: width + arrowTerminalWidth*2, height: connectionHeight + detailItemHeight*CGFloat(holder.conformingProtocolNames.count) + detailBottomPaddingForLastText)
                         }
 
                         if 0 < holder.variables.count {
                             DetailPartsView(detailPartsType: .property, texts: holder.variables, width: width)
-                                .offset(x: 0, y: getVariablePartsOffsetY(holder: holder))
+                                .frame(width: width + arrowTerminalWidth*2, height: connectionHeight + detailItemHeight*CGFloat(holder.variables.count) + detailBottomPaddingForLastText)
                         }
                         
                         if 0 < holder.functions.count {
                             DetailPartsView(detailPartsType: .method, texts: holder.functions, width: width)
-                                .offset(x: 0, y: getMethodPartsOffsetY(holder: holder))
+                                .frame(width: width + arrowTerminalWidth*2, height: connectionHeight + detailItemHeight*CGFloat(holder.functions.count) + detailBottomPaddingForLastText)
                         }
-//                        Text("width: \(geometry.size.width), height: \(geometry.size.height)")
-//                            .offset(x: 0, y: getVariablePartsOffsetY(holder: holder))
-//                            .foregroundColor(.red)
-//                            Text("height: \(geometry.size.height)")
-                        
                     }
+                    .frame(width: width + arrowTerminalWidth*2 + 4, height: getVStackHeight(holder: holder), alignment: .top)
+                    .background(.orange)
                     .scaleEffect(ratio)
-//                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .border(.blue)
-                }
-            }
+                    .gesture(magnification)
+                } // end if
+            } // end ScrollView
             .background(.white)
             
             Divider()
             
             Text("拡大率:\(ratio, specifier: "%.2f")")
-            Text("width: \(width)")
             Slider(value: $ratio, in: 0...10.0)
             Button {
                 importerPresented = true

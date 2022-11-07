@@ -12,12 +12,46 @@ protocol Protocol1 {
 
 }
 
-struct VariableStruct: Protocol1 {
-//    let typeInferenceVariable = 1111111111
-//    var nomalVariable: String = "2222222222"
-//    var childVariable: ChildStruct = ChildStruct()
+protocol Protocol2 {
+
+}
+
+struct ViewStruct: Protocol1, Protocol2 {
+    let typeInferenceVariable = 1111111111
+    var nomalVariable: String = "2222222222"
+    var childVariable: ChildStruct = ChildStruct()
     var dictionaryVariable: [String: Int?] = ["Key": 333333]
-//    var toupleVariable: (Double, Float) = (4.444, 5.55)
+    var toupleVariable: (Double, Float) = (4.444, 5.55)
+    @State var stateVariable: Int
+    
+    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
+        let returnValue = y
+        return returnValue
+    }
+    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
+    func InoutFunction(num: inout Int) {}
+    func VariadicFunction(num: Int...) {}
+    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
+    func DefaultFunction2(num: Int = 10000000000) {}
+    func returnFunction(text: String) -> Int {
+        return 0
+    }
+    func returnDectionaryFunction() -> [String: Int] {
+        return ["Key": 100000]
+    }
+    func returnTupleFunction() -> (Double, Float) {
+        return (3.3, 9.9)
+    }
+}
+
+struct ChildStruct {}
+
+struct VariableStruct: Protocol1 {
+    let typeInferenceVariable = 1111111111
+    var nomalVariable: String = "2222222222"
+    var childVariable: ChildStruct = ChildStruct()
+    var dictionaryVariable: [String: Int?] = ["Key": 333333]
+    var toupleVariable: (Double, Float) = (4.444, 5.55)
     @State var stateVariable: Int
     
 //    static var staticVariable: Int = 1111111111
@@ -34,7 +68,6 @@ struct VariableStruct: Protocol1 {
 //            print("didSet didSet didSet")
 //        }
 //    }
-    
 //    var celsius: Double = 0.0
 //    var fahrenheit: Double {
 //        get {
@@ -48,14 +81,7 @@ struct VariableStruct: Protocol1 {
 //    var omitSetterVariable: String {
 //        return "omitSetter omitSetter omitSetter"
 //    }
-    
-    func genericsFunction2<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
-        let returnValue = y
-        return returnValue
-    }
 }
-
-//struct ChildStruct {}
 
 //struct FunctionStruct {
 //    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
@@ -92,9 +118,6 @@ struct VariableStruct: Protocol1 {
 //}
 //
 //
-//protocol Protocol2 {
-//
-//}
 //
 //struct ConformingStruct: Protocol1, Protocol2 {
 //

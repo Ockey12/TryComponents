@@ -128,6 +128,6 @@ struct DetailPartsWithText_Previews: PreviewProvider {
                                                                     "DetailPartsWithText",
                                                                     "DetailPartsWithText",
                                                                    ], width: 1200)
-            .frame(width: 1530, height: 600)
+            .frame(width: 1230, height: 600)
     }
 }

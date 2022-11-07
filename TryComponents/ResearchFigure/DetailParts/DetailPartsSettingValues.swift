@@ -19,6 +19,6 @@ struct DetailPartsSettingValues {
     static let arrowTerminalHeight: CGFloat = 30
     static let bottomPaddingForLastText: CGFloat = 30
     static let textLeadingPadding: CGFloat = 30
-    static let textTrailPadding: CGFloat = 100
+    static let textTrailPadding: CGFloat = 0
     static let borderWidth: CGFloat = 5
 }

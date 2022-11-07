@@ -12,7 +12,7 @@ struct IndexPartsFrameWithText: View {
     let headerPartsIndexType: IndexType
     
     var text: String {
-        if accessLevelIcon == " " {
+        if accessLevelIcon == AccessLevel.internal.icon {
             return headerPartsIndexType.string
         } else {
             return accessLevelIcon + "  " + headerPartsIndexType.string
