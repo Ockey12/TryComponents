@@ -19,15 +19,24 @@ struct StructHolderToTextConverterView: View {
     @State private var height = HeaderPartsSettingValues.itemHeight*2 + DetailPartsSettingValues.bottomPaddingForLastText
     
     @State private var lastMagnificationValue = 1.0
+    @State private var absolutelyScale: CGFloat = 1.0
+    private let minScale: CGFloat = 0.01 // 最小の拡大率
     var magnification: some Gesture {
         MagnificationGesture()
             .onChanged { value in
                 // 前回の拡大率に対して今回の拡大率の割合を計算
-                let changeRate = value / lastMagnificationValue
+                var changeRate = value / lastMagnificationValue
+                if (absolutelyScale*changeRate < minScale) {
+                    changeRate = minScale
+                } else {
+                    ratio = ratio * changeRate
+                    lastMagnificationValue = value
+                    absolutelyScale = absolutelyScale*changeRate
+                }
                 // 前回からの拡大率の変更割合分を乗算する
-                ratio *= changeRate
+//                ratio *= changeRate
                 // 前回の拡大率を今回の拡大率で更新
-                lastMagnificationValue = value
+//                lastMagnificationValue = value
             }
             .onEnded { value in
                 // 次回のジェスチャー時に1.0から始まる為、終了時に1.0に変更する
@@ -105,9 +114,9 @@ struct StructHolderToTextConverterView: View {
     
     var body: some View {
         VStack {
-            ScrollView([.vertical, .horizontal]) {
-                if 0 < convertedToTextStructHolders.count {
-                    let holder = convertedToTextStructHolders[0]
+            if 0 < convertedToTextStructHolders.count {
+                let holder = convertedToTextStructHolders[0]
+                ScrollView([.vertical, .horizontal]) {
                     VStack(spacing: 0) {
                         HeaderPartsView(accessLevelIcon: holder.accessLevelIcon, headerPartsIndexType: .struct, name: holder.name, width: width)
                             .offset(x: 0, y: 2) // indexのborderが上にはみ出るため、はみ出る分だけ下げる
@@ -129,24 +138,24 @@ struct StructHolderToTextConverterView: View {
                         }
                     }
                     .frame(width: width + arrowTerminalWidth*2 + 4, height: getVStackHeight(holder: holder), alignment: .top)
-                    .background(.orange)
                     .scaleEffect(ratio)
                     .gesture(magnification)
-                } // end if
-            } // end ScrollView
-            .background(.white)
+                } // end ScrollView
+                .background(.white)
+            } else {
+                Spacer()
+            }// end if
             
             Divider()
             
             Text("拡大率:\(ratio, specifier: "%.2f")")
-            Slider(value: $ratio, in: 0...10.0)
+            Slider(value: $ratio, in: minScale...10.0)
             Button {
                 importerPresented = true
             } label: {
                 Text("Open")
             }
-            .padding()
-            
+            .padding()            
         }// VStack
         .frame(minWidth: 1200, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
         // 指定したSwiftファイル内のソースコードをcode変数に格納する
