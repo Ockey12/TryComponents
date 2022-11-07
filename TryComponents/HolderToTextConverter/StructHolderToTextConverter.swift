@@ -19,7 +19,9 @@ struct StructHolderToTextConverter {
         if 0 < structHolder.variables.count {
             for variableHolder in structHolder.variables {
                 var variableString = ""
-                variableString += variableHolder.accessLevel.icon + " "
+                if variableHolder.accessLevel != .internal {
+                    variableString += variableHolder.accessLevel.icon + " "
+                }
                 if let customAttribure = variableHolder.customAttribute {
                     variableString += customAttribure + " "
                 }

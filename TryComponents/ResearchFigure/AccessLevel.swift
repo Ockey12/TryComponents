@@ -21,7 +21,7 @@ enum AccessLevel {
         case .public:
             return "●"
         case .internal:
-            return "■"
+            return ""
         case .fileprivate:
             return "△"
         case .private:
