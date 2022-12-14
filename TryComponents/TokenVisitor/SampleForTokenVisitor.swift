@@ -12,48 +12,102 @@ protocol Protocol1 {
 
 }
 
-protocol Protocol2 {
-
+private struct InheritingStruct: Protocol1 {
+    @State private var sampleVariable: Int
+    public var publicSample: Int
+    internal var internalSample: Int
+    fileprivate var fileprivateSample: Int
 }
 
-struct ViewStruct: Protocol1, Protocol2 {
-    let typeInferenceVariable = 1111111111
-    var nomalVariable: String = "2222222222"
-    var childVariable: ChildStruct = ChildStruct()
-    var dictionaryVariable: [String: Int?] = ["Key": 333333]
-    var toupleVariable: (Double, Float) = (4.444, 5.55)
-    @State var stateVariable: Int
-    
-    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
-        let returnValue = y
-        return returnValue
-    }
-    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
-    func InoutFunction(num: inout Int) {}
-    func VariadicFunction(num: Int...) {}
-    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
-    func DefaultFunction2(num: Int = 10000000000) {}
-    func returnFunction(text: String) -> Int {
-        return 0
-    }
-    func returnDectionaryFunction() -> [String: Int] {
-        return ["Key": 100000]
-    }
-    func returnTupleFunction() -> (Double, Float) {
-        return (3.3, 9.9)
+class openClass {
+    open var openSample: Int
+    init(openSample: Int) {
+        self.openSample = openSample
     }
 }
 
-struct ChildStruct {}
+//protocol Protocol2 {
+//
+//}
 
-struct VariableStruct: Protocol1 {
-    let typeInferenceVariable = 1111111111
-    var nomalVariable: String = "2222222222"
-    var childVariable: ChildStruct = ChildStruct()
-    var dictionaryVariable: [String: Int?] = ["Key": 333333]
-    var toupleVariable: (Double, Float) = (4.444, 5.55)
-    @State var stateVariable: Int
-    
+//struct Rat {
+//
+//}
+
+//struct Rat {
+//    var dogs: [Dog]
+//    var cats: [Cat]
+//    func walkingWithPets() {}
+//}
+
+//struct Rat: Animal {
+//    var name: String
+//    var gender: Gender
+//    func bite() {
+//
+//    }
+//}
+
+//struct Cat: Pets, Animal {
+//    var name: String
+//    var gender: Gender
+//    func bite() {
+//
+//    }
+//}
+
+//protocol Pets {
+//    var name: String { get }
+//}
+
+//protocol Animal {
+//    var gender: Gender { get }
+//    func bite()
+//}
+
+//struct Gender {
+//
+//}
+
+//struct ViewStruct: Protocol1, Protocol2 {
+//    var sample: String
+//    let typeInferenceVariable = 1111111111
+//    var nomalVariable: String = "2222222222"
+//    var childVariable: ChildStruct = ChildStruct()
+//    var dictionaryVariable: [String: Int?] = ["Key": 333333]
+//    var toupleVariable: (Double, Float) = (4.444, 5.55)
+//    @State var stateVariable: Int
+//
+//    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {
+//        let returnValue = y
+//        return returnValue
+//    }
+//    func ExtParamNameFunction(out1 in1: Int, in2: String) {}
+//    func InoutFunction(num: inout Int) {}
+//    func VariadicFunction(num: Int...) {}
+//    func DefaultFunction1(out in: Int, num: inout Int, nums: Int... ,text: String = "sampleText") {}
+//    func DefaultFunction2(num: Int = 10000000000) {}
+//    func returnFunction(text: String) -> Int {
+//        return 0
+//    }
+//    func returnDectionaryFunction() -> [String: Int] {
+//        return ["Key": 100000]
+//    }
+//    func returnTupleFunction() -> (Double, Float) {
+//        return (3.3, 9.9)
+//    }
+//}
+
+//struct ChildStruct {}
+
+//struct VariableStruct: Protocol1 {
+//    let typeInferenceVariable = 1111111111
+//    var nomalVariable: String = "2222222222"
+//    var childVariable: ChildStruct = ChildStruct()
+//    var dictionaryVariable: [String: Int?] = ["Key": 333333]
+//    var toupleVariable: (Double, Float) = (4.444, 5.55)
+//    @State var stateVariable: Int
+//
 //    static var staticVariable: Int = 1111111111
 //    lazy var lazyVariable: Int = {
 //        return 2222222222
@@ -81,7 +135,7 @@ struct VariableStruct: Protocol1 {
 //    var omitSetterVariable: String {
 //        return "omitSetter omitSetter omitSetter"
 //    }
-}
+//}
 
 //struct FunctionStruct {
 //    func genericsFunction<TTT: Equatable, UUU>(x: TTT, y: UUU) -> UUU {

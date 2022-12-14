@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC2608B9290A7296000FD2AE /* TokenVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2608B8290A7296000FD2AE /* TokenVisitor.swift */; };
+		AC34B38B2949BF650029479C /* GetTextWidthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34B38A2949BF650029479C /* GetTextWidthView.swift */; };
+		AC34B38D2949C4730029479C /* GetTextWidthParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC34B38C2949C4730029479C /* GetTextWidthParentView.swift */; };
 		AC3BE4F028ED7E7100E1142C /* DetailPartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4EF28ED7E7100E1142C /* DetailPartsView.swift */; };
 		AC3BE4F228ED7F3500E1142C /* DetailPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */; };
 		AC3BE4F428EEAFDF00E1142C /* HeaderPartsSettingValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		AC2608B8290A7296000FD2AE /* TokenVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenVisitor.swift; sourceTree = "<group>"; };
+		AC34B38A2949BF650029479C /* GetTextWidthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextWidthView.swift; sourceTree = "<group>"; };
+		AC34B38C2949C4730029479C /* GetTextWidthParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTextWidthParentView.swift; sourceTree = "<group>"; };
 		AC3BE4EF28ED7E7100E1142C /* DetailPartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsView.swift; sourceTree = "<group>"; };
 		AC3BE4F128ED7F3500E1142C /* DetailPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPartsSettingValues.swift; sourceTree = "<group>"; };
 		AC3BE4F328EEAFDF00E1142C /* HeaderPartsSettingValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPartsSettingValues.swift; sourceTree = "<group>"; };
@@ -154,6 +158,15 @@
 				ACA803AC290D1E11003C22A2 /* SampleForTokenVisitor.swift */,
 			);
 			path = TokenVisitor;
+			sourceTree = "<group>";
+		};
+		AC34B3892949BF410029479C /* GetSize */ = {
+			isa = PBXGroup;
+			children = (
+				AC34B38A2949BF650029479C /* GetTextWidthView.swift */,
+				AC34B38C2949C4730029479C /* GetTextWidthParentView.swift */,
+			);
+			path = GetSize;
 			sourceTree = "<group>";
 		};
 		AC6F373E28A4E914001674C5 /* SwiftAST */ = {
@@ -244,6 +257,7 @@
 				ACA098A028E04D9B00670F00 /* HeaderParts */,
 				ACA098AF28E6CC4C00670F00 /* DetailParts */,
 				ACC2E92328F7F955006A5304 /* TypeView */,
+				AC34B3892949BF410029479C /* GetSize */,
 			);
 			path = ResearchFigure;
 			sourceTree = "<group>";
@@ -410,6 +424,7 @@
 				ACA803D42917A334003C22A2 /* HeaderPartsIndexType.swift in Sources */,
 				ACA098A228E04DCA00670F00 /* IndexPartsFrame.swift in Sources */,
 				ACA803DA291800A8003C22A2 /* StructHolderToTextConverterView.swift in Sources */,
+				AC34B38D2949C4730029479C /* GetTextWidthParentView.swift in Sources */,
 				ACA803C0290E668F003C22A2 /* NestParentTypeName.swift in Sources */,
 				AC6F375428B8A099001674C5 /* StringVisitorWalker.swift in Sources */,
 				ACA803D62917A406003C22A2 /* AccessLevel.swift in Sources */,
@@ -441,6 +456,7 @@
 				ACA803AB290D1993003C22A2 /* TokenVisitorView.swift in Sources */,
 				ACA803AD290D1E11003C22A2 /* SampleForTokenVisitor.swift in Sources */,
 				AC94985C28B8A8820055C50B /* StringVisitorSample.swift in Sources */,
+				AC34B38B2949BF650029479C /* GetTextWidthView.swift in Sources */,
 				AC46069028ED62210083A91E /* DetailPartsFrame.swift in Sources */,
 				AC92909B289CFDC300F4900E /* TryComponentsApp.swift in Sources */,
 				AC6F374D28ACC2B5001674C5 /* Sample.swift in Sources */,
@@ -657,7 +673,7 @@
 			repositoryURL = "https://github.com/apple/swift-syntax";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.50600.1;
+				minimumVersion = 0.50700.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -10,8 +10,8 @@ import CoreData
 
 struct ContentView: View {
     var body: some View {
-        StructHolderToTextConverterView()
-            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
+//        StructHolderToTextConverterView()
+//            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
 //        ScrollView {
 //            VStack {
 //                StructHolderToTextConverterView()
@@ -43,7 +43,10 @@ struct ContentView: View {
 //        SwiftASTView()
 //        StringVisitorView()
 //            .frame(minWidth: 1000, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity)
-    }
+        
+//        GetTextWidthView()
+        GetTextWidthParentView()
+    } // body
 }
 
 struct ContentView_Previews: PreviewProvider {

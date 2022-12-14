@@ -118,7 +118,7 @@ struct StructHolderToTextConverterView: View {
                 let holder = convertedToTextStructHolders[0]
                 ScrollView([.vertical, .horizontal]) {
                     VStack(spacing: 0) {
-                        HeaderPartsView(accessLevelIcon: holder.accessLevelIcon, headerPartsIndexType: .struct, name: holder.name, width: width)
+                        HeaderPartsView(accessLevelIcon: holder.accessLevelIcon, headerPartsIndexType: .class, name: holder.name, width: width)
                             .offset(x: 0, y: 2) // indexのborderが上にはみ出るため、はみ出る分だけ下げる
                             .frame(width: width + arrowTerminalWidth*2, height: headerPartsHeight)
                         
