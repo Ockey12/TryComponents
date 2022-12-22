@@ -14,7 +14,6 @@ struct ArrowLineShape: View {
     var body: some View {
         Path { path in
             path.move(to: start)
-//            path.addLine(to: endPoint(start: start, end: end))
             path.addLine(to: end)
         }
         .stroke(lineWidth: 20)
