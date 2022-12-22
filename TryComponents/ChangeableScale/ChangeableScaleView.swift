@@ -60,7 +60,12 @@ struct ChangeableScaleView: View {
                         } // VStack
                         .background(.orange)
 
-                        ArrowView(start: CGPoint(x: 0, y: 0), end: CGPoint(x: 1600*2 + 100*2, y: 1600*1 + 100*1))
+//                        ArrowView(start: CGPoint(x: 0, y: 0), end: CGPoint(x: 1600*2 + 100*2, y: 1600*1 + 100*1))
+//                        ArrowView(start: CGPoint(x: 1600*4 + 100*4, y: 1600*2 + 100*2), end: CGPoint(x: 1600*2 + 100*1, y: 1600*4 + 100*4))
+                        ArrowView(start: CGPoint(x: 0, y: 0), end: CGPoint(x: 1600*4 + 100*4, y: 1600*3 + 100*3))
+                        ArrowView(start: CGPoint(x: 1600*10 + 100*9, y: 0), end: CGPoint(x: 1600*6 + 100*5, y: 1600*3 + 100*3))
+                        ArrowView(start: CGPoint(x: 0, y: 1600*5 + 100*4), end: CGPoint(x: 1600*4 + 100*3, y: 1600*2 + 100*2))
+                        ArrowView(start: CGPoint(x: 1600*10 + 100*9, y: 1600*5 + 100*4), end: CGPoint(x: 1600*6 + 100*5, y: 1600*2 + 100*2))
                     } // ZStack
                     .background() {
                         GeometryReader { geometry in
