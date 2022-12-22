@@ -57,7 +57,7 @@ struct DetailPartsView: View {
     let itemHeight = DetailPartsSettingValues.itemHeight
     let arrowTerminalWidth = DetailPartsSettingValues.arrowTerminalWidth
     let textLeadingPadding = DetailPartsSettingValues.textLeadingPadding
-    let textTrailPadding = DetailPartsSettingValues.textTrailPadding
+//    let textTrailPadding = DetailPartsSettingValues.textTrailPadding
     let borderWidth = DetailPartsSettingValues.borderWidth
     
 //    let texts = ["var body",

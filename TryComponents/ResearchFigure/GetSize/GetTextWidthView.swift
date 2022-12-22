@@ -26,10 +26,11 @@ struct GetTextWidthView: View {
                                         maxWidth = width
                                     }
                                 }
-                            }
-                        }
+                            } // Path
+                        } // GeometryReader
                     } // .background()
             } // ForEach(strings, id: \.self)
+            
 //            Text("Hello, Swift!")
 //                .padding()
 //                .background(Color.pink)
